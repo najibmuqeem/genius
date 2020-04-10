@@ -4,9 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="form.css">
     <title>Genius</title>
   </head>
   <body>
-    <form></form>
+    <form action="https://echo.htmlacademy.ru" method="post">
+      <div class="parameter">
+        <label class="parameter__label" for="title">Title</label>
+        <input class="parameter__text" type="text" name="product-title" id="title" placeholder="Product name">
+      </div>
+      <div class="parameter">
+        <label class="parameter__label" for="price">Price</label>
+        <input class="parameter__text" type="text" name="product-price" id="price" placeholder="$">
+      </div>
+
+
+      <div class="parameter">
+        <label class="parameter__label" for="description">Description</label>
+        <textarea class="parameter__text" name="product-description" id="description" placeholder="product description"></textarea>
+      </div>
+
+      <div class="parameter">
+        <label class="parameter__label" for="store">Store</label>
+        <input class="parameter__text" type="text" name="product-seller" id="store" placeholder="Store">
+      </div>
+
+      <div class="parameter parameter--image">
+        images carousel
+      </div>
+
+      <div class="parameter visually-hidden">
+        (hide)
+        <label class="parameter__label" for="product_url">link</label>
+        <input class="parameter__text" type="text" name="product-url" id="url" placeholder="http://www.google.com">
+      </div>
+
+      <div class="parameter parameter--add">
+        <button type="button">Add another field</button>
+      </div>
+
+      <div class="form-bns">
+        <button class="button" type="submit">Add to wishlist</button>
+        <a class="button" href="localhost:3000">Visit Genius(link!)</button>
+      </div>
+    </form>
   </body>
 </html>

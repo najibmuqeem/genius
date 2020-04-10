@@ -1,0 +1,12 @@
+body {
+  width: 240px;
+}
+
+
+textarea {
+  resize: vertical;
+}
+
+.parameter__label {
+  display: block;
+}
