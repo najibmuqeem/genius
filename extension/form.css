@@ -10,3 +10,11 @@ textarea {
 .parameter__label {
   display: block;
 }
+
+.after {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}

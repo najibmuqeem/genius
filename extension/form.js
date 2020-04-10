@@ -8,3 +8,9 @@
 // 		chrome.tabs.sendMessage(tabs[0].id, { fuck });
 // 	});
 // });
+
+document.querySelector(".submit-btn").addEventListener('click', function () {
+  document.querySelector("form").classList.add("hidden");
+  console.log('1')
+  document.querySelector(".after").classList.remove("hidden");
+})
