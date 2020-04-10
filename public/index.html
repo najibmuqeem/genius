@@ -4,18 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" src="favicon.ico" />
-  <!--CHECK THIS IN SCHEDULER
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+  <link rel="stylesheet" href="stylesheets/style.css">
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-  <title>Document</title>
+  <title>Genius</title>
 </head>
 <body>
-  Genius
+  <header>
+    <nav>
+      <ul class="main-nav">
+        <li class="main-nav__item">Genius logo</li>
+        <li class="main-nav__item">Home</li>
+      </ul>
+      <ul class="user-nav">
+        <li class="user-nav__item">
+          <div class="friends">
+            <p>Friends</p>
+            <ul class="user-nav__friends">
+              <!-- replace friends li by friends from DB -->
+              <li class="user-nav__friend">Rachel Green</li>
+              <li class="user-nav__friend">Ross Geller</li>
+            </ul>
+          </div>
+        </li>
+        <li class="user-nav__item">Welcome, username
+          <ul class="user-nav__user">
+            <!-- replace friends li by friends from DB -->
+            <li class="user-nav__friend">Profile</li>
+            <li class="user-nav__friend">Purchase history</li>
+          </ul>
+        </li>
+        <li class="user-nav__item">Log out</li>
+      </ul>
+
+    </nav>
+  </header>
+  <main>
+    <h1>Categories</h1>
+    <div class="categories-container">
+
+    </div>
+  </main>
+  <footer>
+
+  </footer>
 </body>
 </html>

@@ -6,3 +6,24 @@ body {
 a {
   color: #00B7FF;
 }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-nav {
+  display: flex;
+}
+
+.user-nav {
+  display: flex;
+}
+
+/* .friends .user-nav__friends {
+  display: none;
+}
+
+.friends:hover .user-nav__friends {
+  display: block;
+} */
