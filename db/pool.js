@@ -48,7 +48,7 @@ const getFriends = function (user_id) {
     `
     SELECT *
     FROM users
-    JOIN friends on user_1_id = users.id
+    JOIN friends on users.id = friends.user_2_id
     WHERE user_1_id = $1;
     `,
     [user_id]
@@ -60,7 +60,8 @@ const getPurchased = function (user_id) {
     `
     SELECT *
     FROM products
-    WHERE purchased = true AND user_id = $1;
+    JOIN categories ON category_id = categories.id
+    WHERE user_id = $1 AND purchased = true;
     `,
     [user_id]
   );
@@ -116,5 +117,5 @@ module.exports = {
   addUser,
   addCategory,
   addFriends,
-  getMiscInfo
+  getMiscInfo,
 };
