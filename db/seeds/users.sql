@@ -1,0 +1,1 @@
+INSERT INTO users (username, email, birthday, avatar) values('Rachel Green', 'rachel_green@moneybags.com', '1969-02-11','../public/rachel_green.png'),('Monica Geller', 'monica_geller@cooking.com', '1964-06-15','../public/monica_geller.png'),('Ross Geller', 'dinosaurs_r_cool@drgeller.com', '1966-11-02','../public/ross_geller.png')
