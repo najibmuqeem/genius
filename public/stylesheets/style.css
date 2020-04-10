@@ -6,6 +6,10 @@ body {
 a {
   color: #00B7FF;
 }
+/* -----------------HEADER--------------------- */
+header {
+  outline: 1px solid red;
+}
 
 nav {
   display: flex;
@@ -27,3 +31,16 @@ nav {
 .friends:hover .user-nav__friends {
   display: block;
 } */
+
+/* main: containers */
+.categories-container {
+  height: 500px;
+  background-color: #a1a1a1;
+}
+
+/* -----------------FOOTER--------------------- */
+.footer-list {
+  display: flex;
+  justify-content: space-between;
+  outline: 1px solid red;
+}
