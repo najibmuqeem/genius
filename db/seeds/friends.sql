@@ -1,0 +1,1 @@
+INSERT INTO friends (user_1_id, user_2_id) values (1,2),(1,3);

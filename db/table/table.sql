@@ -31,8 +31,8 @@ CREATE TABLE products(
   price INTEGER NOT NULL,
   img_src TEXT, -- not making a default, on product card will hav a default 'missing image placeholder'
   store_name VARCHAR (255),
-  desciption TEXT,
+  description TEXT,
   web_url TEXT,
   purchased BOOLEAN DEFAULT false,
-  misc JSON
+  misc_info JSON
 );
