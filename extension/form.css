@@ -1,0 +1,20 @@
+body {
+  width: 240px;
+}
+
+
+textarea {
+  resize: vertical;
+}
+
+.parameter__label {
+  display: block;
+}
+
+.after {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}

@@ -12,7 +12,7 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["form.js"],
+      "js": ["browser.js"],
       "run_at": "document_start"
     }
   ]
