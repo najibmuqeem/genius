@@ -1,19 +1,19 @@
 {
-  "manifest_version": 2,
-  "name": "Genius",
-  "description": "Making your wishlists come true.",
-  "browser_action": {
-    "default_icon": "genie.png",
-    "default_popup": "popup.html",
-    "default_title": "Genius"
-  },
-  "permissions": ["activeTab"],
-  "version": "1.0.3",
-  "content_scripts": [
-    {
-      "matches": ["*://*/*"],
-      "js": ["browser.js"],
-      "run_at": "document_start"
-    }
-  ]
+	"manifest_version": 2,
+	"name": "Genius",
+	"description": "Making your wishlists come true.",
+	"browser_action": {
+		"default_icon": "genie.png",
+		"default_popup": "popup.html",
+		"default_title": "Genius"
+	},
+	"permissions": ["activeTab"],
+	"version": "1.0.3",
+	"content_scripts": [
+		{
+			"matches": ["*://*/*"],
+			"js": ["browser.js"],
+			"run_at": "document_start"
+		}
+	]
 }
