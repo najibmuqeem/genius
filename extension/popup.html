@@ -8,7 +8,8 @@
     <title>Genius</title>
   </head>
   <body>
-    <form action="https://echo.htmlacademy.ru" method="post">
+    <!-- add action -->
+    <form action="localhost:3000" method="post">
       <div class="parameter">
         <label class="parameter__label" for="title">Title</label>
         <input class="parameter__text" type="text" name="product-title" id="title" placeholder="Product name">
@@ -42,15 +43,17 @@
         <button type="button">Add another field</button>
       </div>
 
-      <div class="form-bns">
+      <div class="form-btns">
         <button class="button submit-btn" type="submit">Add to wishlist</button>
         <a class="button" href="localhost:3000">Visit Genius(link!)</button>
       </div>
     </form>
+
     <section class="after hidden">
-      <p>Item is in your wishlist</p>
-      <p><a href="">Visit Genius</a></p>
+      <div>Item is in your wishlist</div>
+      <div><a href="">Visit Genius</a></div>
     </section>
+
     <script src="form.js"></script>
   </body>
 </html>

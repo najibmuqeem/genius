@@ -1,4 +1,5 @@
 document.onreadystatechange = function () {
+	let product = {};
 	if (document.readyState == "complete") {
 		let product_name = document.getElementsByTagName("h1")[0].innerText;
     console.log(product_name);
@@ -12,3 +13,5 @@ document.onreadystatechange = function () {
 		// }
 	}
 };
+
+//chrome.runtime.sendMessage({ greeting: "hello" });

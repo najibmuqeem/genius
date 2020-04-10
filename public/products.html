@@ -45,13 +45,39 @@
     <div class="products-container">
       <h1>Products</h1>
       <div class="products-filter">
-        <label for="filter">Filter by</label>
-        <select name="filter-options" id="filter">
-          <option value="price_ascending">Price: Low to High</option>
-          <option value="price_descending">Price: Low to High</option>
-          <option value="name">Name: A to Z</option>
-          <option value="new">New</option>
-        </select>
+        <h3>Filter by</h3>
+        <form action="/users/filteredCats" method="get" class="filters-form">
+        <div class="form-container">
+            <fieldset>
+              <label>Price:</label>
+                <input class="min" type="number" name="minimum_fee" id="minimum_price" placeholder="min">
+                <input class="max" type="number" name="maximum_fee" id="maximum_price" placeholder="max">
+              </fieldset>
+            <fieldset>
+              <label for="colour">Colour:</label>
+              <select class="filter-colour" name="colour" id="colour">
+                <option value="" name="colour"></option>
+                <option value="North America" name="colour">Black</option>
+                <option value="South America" name="colour">White</option>
+                <option value="Europe" name="colour">Purple</option>
+                <option value="Asia" name="colour">Green</option>
+                <option value="Africa" name="colour">Fuchsia</option>
+              </select>
+            </fieldset>
+            <fieldset>
+              <label for="size">Size:</label>
+              <select class="filter-size" name="size" id="size">
+                <option value="" name="size"></option>
+                <option value="s" name="size">S</option>
+                <option value="m" name="size">M</option>
+                <option value="l" name="size">L</option>
+              </select>
+            </fieldset>
+            <button type="submit" class="button">
+              Filter
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </main>

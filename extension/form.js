@@ -14,3 +14,10 @@ document.querySelector(".submit-btn").addEventListener('click', function () {
   console.log('1')
   document.querySelector(".after").classList.remove("hidden");
 })
+
+
+// chrome.runtime.onMessage.addListener(response => {
+// 	console.log(
+// 	responce.greeting
+// 	);
+// });
