@@ -19,14 +19,14 @@ CREATE TABLE friends(
 CREATE TABLE categories(
   id SERIAL PRIMARY KEY,
   user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  cat_name VARCHAR(255) NOT NULL,
+  category_name VARCHAR(255) NOT NULL,
   public BOOLEAN NOT NULL DEFAULT false
 );
 
 
 CREATE TABLE products(
   id SERIAL PRIMARY KEY,
-  cat_id INTEGER NOT NULL REFERENCES categories(id) ON DELETE CASCADE,
+  category_id INTEGER NOT NULL REFERENCES categories(id) ON DELETE CASCADE,
   product_name VARCHAR (255) NOT NULL,
   price INTEGER NOT NULL,
   img_src TEXT, -- not making a default, on product card will hav a default 'missing image placeholder'
