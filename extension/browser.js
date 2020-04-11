@@ -1,23 +1,17 @@
 let product = {};
 
-	
+//
 	chrome.runtime.onMessage.addListener(function (
 		request,
 		sender,
 		sendResponse
 	) {
 		console.log("COMPLETE");
-		let product_name = document.querySelector("h1").innerText;
+
+		// fetching product title from the page
+		let productName = document.querySelector("h1").innerText;
 		
-		//console.log(product_name);
-		product.title = product_name;
-    
-		// let priceArray = []
-		// priceArray.push(document.querySelector('[data-at*="price"]'));
-		// priceArray.push(document.querySelector('[class*="price"]'));
-		// priceArray.push(document.querySelector('[id*="price"]'));
-		// priceArray.push(document.querySelector('[data-test*="price"]'));
-		
+		// fetching product price from the page
 		let priceSelectors = [
 			'[data-at*="price"]',
 			'[class*="price"]',
@@ -26,18 +20,14 @@ let product = {};
 			'[data-automation*="price"]',
 		];
 
-		let product_price
-
-		
+		let productPrice;
 		let foundPrice;
+
+		// function to find text nodes with the  $ sign
 		const dollarFinder = (node) => {
 			let child, next;
-			console.log(node);
 			if (node.nodeType === 3) {
-				console.log("value of text node "+ node.nodeValue)
 				if (node.nodeValue.includes("$") && node.nodeValue.length < 8) {
-					console.log(node);
-					console.log("node value " + node.nodeValue);
 					foundPrice = node.nodeValue;
 					return foundPrice;
 				}
@@ -49,7 +39,7 @@ let product = {};
 					foundPrice = dollarFinder(child);
 					console.log("found price " + foundPrice)
 					if (foundPrice) {
-						product_price = foundPrice;
+						productPrice = foundPrice;
 						break;
 					}
 					child = next;
@@ -58,9 +48,9 @@ let product = {};
 			return foundPrice
 		};
 
+		// function to find DOM elements with selectors from priseSelectors
 		let priceFinder = function () {
 		for (let selector of priceSelectors) {
-			//console.log(selector)
 			let priceElement = document.querySelector(selector);
 			if (priceElement) {
 				console.log(priceElement.innerText);
@@ -75,20 +65,25 @@ let product = {};
 				}
 			}
 		}}
-		product_price = priceFinder()
-		console.log("priceFinder found " + product_price);
 
+		productPrice = priceFinder()
+		console.log("priceFinder found " + productPrice);
 
+		// function to convert price to number
+		function priceToNumber(str) {
+			let newStr = "";
+			for (let char of str) {
+				if (Number(char) || Number(char) === 0 || char === ".") {
+					newStr += char;
+				}
+			}
+			return Number(newStr.trim());
+		}
 		
-
-		// priceFinder(document.body)
-
-
+		product.title = productName;
+		product.price = priceToNumber(productPrice);
 		
-
-		product.title = product_name;
-		product.price = product_price
-		
+		// sending a responce to extension with a product object
 		console.log(product);
 		console.log(
 			sender.tab
