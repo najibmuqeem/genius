@@ -27,7 +27,11 @@ let product = {};
 		const dollarFinder = (node) => {
 			let child, next;
 			if (node.nodeType === 3) {
-				if (node.nodeValue.includes("$") && node.nodeValue.length < 8) {
+				console.log(node)
+				if (
+					(node.nodeValue.includes("$") || node.nodeValue.includes("CAD")) &&
+					node.nodeValue.length < 40
+				) {
 					foundPrice = node.nodeValue;
 					return foundPrice;
 				}
@@ -50,21 +54,25 @@ let product = {};
 
 		// function to find DOM elements with selectors from priseSelectors
 		let priceFinder = function () {
-		for (let selector of priceSelectors) {
-			let priceElement = document.querySelector(selector);
-			if (priceElement) {
-				console.log(priceElement.innerText);
-				if (priceElement.children.length === 0) {
-					console.log("return inner text");
-					return priceElement.innerText;
-				} else {
-					console.log("go and search deeper");
-					dollarFinder(priceElement);
-					console.log("dollarFinder found " + foundPrice);
-					return foundPrice;
+			for (let selector of priceSelectors) {
+				let priceElement = document.querySelector(selector);
+				if (priceElement) {
+					console.log(priceElement.innerText);
+					if (priceElement.children.length === 0) {
+						console.log("return inner text");
+						console.log(priceElement);
+						console.log(priceElement.innerText);
+						foundPrice = priceElement.innerText;
+						return foundPrice;
+					} else {
+						console.log("go and search deeper");
+						dollarFinder(priceElement);
+						console.log("dollarFinder found " + foundPrice);
+						return foundPrice;
+					}
 				}
 			}
-		}}
+		}
 
 		productPrice = priceFinder()
 		console.log("priceFinder found " + productPrice);
@@ -81,7 +89,8 @@ let product = {};
 		}
 		
 		product.title = productName;
-		product.price = priceToNumber(productPrice);
+		if (productPrice) 
+		{product.price = priceToNumber(productPrice)};
 		
 		// sending a responce to extension with a product object
 		console.log(product);
