@@ -67,6 +67,24 @@ const getPurchased = function (user_id) {
   );
 };
 
+const getUsers = function () {
+  return pool.query(
+    `
+    SELECT * FROM users;
+    `
+  );
+};
+
+const getUserWithID = function (id) {
+  return pool.query(
+    `
+    SELECT * FROM users
+    WHERE id = $1;
+    `,
+    [id]
+  );
+};
+
 const addUser = function (username, email, birthday, avatar) {
   return pool.query(
     `
@@ -82,6 +100,7 @@ const addCategory = function (user_id, category_name) {
   return pool.query(
     `
     INSERT INTO categories (user_id, category_name) VALUES ($1, $2)
+    RETURNING *;
     `,
     [user_id, category_name]
   );
@@ -91,6 +110,7 @@ const addFriends = function (user_1_id, user_2_id) {
   return pool.query(
     `
     INSERT INTO friends (user_1_id, user_2_id) VALUES ($1, $2)
+    RETURNING *;
     `,
     [user_1_id, user_2_id]
   );
@@ -100,6 +120,7 @@ const addProduct = function (product) {
   return pool.query(
     `
     INSERT INTO products (category_id, product_name, price, img_src, store_name, description, web_url, purchased, misc_info) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+    RETURNING *;
     `,
     [
       product.category_id,
@@ -133,6 +154,8 @@ module.exports = {
   getProductsForCategory,
   getFriends,
   getPurchased,
+  getUsers,
+  getUserWithID,
   addUser,
   addCategory,
   addFriends,
