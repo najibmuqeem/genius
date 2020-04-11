@@ -29,5 +29,5 @@ const addFriends = (user_1_id, user_2_id) => {
 };
 
 const addUser = (username, email, birthday, avatar) => {
-  postData("/users", { username, email, birthday, avatar });
+  postData("/users", { username, email, birthday, avatar});
 };
