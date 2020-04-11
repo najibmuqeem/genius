@@ -9,14 +9,27 @@
   </head>
   <body>
     <!-- add action -->
-    <form action="localhost:3000" method="post">
+    <form action="http://localhost:3000/products" method="post">
       <div class="parameter">
         <label class="parameter__label" for="title">Title</label>
-        <input class="parameter__text" type="text" name="product-title" id="title" placeholder="Product name">
+        <input class="parameter__text" type="text" name="product_name" id="title" placeholder="Product name">
       </div>
       <div class="parameter">
         <label class="parameter__label" for="price">Price</label>
-        <input class="parameter__text" type="text" name="product-price" id="price" placeholder="$">
+        <input class="parameter__text" type="text" name="price" id="price" placeholder="$">
+      </div>
+
+      <div class="parameter">
+        <label class="parameter__label" for="category">Category</label>
+        <select class="filter-colour" name="category_id" id="category">
+                <option value="1" name="category_id">Skirts</option>
+                <option value="2" name="category_id">Furniture</option>
+                <option value="3" name="category_id">Other clothes</option>
+                <option value="4" name="category_id">Gifts</option>
+
+
+              </select>
+        
       </div>
 
       <div class="parameter">
@@ -24,13 +37,17 @@
       </div>
 
       <div class="parameter">
+        <input class="parameter__text" type="text" name="img_src" id="img_src" placeholder="">
+      </div>
+
+      <div class="parameter">
         <label class="parameter__label" for="description">Description</label>
-        <textarea class="parameter__text" name="product-description" id="description" placeholder="product description"></textarea>
+        <textarea class="parameter__text" name="description" id="description" placeholder="product description"></textarea>
       </div>
 
       <div class="parameter">
         <label class="parameter__label" for="store">Store</label>
-        <input class="parameter__text" type="text" name="product-seller" id="store" placeholder="Store">
+        <input class="parameter__text" type="text" name="store_name" id="store" placeholder="Store">
       </div>
 
       <div class="parameter parameter--image">
@@ -39,16 +56,14 @@
 
       <div class="parameter visually-hidden">
         <label class="parameter__label" for="product_url"> (hide) link</label>
-        <input class="parameter__text" type="text" name="product-url" id="url" placeholder="http://www.google.com">
+        <input class="parameter__text" type="text" name="web_url" id="url" placeholder="http://www.google.com">
       </div>
 
-      <div class="parameter parameter--add">
-        <button type="button">Add another field</button>
-      </div>
+      
 
       <div class="form-btns">
         <button class="button submit-btn" type="submit">Add to wishlist</button>
-        <a class="button" href="localhost:3000">Visit Genius(link!)</button>
+        <a class="button" href="localhost:3000/" target="_blank">Visit Genius(link!)</button>
       </div>
     </form>
 
