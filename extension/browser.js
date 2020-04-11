@@ -87,6 +87,34 @@ let product = {};
 			}
 			return Number(newStr.trim());
 		}
+
+		//product URL
+		let productUrl = window.location.href;
+		console.log("URL ", productUrl);
+		product.url = productUrl;
+
+		//store Name
+		let store_hostname = window.location.hostname;
+		//removes www. and .com
+		let one = store_hostname.substring(4);
+		let period = one.indexOf(".");
+		let store_name = one.substring(0, period);
+		console.log("Store Name ", store_name);
+		//to uppercase first letter and put it in object to be sent out
+		upper = store_name.charAt(0).toUpperCase();
+		rest = store_name.slice(1);
+		product.store = upper + rest;
+
+		const imgGetter = () => {
+    	for (let image of document.images) {
+    	  if (image.height > 500 && !image.src.includes("LOADING")) {
+    	    return image.src;
+    	  }
+    	}
+   };
+   const img = imgGetter();
+   console.log("************", img);
+   product.img = img;
 		
 		product.title = productName;
 		if (productPrice) 
