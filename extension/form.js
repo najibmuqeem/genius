@@ -4,7 +4,7 @@
 		) {
       //console.log(response.farewell.title);
       document.querySelector("#title").value = response.farewell.title;
-      //document.querySelector("#price").value = response.farewell.price;
+      document.querySelector("#price").value = response.farewell.price;
     });
     
 
