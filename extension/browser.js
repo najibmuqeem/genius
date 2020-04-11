@@ -22,54 +22,61 @@ let product = {};
 			'[data-at*="price"]',
 			'[class*="price"]',
 			'[id*="price"]',
-			'[data-test*="price"]'
+			'[data-test*="price"]',
+			'[data-automation*="price"]',
 		];
 
 		let product_price
 
 		
+		let foundPrice;
 		const dollarFinder = (node) => {
-			let foundPrice;
 			let child, next;
 			console.log(node);
-			// Base Case (exit condition)
-			if (node.childNodes.length === 1) {
-				if (node.innerText.includes("$") && node.innerText.length < 8) {
-					console.log("node innertext " + node.innerText);
-					return node.innerText;
+			if (node.nodeType === 3) {
+				console.log("value of text node "+ node.nodeValue)
+				if (node.nodeValue.includes("$") && node.nodeValue.length < 8) {
+					console.log(node);
+					console.log("node value " + node.nodeValue);
+					foundPrice = node.nodeValue;
+					return foundPrice;
 				}
 			} else {
+				console.log("go to childnodes")
 				child = node.firstChild;
 				while (child) {
 					next = child.nextSibling;
-					// track exit condition
 					foundPrice = dollarFinder(child);
+					console.log("found price " + foundPrice)
 					if (foundPrice) {
 						product_price = foundPrice;
-						break; // break loop
+						break;
 					}
 					child = next;
 				}
 			}
-			return foundPrice;
+			return foundPrice
 		};
 
 		let priceFinder = function () {
 		for (let selector of priceSelectors) {
 			//console.log(selector)
-			if (document.querySelector(selector)) {
-				console.log(document.querySelector(selector).innerText);
-				// product_price = document.querySelector(selector).innerText;
-				// return product_price;
-				const foundPrice = dollarFinder(document.querySelector(selector));
-				console.log(
-					"dollarFinder found " + foundPrice
-				);
-				return foundPrice
+			let priceElement = document.querySelector(selector);
+			if (priceElement) {
+				console.log(priceElement.innerText);
+				if (priceElement.children.length === 0) {
+					console.log("return inner text");
+					return priceElement.innerText;
+				} else {
+					console.log("go and search deeper");
+					dollarFinder(priceElement);
+					console.log("dollarFinder found " + foundPrice);
+					return foundPrice;
+				}
 			}
 		}}
-		priceFinder()
-		console.log('priceFinder found ' + priceFinder())
+		product_price = priceFinder()
+		console.log("priceFinder found " + product_price);
 
 
 		
