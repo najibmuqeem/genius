@@ -15,6 +15,7 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/products", (req, res, next) => {
+  res.send("ok")
   db.addProduct(req.body)
     .then((data) => {
       res.json(data.rows[0]);
