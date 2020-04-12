@@ -4,31 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" src="favicon.ico" />
-  <link rel="stylesheet" href="stylesheets/style.css">
+  <link rel="stylesheet" href="../public/stylesheets/normalize.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../public/stylesheets/style.css">
 
   <title>Genius</title>
 </head>
 <body>
-  <main>
-    <div class="login-container">
-      <h1>Welcome to genius</h1>
-      <h2>Login to continue</h2>
-      <form action="" method="">
-        <div class="login-param">
-          <label class="login__label" for="email">Email</label>
-          <input class="login__text" type="text" name="email" id="email" placeholder="email">
-        </div>
-        <div class="login-param">
-          <label class="login__label" for="password">Password</label>
-          <input class="login__text" type="text" name="passworde" id="password" placeholder="password">
-        </div>
-        <button type="button">Log in</button>
-      </form>
-      <ul class="login-options">
-        <li class="login-option"><a>Forgot password?</a></li>
-        <li class="login-option"><a>Don't have an account</a></li>
-      </ul>
-    </div>
+  <main class="login-main">
+    <section class="half-page logo-section">
+      <div class="logo-container">
+        <img src="../public/stylesheets/images/genius.png" alt="">
+        <p class="wish">genius</p>
+      </div>
+    </section>
+    <section class="half-page login-section">
+      <div class="login-container">
+        <h1>welcome</h1>
+        <h2>login to continue</h2>
+        <form action="" method="">
+          <div class="login-param">
+            <input class="login__text" type="text" name="email" id="email" placeholder="Email" onfocus="this.placeholer=''">
+            <label class="login__label-email" for="email"></label>
+            
+          </div>
+          <div class="login-param">
+            <input class="login__text" type="password" name="passworde" id="password" placeholder="Password">
+            <label class="login__label-password" for="password"></label>
+            
+          </div>
+          <button type="button" class="button btn-rose">Log in</button>
+        </form>
+        <ul class="login-options">
+          <li class="login-option"><a href="#">Forgot password?</a></li>
+          <li class="login-option">Don't have an account? <a href="#">Sign up</a></li>
+        </ul>
+      </div>
+    </section>
   </main>
 </body>
 </html>
