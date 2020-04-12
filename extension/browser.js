@@ -98,6 +98,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     rest = pre.slice(1);
     store = upper + rest;
     console.log(store);
+    return store;
   };
 
   product.store = storeName(window.location.hostname);
