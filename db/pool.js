@@ -117,6 +117,8 @@ const addFriends = function (user_1_id, user_2_id) {
 };
 
 const addProduct = function (product) {
+  let price = 100 * Number(product.price.substring(1));
+
   return pool.query(
     `
     INSERT INTO products (category_id, product_name, price, img_src, store_name, description, web_url, purchased, misc_info) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
@@ -125,7 +127,7 @@ const addProduct = function (product) {
     [
       product.category_id,
       product.product_name,
-      product.price,
+      price,
       product.img_src,
       product.store_name,
       product.description,
