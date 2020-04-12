@@ -16,33 +16,15 @@ router.get("/login", (req, res, next) => {
 
 router.post("/products", (req, res, next) => {
   res.send("ok")
-  db.addProduct(req.body)
-    .then((data) => {
-      res.json(data.rows[0]);
-    })
-    .catch((e) => {
-      res.render(e);
-    });
+  db.addProduct(req.body);
 });
 
 router.post("/categories", (req, res, next) => {
-  db.addCategory(req.body.user_id, req.body.category_name)
-    .then((data) => {
-      res.json(data.rows[0]);
-    })
-    .catch((e) => {
-      res.render(e);
-    });
+  db.addCategory(req.body.user_id, req.body.category_name);
 });
 
 router.post("/friends", (req, res, next) => {
-  db.addFriends(req.body.user_1_id, req.body.user_2_id)
-    .then((data) => {
-      res.json(data.rows[0]);
-    })
-    .catch((e) => {
-      res.render(e);
-    });
+  db.addFriends(req.body.user_1_id, req.body.user_2_id);
 });
 
 router.post("/users", (req, res, next) => {
@@ -51,13 +33,7 @@ router.post("/users", (req, res, next) => {
     req.body.email,
     req.body.birthday,
     req.body.avatar
-  )
-    .then((data) => {
-      res.json(data.rows[0]);
-    })
-    .catch((e) => {
-      res.render(e);
-    });
+  );
 });
 
 module.exports = router;
