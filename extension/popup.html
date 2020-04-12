@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="form.css">
     <title>Genius</title>
   </head>
@@ -12,64 +13,48 @@
     <form action="http://localhost:3000/products" method="post">
       <div class="parameter">
         <label class="parameter__label" for="title">Title</label>
-        <input class="parameter__text" type="text" name="product_name" id="title" placeholder="Product name">
+        <input class="parameter__text" type="text" name="product_name" id="title" placeholder="Product name" required>
       </div>
       <div class="parameter">
         <label class="parameter__label" for="price">Price</label>
-        <input class="parameter__text" type="text" name="price" id="price" placeholder="$">
+        <input class="parameter__text" type="text" name="price" id="price" placeholder="$" required>
       </div>
-
       <div class="parameter">
         <label class="parameter__label" for="category">Category</label>
-        <select class="filter-colour" name="category_id" id="category">
-                <option value="1" name="category_id">Skirts</option>
-                <option value="2" name="category_id">Furniture</option>
-                <option value="3" name="category_id">Other clothes</option>
-                <option value="4" name="category_id">Gifts</option>
-
-
-              </select>
-        
+        <select class="filter-category" name="category_id" id="category">
+          <option value="1" name="category_id">Skirts</option>
+          <option value="2" name="category_id">Furniture</option>
+          <option value="3" name="category_id">Other clothes</option>
+          <option value="4" name="category_id">Gifts</option>
+        </select>    
       </div>
-
       <div class="parameter">
-        <img id="img" style="width: 100px; height: 100px;" src="" alt="">
+        <img id="img" src="" alt="product image">
       </div>
-
-      <div class="parameter">
+      <div class="parameter hidden">
         <input class="parameter__text" type="text" name="img_src" id="img_src" placeholder="">
       </div>
-
       <div class="parameter">
         <label class="parameter__label" for="description">Description</label>
-        <textarea class="parameter__text" name="description" id="description" placeholder="product description"></textarea>
+        <textarea class="parameter__text" name="description" id="description" placeholder="add description"></textarea>
       </div>
-
       <div class="parameter">
         <label class="parameter__label" for="store">Store</label>
         <input class="parameter__text" type="text" name="store_name" id="store" placeholder="Store">
       </div>
-
-      <div class="parameter parameter--image">
-        images carousel
-      </div>
-
-      <div class="parameter visually-hidden">
+      <div class="parameter hidden">
         <label class="parameter__label" for="product_url"> (hide) link</label>
         <input class="parameter__text" type="text" name="web_url" id="url" placeholder="http://www.google.com">
       </div>
-
-      
-
       <div class="form-btns">
-        <button class="button submit-btn" type="submit">Add to wishlist</button>
-        <a class="button" href="localhost:3000/" target="_blank">Visit Genius(link!)</button>
+        <button class="ext-button submit-btn" type="submit">Add to wishlist</button>
+        <a class="ext-button" href="localhost:3000/" target="_blank">Visit Genius</button>
       </div>
     </form>
 
     <section class="after hidden">
-      <div>Item is in your wishlist</div>
-      <div><a href="">Visit Genius</a></div>
+      <div>Visit Genius to see your wishlist</div>
+      <div><a href=""></a></div>
     </section>
     
     <script src="form.js"></script>
