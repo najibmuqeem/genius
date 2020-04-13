@@ -6,10 +6,22 @@ router.get("/", (req, res) => {
   res.send("index");
 });
 
+<<<<<<< Updated upstream
 router.get("/products/:user_id", (req, res) => {
   console.log("user id is: " + req.params.user_id);
   db.getProductsForUser(req.params.user_id).then((data) => {
     res.json(data);
+=======
+router.get("/products/u/:id", (req, res, next) => {
+  db.getProductsForUser(req.params.id).then((data) => {
+    res.json(data.rows);
+  });
+});
+
+router.get("/products/c/:id", (req, res, next) => {
+  db.getProductsForCategory(1, req.params.id).then((data) => {
+    res.json(data.rows);
+>>>>>>> Stashed changes
   });
 });
 
