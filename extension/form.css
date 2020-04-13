@@ -1,10 +1,10 @@
 :root {
-  --warm-white: #FDFCF6;
-  --light-rose: #EAD2CE;
-  --dusty-rose: #C96A6C;
-  --bg-green-blue: #E5EBE7;
-  --main-green-blue: #4C8D99;
-  --dark-blue: #1B243D;
+  --warm-white: #fdfcf6;
+  --light-rose: #ead2ce;
+  --dusty-rose: #c96a6c;
+  --bg-green-blue: #e5ebe7;
+  --main-green-blue: #4c8d99;
+  --dark-blue: #1b243d;
 }
 
 * {
@@ -88,35 +88,35 @@ textarea {
 }
 
 .filter-category {
-	display: block;
-	font-size: 13px;
-	font-family: sans-serif;
-	font-weight: 400;
+  display: block;
+  font-size: 13px;
+  font-family: sans-serif;
+  font-weight: 400;
   color: var(--dark-blue);
   letter-spacing: 0.1em;
-	line-height: 1.3;
-	padding: 7px;
-	width: 100%;
-	max-width: 100%;
-	box-sizing: border-box;
+  line-height: 1.3;
+  padding: 7px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   margin: 0;
   border: none;
-	border-bottom: 1px solid var(--main-green-blue);
-	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
-	border-radius: 0;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	appearance: none;
-	background-color: white;
-	background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
-	background-repeat: no-repeat;
-	background-position: right .7em top 50%, 0 0;
-  background-size: .65em auto, 100%;
+  border-bottom: 1px solid var(--main-green-blue);
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+  border-radius: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: white;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
   outline: none;
 }
 
 .filter-category::-ms-expand {
-	display: none;
+  display: none;
 }
 
 .filter-category:hover {
@@ -126,17 +126,17 @@ textarea {
 }
 
 .filter-category:focus {
-  background-color: var(--bg-green-blue);;
-	border-color: var(--bg-green-blue);;
-	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
-	box-shadow: 0 0 0 3px -moz-mac-focusring;
-	color: var(--dark-blue);
+  background-color: var(--bg-green-blue);
+  border-color: var(--bg-green-blue);
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: var(--dark-blue);
   outline: none;
   letter-spacing: 0.1em;
 }
 
 .filter-category option {
-	font-weight: 400;
+  font-weight: 400;
 }
 
 .form-btns {
@@ -161,7 +161,7 @@ textarea {
   transition-duration: 0.6s;
 }
 
-.ext-button:hover, 
+.ext-button:hover,
 .ext-button:focus {
   outline: none;
   background-color: var(--main-green-blue);

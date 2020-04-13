@@ -117,6 +117,8 @@ const addFriends = function (user_1_id, user_2_id) {
 };
 
 const addProduct = function (product) {
+  let price = 100 * Number(product.price.substring(1));
+
   return pool.query(
     `
     INSERT INTO products (category_id, product_name, price, img_src, store_name, description, web_url, purchased, misc_info) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
@@ -125,7 +127,7 @@ const addProduct = function (product) {
     [
       product.category_id,
       product.product_name,
-      product.price,
+      price,
       product.img_src,
       product.store_name,
       product.description,
@@ -147,6 +149,41 @@ const getMiscInfo = function (product_id) {
   );
 };
 
+const markPurchased = function (product_id) {
+  return pool.query(
+    `
+    UPDATE products
+    SET purchased = true
+    WHERE id = $1;
+    `,
+    [product_id]
+  );
+};
+
+const getNumProductsForCategory = function (user_id, category_id) {
+  return pool.query(
+    `
+    SELECT count(*)
+    FROM products
+    JOIN categories ON category_id = categories.id
+    WHERE user_id = $1 AND category_id = $2;
+    `,
+    [user_id, category_id]
+  );
+};
+
+const getPriceForCategory = function (user_id, category_id) {
+  return pool.query(
+    `
+    SELECT sum(price)
+    FROM products
+    JOIN categories ON category_id = categories.id
+    WHERE user_id = $1 AND category_id = $2;
+    `,
+    [user_id, category_id]
+  );
+};
+
 //export query functions
 module.exports = {
   getProductsForUser,
@@ -161,4 +198,7 @@ module.exports = {
   addFriends,
   addProduct,
   getMiscInfo,
+  markPurchased,
+  getNumProductsForCategory,
+  getPriceForCategory
 };
