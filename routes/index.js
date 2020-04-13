@@ -18,14 +18,6 @@ router.get("/products/c/:id", (req, res, next) => {
   });
 });
 
-router.get("/products/:cat_id", (req, res) => {
-  db.getProductsForCategory(req.body.user_id, req.params.cat_id).then(
-    (data) => {
-      res.json(data);
-    }
-  );
-});
-
 router.get("/login", (req, res) => {
   res.render("login_page");
 });
