@@ -55,7 +55,7 @@ a {
   width: 70%;
   margin: auto;
   height: 50%;
-  margin-top: 40%;
+  margin-top: 45%;
   /* outline: 1px solid red; */
   /* background-color: var(--dark-blue); */
 }
@@ -64,8 +64,8 @@ a {
   width: 90%;
   margin: auto;
   margin-left: 5%;
-  margin-top: 50%;
-  outline: 1px solid white;
+  margin-top: 45%;
+  /* outline: 1px solid white; */
 }
 
 .wish {
@@ -87,7 +87,7 @@ a {
   /* outline: 1px solid greenyellow; */
   width: 50%;
   margin: auto;
-  margin-top: 15%;
+  margin-top: 20%;
   height: 50%;
 }
 
