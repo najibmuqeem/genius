@@ -35,23 +35,23 @@ async function getData(url = "", data = {}) {
 }
 
 const addProduct = (product) => {
-  postData("localhost:3000/products", product);
+  postData("localhost:8000/products", product);
 };
 
 const addCategory = (user_id, category_name) => {
-  postData("/categories", { user_id, category_name });
+  postData("localhost:8000/categories", { user_id, category_name });
 };
 
 const addFriends = (user_1_id, user_2_id) => {
-  postData("/friends", { user_1_id, user_2_id });
+  postData("localhost:8000/friends", { user_1_id, user_2_id });
 };
 
 const addUser = (username, email, birthday, avatar) => {
-  postData("/users", { username, email, birthday, avatar });
+  postData("localhost:8000/users", { username, email, birthday, avatar });
 };
 
 const getProductsForUser = (user_id) => {
-  getData(`/products/u/${user_id}`);
+  getData(`localhost:8000/products/u/${user_id}`);
 };
 
 export { addProduct, addCategory, addFriends, addUser, getProductsForUser };
