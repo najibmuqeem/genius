@@ -6,7 +6,7 @@ import React from "react";
 export default function Products() {
   const user = 1;
   const categories = getCategoriesForUser(user).then((a) => {
-    console.log(a);
+    console.log(a);//change state
   });
   console.log(getCategoriesForUser(user));
 
