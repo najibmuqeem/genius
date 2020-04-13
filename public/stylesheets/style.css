@@ -45,10 +45,9 @@ a {
 
 .logo-section {
   width: 30%;
-  background-color: var(--navy);
+  background-color: var(--main-green-blue);
   font-weight: 500;
   font-size: 26px;
-  color: var(--dark-blue)
 }
 
 .logo-container {
