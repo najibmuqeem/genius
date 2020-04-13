@@ -11,7 +11,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     document.querySelector("#img_src").value = response.farewell.img;
   });
 
-  document.querySelector(".submit-btn").addEventListener("click", function () {
+  document.querySelector("form").addEventListener("submit", function () {
     document.querySelector("form").classList.add("hidden");
     document.querySelector(".after").classList.remove("hidden");
   });
