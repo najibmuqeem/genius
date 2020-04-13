@@ -11,7 +11,7 @@ const pool = new Pool({
 const getProductsForUser = function (user_id) {
   return pool.query(
     `
-    SELECT *
+    SELECT products.id, category_id, product_name, price, img_src, store_name, description, web_url, purchased, misc_info
     FROM products
     JOIN categories ON category_id = categories.id
     WHERE user_id = $1;
@@ -200,5 +200,5 @@ module.exports = {
   getMiscInfo,
   markPurchased,
   getNumProductsForCategory,
-  getPriceForCategory
+  getPriceForCategory,
 };
