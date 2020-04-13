@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-//import Application from "components/Application";
-console.log(document.querySelector(".categories-container"))
-let div = <div>HI!</div>
-ReactDOM.render(div, document.querySelector(".categories-container"));
+import Categories from "./components/Categories";
+
+ReactDOM.render(
+  <Categories />,
+  document.querySelector(".categories-container")
+);
