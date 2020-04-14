@@ -1,0 +1,13 @@
+.category {
+  outline: 1px solid black;
+  width: 220px;
+  margin: 10px 20px;
+  padding: 10px;
+
+
+}
+
+.category img {
+  display: block;
+  margin: 0 auto;
+}

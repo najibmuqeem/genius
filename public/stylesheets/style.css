@@ -303,3 +303,8 @@ nav {
   justify-content: space-between;
   outline: 1px solid red;
 }
+
+/*------------------MAIN-------------------------*/
+.categories-container {
+  display: flex;
+}
