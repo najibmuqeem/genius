@@ -15,7 +15,9 @@ export default function Products() {
   console.log(categories);
   const categoryList = categories.map((category) => {
     console.log(category);
-    return <Category />;
+    return <Category 
+    name={category.category_name}
+    />;
   });
 
   return categoryList;
