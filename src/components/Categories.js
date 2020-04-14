@@ -5,7 +5,7 @@ import { getCategoriesForUser } from "../fetchers.js";
 import React, { useState } from "react";
 //let classNames = require("classnames");
 
-export default function Categories() {
+export default function Categories(props) {
   const [categories, setCategories] = useState([]);
   const user = 1;
   if (categories.length === 0) {
@@ -19,9 +19,11 @@ export default function Categories() {
     console.log(category);
     return (
       <Category
+        id={category.id}
         name={category.category_name}
         count={category.count}
         sum={category.sum}
+        getCategoryId={props.getCategoryId}
       />
     );
   });

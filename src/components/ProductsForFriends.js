@@ -1,16 +1,17 @@
 import Product from "./Product.js";
-import { getProductsForCategory } from "../fetchers.js";
+import { getProductsForUser } from "../fetchers.js";
 import React, { useState } from "react";
 //let classNames = require("classnames");
 
-export default function Products(props) {
+export default function ProductsForFriends() {
   const [products, setProducts] = useState([]);
+  const user = 2;
 
-  let a = getProductsForCategory(1, props.id);
+  let a = getProductsForUser(user);
   console.log(a);
 
   if (products.length === 0) {
-    getProductsForCategory(1, props.id).then((res) => {
+    getProductsForUser(user).then((res) => {
       setProducts(() => res);
     });
   }

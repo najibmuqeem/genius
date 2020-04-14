@@ -1,18 +1,19 @@
 import Login from "./Login";
 import Categories from "./Categories";
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ProductsForFriends from "./ProductsForFriends";
 import Products from "./Products";
 
-function LoggedInApp() {
+function LoggedInApp(props) {
   return (
     <Router>
       <Switch>
-        <Route path="/categories">
-          <Categories />
-        </Route>
         <Route path="/products">
-          <Products />
+          <Products id={props.categoryId} />
+        </Route>
+        <Route path="/">
+          <Categories getCategoryId={props.getCategoryId} />
         </Route>
       </Switch>
     </Router>
@@ -21,8 +22,18 @@ function LoggedInApp() {
 
 export default function Application() {
   const [state, setState] = useState(true);
+  const [categoryId, setCategoryId] = useState(0);
   const onClick = () => {
     setState(true);
   };
-  return state ? <LoggedInApp /> : <Login onClick={onClick} />;
+  const getCategoryId = (id) => {
+    console.log(id);
+    setCategoryId(id);
+  };
+
+  return state ? (
+    <LoggedInApp getCategoryId={getCategoryId} categoryId={categoryId} />
+  ) : (
+    <Login onClick={onClick} />
+  );
 }
