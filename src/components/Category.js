@@ -4,11 +4,11 @@ import "./components_styles/category.css";
 
 export default function Category(props) {
   return (
-		<div class="category">
-			<h4>{props.name}</h4>
-			<img src="" width="180" height="180" />
-			<p> count: {props.count} </p>
-			<p> items sum: ${props.sum / 100} </p>
-		</div>
-	);
+    <li class="category">
+      <h4>{props.name}</h4>
+      <img src="" width="180" height="180" />
+      <p> count: {props.count} </p>
+      <p> items sum: ${props.sum / 100} </p>
+    </li>
+  );
 }
