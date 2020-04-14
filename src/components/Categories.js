@@ -26,18 +26,20 @@ export default function Categories() {
     );
   });
 
-
   return (
-    <div>
-      <Header />
-      <main>
-        <h1>Categories</h1>
-        <div class="new-category">
-          <button type="button">Create new category</button>
-        </div>
-        <ul class="categories">{categoryList}</ul>
-      </main>
-      <Footer />
-    </div>
+    console.log("jo"),
+    (
+      <div>
+        <Header />
+        <main>
+          <h1>Categories</h1>
+          <div class="new-category">
+            <button type="button">Create new category</button>
+          </div>
+          <ul class="categories">{categoryList}</ul>
+        </main>
+        <Footer />
+      </div>
+    )
   );
 }
