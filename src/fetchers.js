@@ -18,7 +18,7 @@ async function postData(url = "", data = {}) {
 
 async function getData(url = "", data = {}) {
   //Default options are marked with *
-  
+
   const response = await fetch(url, {
     //method: "GET", // *GET, POST, PUT, DELETE, etc.
     mode: "cors", // no-cors, *cors, same-origin
@@ -30,6 +30,7 @@ async function getData(url = "", data = {}) {
     // },
     redirect: "follow", // manual, *follow, error
     referrerPolicy: "no-referrer", // no-referrer, *client
+    body: JSON.stringify(data),
   });
   return response.json(); // parses JSON response into native JavaScript objects
 }
@@ -56,7 +57,9 @@ const addUser = (username, email, birthday, avatar) => {
 };
 
 const getProductsForCategory = (user_id, category_id) => {
-  return getData(`http://localhost:8000/products/c/${category_id}`, { user_id });
+  return getData(`http://localhost:8000/products/c/${category_id}`, {
+    user_id,
+  });
 };
 
 const getCategoriesForUser = (user_id) => {
