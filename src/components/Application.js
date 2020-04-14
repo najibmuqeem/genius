@@ -21,7 +21,7 @@ function LoggedInApp(props) {
 }
 
 export default function Application() {
-  const [state, setState] = useState(true);
+  const [state, setState] = useState(false);
   const [categoryId, setCategoryId] = useState(0);
   const onClick = () => {
     setState(true);

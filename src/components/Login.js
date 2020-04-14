@@ -40,7 +40,7 @@ export default function Login(props) {
               <button
                 type="button"
                 class="button btn-rose"
-                onClick={props.onClick}
+                onClick={() => props.onClick()}
               >
                 Log in
               </button>

@@ -1,7 +1,6 @@
 import React from "react";
 import "./components_styles/category.css";
 import { Link } from "react-router-dom";
-//let classNames = require("classnames");
 export default function Category(props) {
   return (
     <Link to="/products">
