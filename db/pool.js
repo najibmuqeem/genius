@@ -23,11 +23,11 @@ const getProductsForUser = function (user_id) {
 const getCategoriesForUser = function (user_id) {
   return pool.query(
     `
-    SELECT categories.category_name, count(products.id), sum(products.price)
+    SELECT categories.id, categories.category_name, count(products.id), sum(products.price)
     FROM categories
     JOIN products ON category_id = categories.id
     WHERE user_id = $1
-    GROUP by categories.category_name;
+    GROUP by categories.id;
     `,
     [user_id]
   );
