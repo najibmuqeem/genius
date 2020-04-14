@@ -1,8 +1,8 @@
-import React from "react";
-let classNames = require("classnames");
 import "./components_styles/product.css";
+import React from "react";
+//let classNames = require("classnames");
 
-export default function Product() {
+export default function Product(props) {
   
   
   let product = {
@@ -17,19 +17,15 @@ export default function Product() {
 		purchased: false,
 	};
 
-	const productClass = classNames("product-card", {
-		"purchased": product.purchased
-	});
-
 	return (
-		<div className={productClass}>
+		<div>
 			<h4>
-				<a href={product.web_url}>{product.product_name}</a>
+				<a href={product.web_url}>{props.product_name}</a>
 			</h4>
-			<p>{product.price}</p>
-			<p>{product.description}</p>
-			<p>{product.store_name}</p>
-			<img width="30" height="30" src={product.img_src}/>
+			<p>${props.price}</p>
+			<p>{props.description}</p>
+			<p>{props.store_name}</p>
+			<img width="100" height="100" src={props.img_src}/>
 		</div>
 	);
 }
