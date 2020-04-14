@@ -1,0 +1,49 @@
+/* -----------------HEADER--------------------- */
+header {
+  outline: 1px solid red;
+  height: 100px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-nav {
+  display: flex;
+}
+
+.user-nav {
+  display: flex;
+}
+
+.friends {
+  width: 180px;
+}
+
+.friends .user-nav__friends {
+  display: none;
+}
+
+.friends:hover .user-nav__friends {
+  display: block;
+}
+
+.account {
+  width: 180px;
+}
+
+.account .user-nav__user {
+  display: none;
+}
+
+.account:hover .user-nav__user {
+  display: block;
+}
+
+/* main: containers */
+.categories-container,
+.products-container {
+  height: 500px;
+  background-color: #a1a1a1;
+}
