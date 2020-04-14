@@ -33,6 +33,7 @@ router.get("/login", (req, res) => {
 router.get("/categories/:user_id", (req, res) => {
   db.getCategoriesForUser(req.params.user_id).then((data) => {
     res.json(data.rows);
+    console.log(data.rows);
   });
 });
 
