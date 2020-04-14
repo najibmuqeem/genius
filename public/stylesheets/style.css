@@ -305,6 +305,7 @@ nav {
 }
 
 /*------------------MAIN-------------------------*/
-.categories-container {
+.categories {
   display: flex;
+  justify-content: center;
 }

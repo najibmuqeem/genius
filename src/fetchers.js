@@ -56,7 +56,7 @@ const addUser = (username, email, birthday, avatar) => {
 };
 
 const getProductsForCategory = (user_id, category_id) => {
-  getData(`http://localhost:8000/products/c/${category_id}`, { user_id });
+  return getData(`http://localhost:8000/products/c/${category_id}`, { user_id });
 };
 
 const getCategoriesForUser = (user_id) => {
@@ -64,7 +64,7 @@ const getCategoriesForUser = (user_id) => {
 };
 
 const getProductsForUser = (user_id) => {
-  getData(`http://localhost:8000/products/u/${user_id}`);
+  return getData(`http://localhost:8000/products/u/${user_id}`);
 };
 
 export {

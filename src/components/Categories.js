@@ -7,8 +7,8 @@ export default function Categories() {
   const [categories, setCategories] = useState([]);
   const user = 1;
   if (categories.length === 0) {
-    getCategoriesForUser(user).then((a) => {
-      setCategories(() => a);
+    getCategoriesForUser(user).then((res) => {
+      setCategories(() => res);
     });
   }
 
@@ -23,6 +23,7 @@ export default function Categories() {
       />
     );
   });
+
 
   return (
     <div>
