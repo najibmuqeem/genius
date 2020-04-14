@@ -1,17 +1,24 @@
 import Category from "./Category.js";
 import { getCategoriesForUser } from "../fetchers.js";
-import React from "react";
+import React, { useState } from "react";
 //let classNames = require("classnames");
 
 export default function Products() {
+  const [categories, setCategories] = useState([]);
   const user = 1;
-  const categories = getCategoriesForUser(user).then((a) => {
-    console.log(a);//change state
-  });
-  console.log(getCategoriesForUser(user));
+  if (categories.length === 0) {
+    getCategoriesForUser(user).then((a) => {
+      setCategories(()=>a);
+    });
+  }
 
-  // const categoryList = categories.map((category) => {
-  //   return <Category />;
-  // });
-  return <div>hi</div>;
+  console.log(categories);
+  const categoryList = categories.map((category) => {
+    console.log(category);
+    return <Category 
+    name={category.category_name}
+    />;
+  });
+
+  return categoryList;
 }
