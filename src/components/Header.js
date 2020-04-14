@@ -21,7 +21,7 @@ export default function Header() {
 						<div class="friends">
 							Friends
 							<ul class="user-nav__friends">
-								<li class="user-nav__friend">Rachel Green</li>
+								<li class="user-nav__friend">Rachel Green</li>	
 								<li class="user-nav__friend">Ross Geller</li>
 							</ul>
 						</div>

@@ -1,5 +1,6 @@
 import Category from "./Category.js";
 import Header from "./Header.js";
+import Footer from "./Footer.js";
 import { getCategoriesForUser } from "../fetchers.js";
 import React, { useState } from "react";
 //let classNames = require("classnames");
@@ -36,15 +37,7 @@ export default function Categories() {
         </div>
         <ul class="categories">{categoryList}</ul>
       </main>
-      <footer>
-        <ul class="footer-list">
-          <li class="footer-list__item">
-            <a href="mailto: undefined@gmail.com">Contact us</a>
-          </li>
-          <li class="footer-list__item">XYZ</li>
-          <li class="footer-list__item">&copy; Undefined</li>
-        </ul>
-      </footer>
+      <Footer />
     </div>
   );
 }
