@@ -1,13 +1,32 @@
+:root {
+  --warm-white: #FDFCF6;
+  --light-rose: #EAD2CE;
+  --melon: #EABDB6;
+  --dusty-rose: #C96A6C;
+  --bg-green-blue: #E5EBE7;
+  --mint: #bed3c3;
+  --main-green-blue: #4C8D99;
+  --navy: #212e53;
+  --dark-blue: #1B243D;
+}
+
 .category {
-  outline: 1px solid black;
-  width: 220px;
+  width: 300px;
   margin: 10px 20px;
   padding: 10px;
-
-
+  background-color: rgba(234,210,206, 0.35);
+  color: var(--dusty-rose);
+  border-radius: 15px;
 }
 
 .category img {
   display: block;
   margin: 0 auto;
+}
+
+.category h4 {
+  margin: 10px auto;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
 }
