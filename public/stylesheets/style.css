@@ -32,19 +32,3 @@ a {
   color: inherit;
 }
 
-
-
-
-
-/* -----------------FOOTER--------------------- */
-.footer-list {
-  display: flex;
-  justify-content: space-between;
-  outline: 1px solid red;
-}
-
-/*------------------MAIN-------------------------*/
-.categories {
-  display: flex;
-  justify-content: center;
-}

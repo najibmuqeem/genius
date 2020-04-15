@@ -1,0 +1,11 @@
+/* -----------------FOOTER--------------------- */
+.footer-list {
+  background-color: var(--navy);
+  display: flex;
+  justify-content: space-between;
+  outline: 1px solid red;
+}
+
+.footer-list__item {
+  padding: 30px;
+}
