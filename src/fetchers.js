@@ -13,7 +13,7 @@ async function postData(url = "", data = {}) {
     referrerPolicy: "no-referrer", // no-referrer, *client
     body: JSON.stringify(data), // body data type must match "Content-Type" header
   });
-  return response.json(); // parses JSON response into native JavaScript objects
+  return; //response.json(); // parses JSON response into native JavaScript objects
 }
 
 async function deleteData(url = "", data = {}) {
@@ -90,6 +90,11 @@ const deleteProduct = (product_id) => {
   return deleteData("http://localhost:8000/products/delete", { product_id});
 };
 
+const markPurchased = (product_id) => {
+  console.log("fetchers", product_id)
+	return postData("http://localhost:8000/products/purchased", {product_id});
+};
+
 export {
 	addProduct,
 	addCategory,
@@ -98,5 +103,6 @@ export {
 	getProductsForCategory,
 	getCategoriesForUser,
 	getProductsForUser,
-	deleteProduct
+	deleteProduct,
+	markPurchased
 };

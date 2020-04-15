@@ -44,9 +44,15 @@ router.post("/products", (req, res) => {
 });
 
 router.post("/products/delete", (req, res) => {
-  console.log(req.body.product_id);
-  
+  //console.log(req.body.product_id);
 	db.deleteProduct(req.body.product_id).then((data) => {
+		res.json(data.rows[0]);
+	});
+});
+
+router.post("/products/purchased", (req, res) => {
+  console.log(req.body.product_id);
+	db.markPurchased(req.body.product_id).then((data) => {
 		res.json(data.rows[0]);
 	});
 });

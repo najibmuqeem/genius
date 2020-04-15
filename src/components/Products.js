@@ -3,7 +3,7 @@ import Header from "./Header.js";
 import Footer from "./Footer.js";
 import Tabs from "./Tabs.js";
 import "./components_styles/products.css";
-import { getProductsForCategory, deleteProduct } from "../fetchers.js";
+import { getProductsForCategory, deleteProduct, markPurchased } from "../fetchers.js";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 //let classNames = require("classnames");
@@ -24,26 +24,44 @@ export default function Products(props) {
     console.log("delete from products ", id);
     const newArrOfProduct = products.filter((product) => product.id !== id);
     deleteProduct(id);
-    console.log(newArrOfProduct);
+    //console.log(newArrOfProduct);
     setProducts(newArrOfProduct);
     //console.log("new array", products);
   };
 
+  const markSold = (id) => {
+		console.log("mark purchased ", id);
+		const newArrOfProduct = products.map((product) => {
+      if (product.id === id) {
+        product.purchased = true;
+      }
+      return product;
+    });
+		markPurchased(id);
+		//console.log(newArrOfProduct);
+		setProducts(newArrOfProduct);
+		//console.log("new array", products);
+	};
+
+
+
   console.log("current products", products);
   const productList = products.map((product) => {
-    // console.log(product);
+    console.log(product);
     return (
-      <Product
-        id={product.id}
-        product_name={product.product_name}
-        price={product.price / 100}
-        description={product.description}
-        store_name={product.store_name}
-        img_src={product.img_src}
-        web_url={product.web_url}
-        onButtonClick={deleteProduct1}
-      />
-    );
+			<Product
+				id={product.id}
+				product_name={product.product_name}
+				price={product.price / 100}
+				description={product.description}
+				store_name={product.store_name}
+				img_src={product.img_src}
+				web_url={product.web_url}
+				purchased={product.purchased}
+				onDeleteClick={deleteProduct1}
+				onSoldClick={markSold}
+			/>
+		);
   });
 
   return (
