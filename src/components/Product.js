@@ -1,25 +1,16 @@
 import Button from "./Button.js";
 import "./components_styles/product.css";
 import React from "react";
-//let classNames = require("classnames");
+let classNames = require("classnames");
 
 export default function Product(props) {
+  const productClass = classNames("product-card", {
+		"product-purchased": props.purchased
+		
+	});
   
-  
-  let product = {
-		product_name: "Pleated Midi Skirt",
-		price: 47,
-		web_url:
-			"https://shop.nordstrom.com/s/halogen-pleated-midi-skirt-regular-petite/5201656/full?origin=category-personalizedsort&breadcrumb=Home%2FWomen%2FClothing%2FSkirts&color=black-%20ivory%20lady%20dot",
-		img_src:
-			"https://n.nordstrommedia.com/id/sr3/623d89cd-9f23-481f-b705-0c4027e41bec.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196&dpr=2",
-		store_name: "Nordstrom",
-		description: "skirt",
-		purchased: false,
-	};
-
 	return (
-		<li class="product-card">
+		<li class={productClass}>
 			<h4>
 				<a href={props.web_url}>{props.product_name}</a>
 			</h4>
@@ -27,7 +18,8 @@ export default function Product(props) {
 			<img width="100" height="100" src={props.img_src} />
 			<p>{props.description}</p>
 			<p>{props.store_name}</p>
-			<Button onButtonClick={()=>{props.onButtonClick(props.id)}}>Delete</Button>
+			<Button onButtonClick={()=>{props.onDeleteClick(props.id)}}>Delete</Button>
+			<Button onButtonClick={()=>{props.onSoldClick(props.id)}}>Mark purchased</Button>
 			<Button>Edit</Button>
 		</li>
 	);

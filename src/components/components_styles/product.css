@@ -2,4 +2,9 @@
   outline: 1px solid green;
   width: 200px;
   margin: 10px 30px;
+  
+}
+
+.product-purchased {
+  background-color: red;
 }
