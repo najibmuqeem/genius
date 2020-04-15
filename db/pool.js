@@ -20,6 +20,17 @@ const getProductsForUser = function (user_id) {
   );
 };
 
+const deleteProduct = function (product_id) {
+  return pool.query(
+		`
+    DELETE
+    FROM products
+    WHERE id = $1;
+    `,
+		[product_id]
+	);
+}
+
 const getCategoriesForUser = function (user_id) {
   return pool.query(
     `
@@ -34,17 +45,16 @@ const getCategoriesForUser = function (user_id) {
 };
 
 const getProductsForCategory = function (user_id, category_id) {
-  return pool.query(
-    `
-    SELECT *
+	return pool.query(
+		`
+    SELECT products.id, products.category_id, products.product_name, products.price, products.img_src, products.store_name, products.description, products.web_url, products.purchased
     FROM products
     JOIN categories ON category_id = categories.id
     WHERE user_id = $1 AND category_id = $2;
     `,
-    [user_id, category_id]
-  );
+		[user_id, category_id]
+	);
 };
-
 const getFriends = function (user_id) {
   return pool.query(
     `
@@ -188,19 +198,20 @@ const getPriceForCategory = function (user_id, category_id) {
 
 //export query functions
 module.exports = {
-  getProductsForUser,
-  getCategoriesForUser,
-  getProductsForCategory,
-  getFriends,
-  getPurchased,
-  getUsers,
-  getUserWithID,
-  addUser,
-  addCategory,
-  addFriends,
-  addProduct,
-  getMiscInfo,
-  markPurchased,
-  getNumProductsForCategory,
-  getPriceForCategory,
+	getProductsForUser,
+	getCategoriesForUser,
+	getProductsForCategory,
+	getFriends,
+	getPurchased,
+	getUsers,
+	getUserWithID,
+	addUser,
+	addCategory,
+	addFriends,
+	addProduct,
+	getMiscInfo,
+	markPurchased,
+	getNumProductsForCategory,
+	getPriceForCategory,
+	deleteProduct
 };

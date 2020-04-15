@@ -18,13 +18,13 @@ router.get("/products/c/:id", (req, res, next) => {
   });
 });
 
-router.get("/products/:cat_id", (req, res) => {
-  db.getProductsForCategory(req.body.user_id, req.params.cat_id).then(
-    (data) => {
-      res.json(data.rows);
-    }
-  );
-});
+// router.get("/products/:cat_id", (req, res) => {
+//   db.getProductsForCategory(req.body.user_id, req.params.cat_id).then(
+//     (data) => {
+//       res.json(data.rows);
+//     }
+//   );
+// });
 
 router.get("/login", (req, res) => {
   res.render("login_page");
@@ -41,6 +41,14 @@ router.post("/products", (req, res) => {
   db.addProduct(req.body).then((data) => {
     res.json(data.rows[0]);
   });
+});
+
+router.post("/products/delete", (req, res) => {
+  console.log(req.body.product_id);
+  
+	db.deleteProduct(req.body.product_id).then((data) => {
+		res.json(data.rows[0]);
+	});
 });
 
 router.post("/categories", (req, res) => {

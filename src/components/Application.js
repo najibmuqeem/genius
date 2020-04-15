@@ -13,7 +13,10 @@ function LoggedInApp(props) {
           <Products id={props.categoryId} getCategoryId={props.getCategoryId} />
         </Route>
         <Route path="/">
-          <Categories getCategoryId={props.getCategoryId} />
+          <Categories 
+          getCategoryId={props.getCategoryId} 
+          onButtonClick={()=>{console.log("click from app")}}
+          />
         </Route>
       </Switch>
     </Router>
