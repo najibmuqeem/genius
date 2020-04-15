@@ -4,7 +4,7 @@ import Footer from "./Footer.js";
 import Tabs from "./Tabs.js";
 import "./components_styles/products.css";
 import { getProductsForCategory } from "../fetchers.js";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 //let classNames = require("classnames");
 
@@ -14,15 +14,15 @@ export default function Products(props) {
   let a = getProductsForCategory(1, props.id);
   console.log(a);
 
-  if (products.length === 0) {
+  useEffect(() => {
     getProductsForCategory(1, props.id).then((res) => {
       setProducts(() => res);
     });
-  }
+  }, [props.id]);
 
-  console.log(products);
+  console.log("current products", products);
   const productList = products.map((product) => {
-    console.log(product);
+    // console.log(product);
     return (
       <Product
         product_name={product.product_name}
@@ -30,6 +30,7 @@ export default function Products(props) {
         description={product.description}
         store_name={product.store_name}
         img_src={product.img_src}
+        web_url={product.web_url}
       />
     );
   });

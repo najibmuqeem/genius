@@ -33,7 +33,7 @@ export default function Application() {
     }
     console.log(id);
   };
-
+  console.log("Application", categoryId);
   return state ? (
     <LoggedInApp getCategoryId={getCategoryId} categoryId={categoryId} />
   ) : (
