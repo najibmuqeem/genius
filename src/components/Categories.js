@@ -34,6 +34,7 @@ export default function Categories(props) {
       <>
         <Header />
         <main>
+          <div>Welcome to Genius</div>
           <h1>Categories</h1>
           <div class="new-category">
             <button type="button">Create new category</button>
