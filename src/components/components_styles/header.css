@@ -34,6 +34,10 @@
     margin: 0 30px;
   }
 
+  .main-nav__item a{
+    padding: 20px;
+  }
+
   .user-nav {
     display: flex;
     align-items: center;
@@ -44,10 +48,12 @@
     margin-right: 50px;
   }
 
-  .user-nav__item:hover p {
+  .user-nav__item:hover p,
+  .main-nav__item:hover a{
     background-color: var(--light-rose);
     opacity: 70%;
     color: var(--main-green-blue);
+
   }
 
   .user-nav__item p {

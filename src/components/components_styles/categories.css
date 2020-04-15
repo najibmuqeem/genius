@@ -1,3 +1,8 @@
 .categories h1 {
   color: blue;
 }
+
+.categories {
+  display: flex;
+  flex-wrap: wrap; 
+}
