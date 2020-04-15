@@ -18,17 +18,16 @@ export default function Products(props) {
     getProductsForCategory(1, props.id).then((res) => {
       setProducts(() => res);
     });
-    
   }, [props.id]);
-  
-  const deleteProduct1 = (id) => {
-    console.log("delete from products ", id)
-    deleteProduct(id)
-    // .then((res)=>{
-    //   console.log("res " + res);
 
-  // })
-  }
+  const deleteProduct1 = (id) => {
+    console.log("delete from products ", id);
+    const newArrOfProduct = products.filter((product) => product.id !== id);
+    deleteProduct(id);
+    console.log(newArrOfProduct);
+    setProducts(newArrOfProduct);
+    //console.log("new array", products);
+  };
 
   console.log("current products", products);
   const productList = products.map((product) => {
