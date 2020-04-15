@@ -95,6 +95,11 @@ const markPurchased = (product_id) => {
 	return postData("http://localhost:8000/products/purchased", {product_id});
 };
 
+const unmarkPurchased = (product_id) => {
+	console.log("fetchers", product_id);
+	return postData("http://localhost:8000/products/unpurchased", { product_id });
+};
+
 export {
 	addProduct,
 	addCategory,
@@ -104,5 +109,6 @@ export {
 	getCategoriesForUser,
 	getProductsForUser,
 	deleteProduct,
-	markPurchased
+	markPurchased,
+	unmarkPurchased
 };

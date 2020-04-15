@@ -51,8 +51,15 @@ router.post("/products/delete", (req, res) => {
 });
 
 router.post("/products/purchased", (req, res) => {
-  console.log(req.body.product_id);
+  //console.log(req.body.product_id);
 	db.markPurchased(req.body.product_id).then((data) => {
+		res.json(data.rows[0]);
+	});
+});
+
+router.post("/products/unpurchased", (req, res) => {
+	console.log(req.body.product_id);
+	db.unmarkPurchased(req.body.product_id).then((data) => {
 		res.json(data.rows[0]);
 	});
 });

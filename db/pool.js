@@ -172,6 +172,17 @@ const markPurchased = function (product_id) {
   );
 };
 
+const unmarkPurchased = function (product_id) {
+	return pool.query(
+		`
+    UPDATE products
+    SET purchased = false
+    WHERE id = $1;
+    `,
+		[product_id]
+	);
+};
+
 const getNumProductsForCategory = function (user_id, category_id) {
   return pool.query(
     `
@@ -210,7 +221,8 @@ module.exports = {
 	addFriends,
 	addProduct,
 	getMiscInfo,
-	markPurchased,
+  markPurchased,
+  unmarkPurchased,
 	getNumProductsForCategory,
 	getPriceForCategory,
 	deleteProduct
