@@ -43,6 +43,12 @@ router.post("/products", (req, res) => {
   });
 });
 
+router.post("/products/edit", (req, res) => {
+  db.editProduct(req.body).then((data) => {
+    console.log(data.rows[0]);
+    res.json(data.rows[0]);
+  });
+
 router.post("/products/delete", (req, res) => {
   //console.log(req.body.product_id);
 	db.deleteProduct(req.body.product_id).then((data) => {

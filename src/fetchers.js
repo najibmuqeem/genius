@@ -36,7 +36,7 @@ async function deleteData(url = "", data = {}) {
 
 async function getData(url = "", data = {}) {
   //Default options are marked with *
-  
+
   const response = await fetch(url, {
     //method: "GET", // *GET, POST, PUT, DELETE, etc.
     mode: "cors", // no-cors, *cors, same-origin
@@ -74,7 +74,9 @@ const addUser = (username, email, birthday, avatar) => {
 };
 
 const getProductsForCategory = (user_id, category_id) => {
-  return getData(`http://localhost:8000/products/c/${category_id}`, { user_id });
+  return getData(`http://localhost:8000/products/c/${category_id}`, {
+    user_id,
+  });
 };
 
 const getCategoriesForUser = (user_id) => {
@@ -83,6 +85,10 @@ const getCategoriesForUser = (user_id) => {
 
 const getProductsForUser = (user_id) => {
   return getData(`http://localhost:8000/products/u/${user_id}`);
+};
+
+const editProduct = (product) => {
+  return postData(`http://localhost:8000/products/edit`, product);
 };
 
 const deleteProduct = (product_id) => {
@@ -110,5 +116,6 @@ export {
 	getProductsForUser,
 	deleteProduct,
 	markPurchased,
-	unmarkPurchased
+	unmarkPurchased,
+  editProduct
 };
