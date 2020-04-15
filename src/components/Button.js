@@ -5,7 +5,7 @@ import "./components_styles/button.css";
 export default function Button(props) {
 	return (
 		<button class="button cat-btn"
-			onClick={props.onClick}
+			onClick={props.onButtonClick}
 		>
 			{props.children}
 		</button>
