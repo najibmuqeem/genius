@@ -13,7 +13,25 @@ async function postData(url = "", data = {}) {
     referrerPolicy: "no-referrer", // no-referrer, *client
     body: JSON.stringify(data), // body data type must match "Content-Type" header
   });
-  return response.json(); // parses JSON response into native JavaScript objects
+  return; //response.json(); // parses JSON response into native JavaScript objects
+}
+
+async function deleteData(url = "", data = {}) {
+	// Default options are marked with *
+	const response = await fetch(url, {
+		method: "POST", // *GET, POST, PUT, DELETE, etc.
+		mode: "cors", // no-cors, *cors, same-origin
+		cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: "same-origin", // include, *same-origin, omit
+		headers: {
+			"Content-Type": "application/json",
+			// 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		redirect: "follow", // manual, *follow, error
+		referrerPolicy: "no-referrer", // no-referrer, *client
+		body: JSON.stringify(data), // body data type must match "Content-Type" header
+	});
+	return; //response.json(); // parses JSON response into native JavaScript objects
 }
 
 async function getData(url = "", data = {}) {
@@ -73,13 +91,31 @@ const editProduct = (product) => {
   return postData(`http://localhost:8000/products/edit`, product);
 };
 
+const deleteProduct = (product_id) => {
+  console.log("deleteProduct ", product_id);
+  return deleteData("http://localhost:8000/products/delete", { product_id});
+};
+
+const markPurchased = (product_id) => {
+  console.log("fetchers", product_id)
+	return postData("http://localhost:8000/products/purchased", {product_id});
+};
+
+const unmarkPurchased = (product_id) => {
+	console.log("fetchers", product_id);
+	return postData("http://localhost:8000/products/unpurchased", { product_id });
+};
+
 export {
-  addProduct,
-  addCategory,
-  addFriends,
-  addUser,
-  getProductsForCategory,
-  getCategoriesForUser,
-  getProductsForUser,
-  editProduct,
+	addProduct,
+	addCategory,
+	addFriends,
+	addUser,
+	getProductsForCategory,
+	getCategoriesForUser,
+	getProductsForUser,
+	deleteProduct,
+	markPurchased,
+	unmarkPurchased,
+  editProduct
 };

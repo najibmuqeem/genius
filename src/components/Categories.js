@@ -25,7 +25,7 @@ export default function Categories(props) {
         count={category.count}
         sum={category.sum}
         getCategoryId={props.getCategoryId}
-        onButtonClick={props.onButtonClick}
+        onButtonClick={()=>{props.onButtonClick()}}
       />
     );
   });
