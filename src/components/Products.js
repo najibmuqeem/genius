@@ -3,7 +3,12 @@ import Header from "./Header.js";
 import Footer from "./Footer.js";
 import Tabs from "./Tabs.js";
 import "./components_styles/products.css";
-import { getProductsForCategory, deleteProduct, markPurchased } from "../fetchers.js";
+import {
+	getProductsForCategory,
+	deleteProduct,
+	markPurchased,
+	unmarkPurchased
+} from "../fetchers.js";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 //let classNames = require("classnames");
@@ -33,11 +38,17 @@ export default function Products(props) {
 		console.log("mark purchased ", id);
 		const newArrOfProduct = products.map((product) => {
       if (product.id === id) {
-        product.purchased = true;
+        if (product.purchased) {
+          product.purchased = false;
+          unmarkPurchased(id)
+        } else {
+          product.purchased = true;
+					markPurchased(id);
+        }
       }
       return product;
     });
-		markPurchased(id);
+		//markPurchased(id);
 		//console.log(newArrOfProduct);
 		setProducts(newArrOfProduct);
 		//console.log("new array", products);
