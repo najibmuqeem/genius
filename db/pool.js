@@ -36,7 +36,7 @@ const getCategoriesForUser = function (user_id) {
 const getProductsForCategory = function (user_id, category_id) {
   return pool.query(
     `
-    SELECT *
+    SELECT products.id, products.category_id, products.product_name, products.price, products.img_src, products.store_name, products.description, products.web_url, products.purchased, products.misc_info
     FROM products
     JOIN categories ON category_id = categories.id
     WHERE user_id = $1 AND category_id = $2;
@@ -186,6 +186,24 @@ const getPriceForCategory = function (user_id, category_id) {
   );
 };
 
+const editProduct = function (product) {
+  `
+  UPDATE products
+  SET product_name = $1, price = $2, img_src = $3, store_name = $4, description = $5, web_url = $6, purchased = $7
+  WHERE id = $8;
+  `,
+    [
+      product.name,
+      product.price,
+      product.img_src,
+      product.store_name,
+      product.description,
+      product.web_url,
+      product.purchased,
+      product.id,
+    ];
+};
+
 //export query functions
 module.exports = {
   getProductsForUser,
@@ -203,4 +221,5 @@ module.exports = {
   markPurchased,
   getNumProductsForCategory,
   getPriceForCategory,
+  editProduct,
 };

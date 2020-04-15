@@ -25,12 +25,14 @@ export default function Products(props) {
     // console.log(product);
     return (
       <Product
+        id={product.id}
         product_name={product.product_name}
         price={product.price / 100}
         description={product.description}
         store_name={product.store_name}
         img_src={product.img_src}
         web_url={product.web_url}
+        purchased={product.purchased}
       />
     );
   });

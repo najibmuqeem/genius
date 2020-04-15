@@ -43,6 +43,12 @@ router.post("/products", (req, res) => {
   });
 });
 
+router.post("/products/edit", (req, res) => {
+  db.editProduct(req.body).then((data) => {
+    res.json(data.rows[0]);
+  });
+});
+
 router.post("/categories", (req, res) => {
   db.addCategory(req.body.user_id, req.body.category_name).then((data) => {
     res.json(data.rows[0]);
