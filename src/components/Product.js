@@ -32,6 +32,7 @@ export default function Product(props) {
             store_name={props.store_name}
             web_url={props.web_url}
             purchased={props.purchased}
+            setEdit={setEdit}
           ></EditForm>
         </li>
       ) : (

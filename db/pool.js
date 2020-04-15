@@ -187,11 +187,14 @@ const getPriceForCategory = function (user_id, category_id) {
 };
 
 const editProduct = function (product) {
-  `
-  UPDATE products
-  SET product_name = $1, price = $2, img_src = $3, store_name = $4, description = $5, web_url = $6, purchased = $7
-  WHERE id = $8;
-  `,
+  console.log(product);
+  return pool.query(
+    `
+    UPDATE products
+    SET product_name = $1, price = $2, img_src = $3, store_name = $4, description = $5, web_url = $6
+    WHERE id = $7
+    RETURNING *;
+    `,
     [
       product.name,
       product.price,
@@ -199,9 +202,9 @@ const editProduct = function (product) {
       product.store_name,
       product.description,
       product.web_url,
-      product.purchased,
       product.id,
-    ];
+    ]
+  );
 };
 
 //export query functions

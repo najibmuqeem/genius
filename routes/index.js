@@ -45,6 +45,7 @@ router.post("/products", (req, res) => {
 
 router.post("/products/edit", (req, res) => {
   db.editProduct(req.body).then((data) => {
+    console.log(data.rows[0]);
     res.json(data.rows[0]);
   });
 });
