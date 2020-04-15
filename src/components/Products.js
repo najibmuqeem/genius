@@ -1,9 +1,11 @@
 import Product from "./Product.js";
 import Header from "./Header.js";
 import Footer from "./Footer.js";
+import Tabs from "./Tabs.js";
 import "./components_styles/products.css";
 import { getProductsForCategory } from "../fetchers.js";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 //let classNames = require("classnames");
 
 export default function Products(props) {
@@ -33,15 +35,13 @@ export default function Products(props) {
   });
 
   return (
-		(<>
-			<Header />
-			  <main>
-          <ul class="products">
-            {productList}
-          </ul>
-        </main>
-			<Footer />
-		</>)
-	);
+    <>
+      <Header />
+      <main>
+        <Tabs getCategoryId={props.getCategoryId} />
+        <ul class="products">{productList}</ul>
+      </main>
+      <Footer />
+    </>
+  );
 }
-
