@@ -1,4 +1,7 @@
 import Product from "./Product.js";
+import Header from "./Header.js";
+import Footer from "./Footer.js";
+import "./components_styles/products.css";
 import { getProductsForCategory } from "../fetchers.js";
 import React, { useState } from "react";
 //let classNames = require("classnames");
@@ -29,5 +32,16 @@ export default function Products(props) {
     );
   });
 
-  return <div class="products">{productList}</div>;
+  return (
+		(<>
+			<Header />
+			  <main>
+          <ul class="products">
+            {productList}
+          </ul>
+        </main>
+			<Footer />
+		</>)
+	);
 }
+

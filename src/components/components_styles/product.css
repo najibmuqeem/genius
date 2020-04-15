@@ -1,4 +1,5 @@
 .product-card {
   outline: 1px solid green;
-  width: 120px;
+  width: 200px;
+  margin: 10px 30px;
 }
