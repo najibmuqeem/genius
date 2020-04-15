@@ -1,6 +1,7 @@
 import Category from "./Category.js";
 import Header from "./Header.js";
 import Footer from "./Footer.js";
+import "./components_styles/categories.css";
 import { getCategoriesForUser } from "../fetchers.js";
 import React, { useState } from "react";
 //let classNames = require("classnames");
@@ -29,9 +30,8 @@ export default function Categories(props) {
   });
 
   return (
-    console.log("jo"),
     (
-      <div>
+      <>
         <Header />
         <main>
           <h1>Categories</h1>
@@ -41,7 +41,7 @@ export default function Categories(props) {
           <ul class="categories">{categoryList}</ul>
         </main>
         <Footer />
-      </div>
+      </>
     )
   );
 }

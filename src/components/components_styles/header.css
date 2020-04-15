@@ -1,49 +1,95 @@
-/* -----------------HEADER--------------------- */
-header {
-  outline: 1px solid red;
-  height: 100px;
-}
+  :root {
+    --warm-white: #FDFCF6;
+    --light-rose: #EAD2CE;
+    --melon: #EABDB6;
+    --dusty-rose: #C96A6C;
+    --bg-green-blue: #E5EBE7;
+    --mint: #bed3c3;
+    --main-green-blue: #4C8D99;
+    --navy: #212e53;
+    --dark-blue: #1B243D;
+  }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-}
+  /* -----------------HEADER--------------------- */
+  header {
+    background-color: var(--main-green-blue);
+    color: var(--warm-white);
+    font-size: 0.8em;
+    font-weight: 300;
+  }
 
-.main-nav {
-  display: flex;
-}
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 10px;
+  }
 
-.user-nav {
-  display: flex;
-}
+  .main-nav {
+    display: flex;
+    align-items: center;
+  }
 
-.friends {
-  width: 180px;
-}
+  .main-nav__item {
+    margin: 0 30px;
+  }
 
-.friends .user-nav__friends {
-  display: none;
-}
+  .user-nav {
+    display: flex;
+    align-items: center;
+  }
 
-.friends:hover .user-nav__friends {
-  display: block;
-}
+  .user-nav__item {
+    position: relative;
+    margin-right: 50px;
+  }
 
-.account {
-  width: 180px;
-}
+  .user-nav__item:hover p {
+    background-color: var(--light-rose);
+    opacity: 70%;
+    color: var(--main-green-blue);
+  }
 
-.account .user-nav__user {
-  display: none;
-}
+  .user-nav__item p {
+    padding: 20px 20px;
+  }
 
-.account:hover .user-nav__user {
-  display: block;
-}
+  .user-nav__friends {
+    position: absolute;
+    left: 0;
+    display: none;
+  }
 
-/* main: containers */
-.categories-container,
-.products-container {
-  height: 500px;
-  background-color: #a1a1a1;
-}
+  .friends:hover .user-nav__friends {
+    display: block;
+  }
+
+  .user-nav__item li {
+    width: 160px;
+    padding: 10px;
+    background-color: var(--mint);
+    color: var(--dusty-rose);
+    opacity: 100%;
+  }
+
+  .user-nav__item li:hover {
+    background-color: var(--bg-green-blue);
+    color: var(--dusty-rose)
+  }
+  
+  .user-nav__user {
+    position: absolute;
+    left: 0;
+    display: none;
+  }
+
+  .account:hover .user-nav__user {
+    display: block;
+  }
+
+  /* main: containers */
+  .categories-container,
+  .products-container {
+    height: 500px;
+    background-color: #a1a1a1;
+  }
