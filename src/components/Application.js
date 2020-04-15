@@ -10,7 +10,7 @@ function LoggedInApp(props) {
     <Router>
       <Switch>
         <Route path="/products">
-          <Products id={props.categoryId} />
+          <Products id={props.categoryId} getCategoryId={props.getCategoryId} />
         </Route>
         <Route path="/">
           <Categories getCategoryId={props.getCategoryId} />
@@ -28,7 +28,10 @@ export default function Application() {
   };
   const getCategoryId = (id) => {
     console.log(id);
-    setCategoryId(id);
+    if (id !== categoryId) {
+      setCategoryId(id);
+    }
+    console.log(id);
   };
 
   return state ? (
