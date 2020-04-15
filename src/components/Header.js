@@ -1,41 +1,38 @@
+import "./components_styles/header.css";
 import React from "react";
-
 
 export default function Header() {
   return (
 		<header>
 			<nav>
 				<ul class="main-nav">
-		
 					<li class="main-nav__item">
 						<img
-							src="stylesheets/images/genius.png"
+							src="stylesheets/images/genius_green_blue.png"
 							alt="Genius Logo"
-							
-							width="42"
+							width="100"
 						/>
 					</li>
+					<li class="main-nav__item"><a href="#">Home</a></li>
 				</ul>
 				<ul class="user-nav">
-					<li class="user-nav__item">
-						<div class="friends">
-							Friends
-							<ul class="user-nav__friends">
-								<li class="user-nav__friend">Rachel Green</li>	
-								<li class="user-nav__friend">Ross Geller</li>
-							</ul>
-						</div>
+					<li class="user-nav__item friends">
+						<p>Friends</p>
+						<ul class="user-nav__friends">
+							<li class="user-nav__friend">Monica Geller</li>
+							<li class="user-nav__friend">Ross Geller</li>
+						</ul>
+					</li>
+					<li class="user-nav__item account">
+						<p>Welcome, Rachel</p>
+						<ul class="user-nav__user">
+							<li class="user-nav__friend">Profile</li>
+							<li class="user-nav__friend">Purchase history</li>
+						</ul>
 					</li>
 					<li class="user-nav__item">
-						<div class="account">
-							Welcome, username
-							<ul class="user-nav__user">
-								<li class="user-nav__friend">Profile</li>
-								<li class="user-nav__friend">Purchase history</li>
-							</ul>
-						</div>
+						<p>Log out</p>
 					</li>
-					<li class="user-nav__item">Log out</li>
 				</ul>
 			</nav>
 		</header>

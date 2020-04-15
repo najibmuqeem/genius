@@ -1,17 +1,18 @@
 import React from "react";
+import "./components_styles/login.css";
 import { Link, BrowserRouter as Router } from "react-router-dom";
-import Categories from "./Categories";
+
 
 export default function Login(props) {
   return (
     <Router>
       <main class="login-main">
-        <section class="half-page logo-section">
+        <section class="logo-section">
           <div class="logo-container">
             <img src="stylesheets/images/genius_warm_white.png" alt="Genius" />
           </div>
         </section>
-        <section class="half-page login-section">
+        <section class="login-section">
           <div class="login-container">
             <h1>welcome</h1>
             <h2>login to continue</h2>
