@@ -1,8 +1,20 @@
 import "./components_styles/header.css";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { getFriendsForUser } from "../fetchers.js";
 
 export default function Header() {
+  const [friends, setFriends] = useState([]);
+
+  useEffect(() => {
+		getFriendsForUser(1).then((res) => {
+      setFriends(() => res);
+      console.log(res)
+		});
+  });
+  
+  
+
   return (
     <header>
       <nav>
