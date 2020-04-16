@@ -40,17 +40,9 @@ export default function EditForm(props) {
           <img width="100" height="100" src={props.img_src} />
           <p>{props.description}</p>
           <p>{props.store_name}</p>
-          <Button onButtonClick={() => props.onDeleteClick(props.id)}>
-            Delete
-          </Button>
-          <Button
-            onButtonClick={() => {
-              props.onSoldClick(props.id);
-            }}
-          >
-            Mark purchased
-          </Button>
-          <Button id={props.id} onButtonClick={() => props.setEdit(true)}>
+          <Button onButtonClick={props.onDeleteClick}>Delete</Button>
+          <Button onButtonClick={props.onSoldClick}>Mark purchased</Button>
+          <Button id={props.id} onButtonClick={props.setEdit}>
             Edit
           </Button>
         </li>
