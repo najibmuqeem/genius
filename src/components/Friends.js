@@ -1,4 +1,4 @@
-import ViewCard from "./ViewCard.js";
+import CopyFriend from "./CopyFriend.js";
 import Header from "./Header.js";
 import Footer from "./Footer.js";
 import { getProductsForUser } from "../fetchers.js";
@@ -22,12 +22,14 @@ export default function Friends() {
   const productList = products.map((product) => {
     console.log(product);
     return (
-      <ViewCard
+      <CopyFriend
+        id={product.id}
         product_name={product.product_name}
         price={product.price / 100}
         description={product.description}
         store_name={product.store_name}
         img_src={product.img_src}
+        web_url={product.web_url}
       />
     );
   });
