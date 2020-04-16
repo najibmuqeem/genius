@@ -19,6 +19,13 @@
   border-radius: 15px;
 }
 
+.category-private::before {
+  content: "private";
+  display: block;
+  
+  background-color: #fff;
+}
+
 .category img {
   display: block;
   margin: 0 auto;

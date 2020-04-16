@@ -34,7 +34,7 @@ const deleteProduct = function (product_id) {
 const getCategoriesForUser = function (user_id) {
   return pool.query(
     `
-    SELECT categories.id, categories.category_name, count(products.id), sum(products.price)
+    SELECT categories.id, categories.category_name, categories.public, count(products.id), sum(products.price)
     FROM categories
     JOIN products ON category_id = categories.id
     WHERE user_id = $1

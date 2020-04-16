@@ -26,6 +26,7 @@ export default function Categories(props) {
         name={category.category_name}
         count={category.count}
         sum={category.sum}
+        public={category.public}
         getCategoryId={props.getCategoryId}
         onButtonClick={()=>{props.onButtonClick()}}
       />
