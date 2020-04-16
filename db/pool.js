@@ -50,7 +50,8 @@ const getProductsForCategory = function (user_id, category_id) {
     SELECT products.id, products.category_id, products.product_name, products.price, products.img_src, products.store_name, products.description, products.web_url, products.purchased
     FROM products
     JOIN categories ON category_id = categories.id
-    WHERE user_id = $1 AND category_id = $2;
+    WHERE user_id = $1 AND category_id = $2
+    ORDER BY products.product_name;
     `,
     [user_id, category_id]
   );
