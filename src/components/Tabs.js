@@ -1,6 +1,9 @@
+import Tab from "./Tab.js";
+import "./components_styles/tabs.css";
 import { getCategoriesForUser } from "../fetchers.js";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+let classNames = require("classnames");
 
 export default function Tabs(props) {
   const [categories, setCategories] = useState([]);
@@ -9,22 +12,28 @@ export default function Tabs(props) {
 		getCategoriesForUser(1).then((res) => {
 			setCategories(() => res);
 		});
-  }
+	}
+	
+	console.log(props.activeTab);
   
 	const categoryList = categories.map((category) => {
-    console.log(category)
-		return (
-      <li>
-			  <Link to="/products">
-			  	<h4 onClick={() => props.getCategoryId(category.id)}>{category.category_name}</h4>
-			  </Link>
-      </li>
-		);
+		let active;
+		if (props.activeTab === category.id) {
+			active = true;
+		}
+			return (
+				<Tab
+					getCategoryId={props.getCategoryId}
+					category_name={category.category_name}
+					id={category.id}
+					activeTab={active}
+				/>
+			);
 	});
 
 
   return (
-    <ul>
+    <ul class="tabs">
       {categoryList}
     </ul>
   );

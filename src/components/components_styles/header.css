@@ -49,11 +49,23 @@
   }
 
   .user-nav__item:hover p,
-  .main-nav__item:hover a{
-    background-color: var(--light-rose);
-    opacity: 70%;
-    color: var(--main-green-blue);
+  .main-nav__item:hover a {
+    color: var(--warm-white);
+    position: relative;
+  }
 
+  .user-nav__item:hover p::before,
+  .main-nav__item:hover a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0.2;
+    transition-property: background-color, opacity;
+    transition-duration: 0.6s;
   }
 
   .user-nav__item p {

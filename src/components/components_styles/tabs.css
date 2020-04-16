@@ -1,0 +1,16 @@
+.tabs {
+  display: flex;
+  justify-content: flex-start;
+  align-content: stretch;
+  padding: 10px;
+  background-color: var(--main-green-blue);
+}
+
+.tab {
+  margin-right: 15px;
+  padding: 10px;
+}
+
+.active-tab {
+  background-color: #fff;
+}
