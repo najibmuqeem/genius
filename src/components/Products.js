@@ -21,10 +21,14 @@ export default function Products(props) {
   let a = getProductsForCategory(1, props.id);
   console.log(a);
 
-  useEffect(() => {
+  const viewAll = () => {
     getProductsForCategory(1, props.id).then((res) => {
       setProducts(() => res);
     });
+  };
+
+  useEffect(() => {
+    viewAll();
   }, [props.id]);
 
   const deleteProduct1 = (id) => {
@@ -68,12 +72,6 @@ export default function Products(props) {
 
   const filterProducts = (products) => {
     setProducts(products);
-  };
-
-  const viewAll = () => {
-    getProductsForCategory(1, props.id).then((res) => {
-      setProducts(() => res);
-    });
   };
 
   console.log("current products", products);
