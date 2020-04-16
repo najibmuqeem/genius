@@ -2,6 +2,7 @@ import Product from "./Product.js";
 import Header from "./Header.js";
 import Footer from "./Footer.js";
 import Tabs from "./Tabs.js";
+import Filter from "./Filter.js";
 import "./components_styles/products.css";
 import {
   getProductsForCategory,
@@ -65,6 +66,10 @@ export default function Products(props) {
     });
   };
 
+  const filterProducts = (products) => {
+    setProducts(products);
+  };
+
   console.log("current products", products);
   const productList = products.map((product) => {
     //console.log(product);
@@ -90,6 +95,11 @@ export default function Products(props) {
       <Header />
       <main>
         <Tabs getCategoryId={props.getCategoryId} activeTab={props.id} />
+        <Filter
+          category_id={props.id}
+          filterProducts={filterProducts}
+          products={productList}
+        ></Filter>
         <ul class="products">{productList}</ul>
       </main>
       <Footer />

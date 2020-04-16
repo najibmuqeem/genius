@@ -47,14 +47,28 @@ router.get("/categories/:user_id", (req, res) => {
   });
 });
 
-router.post("/products", (req, res) => {
-  console.log("create product", req.body)
-  db.addProduct(req.body).then((data) => {
-    res.json(data.rows[0]);
-  }).catch((err)=>{
-    console.log(err);
-    res.status(500)
+router.get("/filter/:uid/:cid/:min/:max", (req, res) => {
+  console.log(req.params);
+  db.filterByPrice(
+    req.params.uid,
+    req.params.cid,
+    req.params.min,
+    req.params.max
+  ).then((data) => {
+    res.json(data.rows);
   });
+});
+
+router.post("/products", (req, res) => {
+  console.log("create product", req.body);
+  db.addProduct(req.body)
+    .then((data) => {
+      res.json(data.rows[0]);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500);
+    });
 });
 
 router.post("/products/edit", (req, res) => {

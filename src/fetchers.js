@@ -134,6 +134,12 @@ const getFriendsForUser = (user_id) => {
   });
 };
 
+const filterByPrice = (user_id, category_id, min_price, max_price) => {
+  return getData(
+    `http://localhost:8000/filter/${user_id}/${category_id}/${min_price}/${max_price}`
+  );
+};
+
 export {
   addProduct,
   addCategory,
@@ -148,4 +154,5 @@ export {
   editProduct,
   getPurchased,
   getFriendsForUser,
+  filterByPrice,
 };
