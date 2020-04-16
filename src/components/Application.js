@@ -1,8 +1,8 @@
 import Login from "./Login";
 import Categories from "./Categories";
+import Friends from "./Friends";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ProductsForFriends from "./ProductsForFriends";
 import Products from "./Products";
 
 function LoggedInApp(props) {
@@ -12,10 +12,15 @@ function LoggedInApp(props) {
         <Route path="/products">
           <Products id={props.categoryId} getCategoryId={props.getCategoryId} />
         </Route>
+        <Route path="/friends">
+          <Friends />
+        </Route>
         <Route path="/">
-          <Categories 
-          getCategoryId={props.getCategoryId} 
-          onButtonClick={()=>{console.log("click from app")}}
+          <Categories
+            getCategoryId={props.getCategoryId}
+            onButtonClick={() => {
+              console.log("click from app");
+            }}
           />
         </Route>
       </Switch>

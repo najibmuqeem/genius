@@ -17,26 +17,26 @@ async function postData(url = "", data = {}) {
 }
 
 async function deleteData(url = "", data = {}) {
-	// Default options are marked with *
-	const response = await fetch(url, {
-		method: "POST", // *GET, POST, PUT, DELETE, etc.
-		mode: "cors", // no-cors, *cors, same-origin
-		cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-		credentials: "same-origin", // include, *same-origin, omit
-		headers: {
-			"Content-Type": "application/json",
-			// 'Content-Type': 'application/x-www-form-urlencoded',
-		},
-		redirect: "follow", // manual, *follow, error
-		referrerPolicy: "no-referrer", // no-referrer, *client
-		body: JSON.stringify(data), // body data type must match "Content-Type" header
-	});
-	return; //response.json(); // parses JSON response into native JavaScript objects
+  // Default options are marked with *
+  const response = await fetch(url, {
+    method: "POST", // *GET, POST, PUT, DELETE, etc.
+    mode: "cors", // no-cors, *cors, same-origin
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "same-origin", // include, *same-origin, omit
+    headers: {
+      "Content-Type": "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: "follow", // manual, *follow, error
+    referrerPolicy: "no-referrer", // no-referrer, *client
+    body: JSON.stringify(data), // body data type must match "Content-Type" header
+  });
+  return; //response.json(); // parses JSON response into native JavaScript objects
 }
 
 async function getData(url = "", data = {}) {
   //Default options are marked with *
-  
+
   const response = await fetch(url, {
     //method: "GET", // *GET, POST, PUT, DELETE, etc.
     mode: "cors", // no-cors, *cors, same-origin
@@ -74,7 +74,9 @@ const addUser = (username, email, birthday, avatar) => {
 };
 
 const getProductsForCategory = (user_id, category_id) => {
-  return getData(`http://localhost:8000/products/c/${category_id}`, { user_id });
+  return getData(`http://localhost:8000/products/c/${category_id}`, {
+    user_id,
+  });
 };
 
 const getCategoriesForUser = (user_id) => {
@@ -82,33 +84,33 @@ const getCategoriesForUser = (user_id) => {
 };
 
 const getProductsForUser = (user_id) => {
-  return getData(`http://localhost:8000/products/u/${user_id}`);
+  return getData(`http://localhost:8000/products/friends`);
 };
 
 const deleteProduct = (product_id) => {
   console.log("deleteProduct ", product_id);
-  return deleteData("http://localhost:8000/products/delete", { product_id});
+  return deleteData("http://localhost:8000/products/delete", { product_id });
 };
 
 const markPurchased = (product_id) => {
-  console.log("fetchers", product_id)
-	return postData("http://localhost:8000/products/purchased", {product_id});
+  console.log("fetchers", product_id);
+  return postData("http://localhost:8000/products/purchased", { product_id });
 };
 
 const unmarkPurchased = (product_id) => {
-	console.log("fetchers", product_id);
-	return postData("http://localhost:8000/products/unpurchased", { product_id });
+  console.log("fetchers", product_id);
+  return postData("http://localhost:8000/products/unpurchased", { product_id });
 };
 
 export {
-	addProduct,
-	addCategory,
-	addFriends,
-	addUser,
-	getProductsForCategory,
-	getCategoriesForUser,
-	getProductsForUser,
-	deleteProduct,
-	markPurchased,
-	unmarkPurchased
+  addProduct,
+  addCategory,
+  addFriends,
+  addUser,
+  getProductsForCategory,
+  getCategoriesForUser,
+  getProductsForUser,
+  deleteProduct,
+  markPurchased,
+  unmarkPurchased,
 };
