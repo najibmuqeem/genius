@@ -46,6 +46,7 @@ router.post("/products/edit", (req, res) => {
     console.log(data.rows[0]);
     res.json(data.rows[0]);
   });
+});
 
 router.post("/products/delete", (req, res) => {
   //console.log(req.body.product_id);
