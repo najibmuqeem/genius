@@ -50,9 +50,8 @@ nav {
 
 .user-nav__item:hover p,
 .main-nav__item:hover a {
-  background-color: var(--light-rose);
-  opacity: 70%;
-  color: var(--main-green-blue);
+  position: relative;
+  color: var(--warm-white);
   cursor: default;
   transition: all 0.25s ease-in;
 }
