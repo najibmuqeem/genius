@@ -83,6 +83,10 @@ const getCategoriesForUser = (user_id) => {
   return getData(`http://localhost:8000/categories/${user_id}`);
 };
 
+const getPurchased = (user_id) => {
+  return getData(`http://localhost:8000/products/purchase-history`);
+};
+
 const getProductsForUser = (user_id) => {
   return getData(`http://localhost:8000/products/friends`);
 };
@@ -107,17 +111,16 @@ const unmarkPurchased = (product_id) => {
 };
 
 export {
-
-	addProduct,
-	addCategory,
-	addFriends,
-	addUser,
-	getProductsForCategory,
-	getCategoriesForUser,
-	getProductsForUser,
-	deleteProduct,
-	markPurchased,
-	unmarkPurchased,
-  editProduct
-
+  addProduct,
+  addCategory,
+  addFriends,
+  addUser,
+  getProductsForCategory,
+  getCategoriesForUser,
+  getProductsForUser,
+  deleteProduct,
+  markPurchased,
+  unmarkPurchased,
+  editProduct,
+  getPurchased,
 };
