@@ -25,6 +25,9 @@ export default function Product(props) {
             web_url={props.web_url}
             purchased={props.purchased}
             setEdit={setEdit}
+            submit={props.onEditSubmit}
+            onDeleteClick={props.onDeleteClick}
+            onSoldClick={props.onSoldClick}
           ></EditForm>
         </li>
       ) : (
@@ -52,7 +55,7 @@ export default function Product(props) {
           >
             Mark purchased
           </Button>
-          <Button>Edit</Button>
+          <Button onButtonClick={() => setEdit(true)}>Edit</Button>
         </li>
       )}
     </>

@@ -25,24 +25,32 @@ export default function EditForm(props) {
       web_url: e.target.web_url.value,
       id: props.id,
     };
-    editProduct(product).then((response) => {
-      setProduct(response);
-      setSubmitted(true);
-    });
+    props.submit(product);
+    setSubmitted(true);
+    setProduct(product);
   };
   return (
     <div>
       {submitted ? (
         <li class="product-card">
           <h4>
-            <a href={product.web_url}>{product.name}</a>
+            <a href={props.web_url}>{props.name}</a>
           </h4>
-          <p>${product.price}</p>
-          <img width="100" height="100" src={product.img_src} />
-          <p>{product.description}</p>
-          <p>{product.store_name}</p>
-          <Button>Delete</Button>
-          <Button id={product.id} onButtonClick={() => props.setEdit(true)}>
+          <p>${props.price}</p>
+          <img width="100" height="100" src={props.img_src} />
+          <p>{props.description}</p>
+          <p>{props.store_name}</p>
+          <Button onButtonClick={() => props.onDeleteClick(props.id)}>
+            Delete
+          </Button>
+          <Button
+            onButtonClick={() => {
+              props.onSoldClick(props.id);
+            }}
+          >
+            Mark purchased
+          </Button>
+          <Button id={props.id} onButtonClick={() => props.setEdit(true)}>
             Edit
           </Button>
         </li>
