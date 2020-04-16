@@ -70,7 +70,6 @@ router.post("/products", (req, res) => {
       res.status(500);
     });
 });
-
 router.post("/products/edit", (req, res) => {
   db.editProduct(req.body).then((data) => {
     console.log(data.rows[0]);
@@ -122,4 +121,10 @@ router.post("/users", (req, res) => {
   });
 });
 
+router.post("/products", (req, res) => {
+  console.log("hitting route", req.body);
+  db.addProduct(req.body).then((data) => {
+    res.json(data.rows[0]);
+  });
+});
 module.exports = router;

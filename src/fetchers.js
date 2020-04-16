@@ -71,7 +71,8 @@ async function getData(url = "", data = {}) {
 }
 
 const addProduct = (product) => {
-  postData("http://localhost:8000/products", product);
+  console.log(product);
+  return postData("http://localhost:8000/products", product);
 };
 
 const addCategory = (user_id, category_name) => {
@@ -114,17 +115,14 @@ const editProduct = (product) => {
 };
 
 const deleteProduct = (product_id) => {
-  console.log("deleteProduct ", product_id);
   return deleteData("http://localhost:8000/products/delete", { product_id });
 };
 
 const markPurchased = (product_id) => {
-  console.log("fetchers", product_id);
   return postData("http://localhost:8000/products/purchased", { product_id });
 };
 
 const unmarkPurchased = (product_id) => {
-  console.log("fetchers", product_id);
   return postData("http://localhost:8000/products/unpurchased", { product_id });
 };
 

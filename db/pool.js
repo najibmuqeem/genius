@@ -108,6 +108,10 @@ const addUser = function (username, email, birthday, avatar) {
   );
 };
 
+const addFriendProduct = function () {
+  return pool.query(`INSERT INTO products()`);
+};
+
 const addCategory = function (user_id, category_name) {
   return pool.query(
     `
@@ -129,23 +133,26 @@ const addFriends = function (user_1_id, user_2_id) {
 };
 
 const addProduct = function (product) {
-  let price = 100 * Number(product.price.substring(1));
-
+  console.log("Hitting Pool", product.category_id);
+  let price;
+  if (typeof product.price === "string") {
+    price = 100 * Number(product.price.substring(1));
+  } else {
+    price = 100 * product.price;
+  }
   return pool.query(
     `
-    INSERT INTO products (category_id, product_name, price, img_src, store_name, description, web_url, purchased, misc_info) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+    INSERT INTO products (category_id, product_name, price, img_src, store_name, description, web_url) VALUES ($1, $2, $3, $4, $5, $6, $7)
     RETURNING *;
     `,
     [
-      product.category_id,
+      Number(product.category_id),
       product.product_name,
       price,
       product.img_src,
       product.store_name,
       product.description,
       product.web_url,
-      product.purchased,
-      product.misc_info,
     ]
   );
 };

@@ -2,9 +2,20 @@
   outline: 1px solid green;
   width: 300px;
   margin: 10px 30px;
-  
 }
 
 .product-purchased {
   background-color: red;
 }
+
+.filter-category {
+  display: none;
+}
+
+.show {
+  display: inline;
+}
+
+/* .hide {
+  display: none;
+} */
