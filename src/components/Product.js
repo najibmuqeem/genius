@@ -12,7 +12,7 @@ export default function Product(props) {
   const [edit, setEdit] = useState(false);
 
   return (
-    <div>
+    <>
       {edit ? (
         <li class="product-card">
           <EditForm
@@ -55,6 +55,6 @@ export default function Product(props) {
           <Button>Edit</Button>
         </li>
       )}
-    </div>
+    </>
   );
 }
