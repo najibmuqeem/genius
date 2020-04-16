@@ -4,6 +4,7 @@ import { filterByPrice } from "../fetchers.js";
 //let classNames = require("classnames");
 
 export default function Filter(props) {
+  const [filtered, setFiltered] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     filterByPrice(
@@ -15,9 +16,22 @@ export default function Filter(props) {
       console.log(res);
       props.filterProducts(res);
     });
+    setFiltered(true);
   };
   return (
-    <div>
+    <span>
+      {filtered ? (
+        <Button
+          onButtonClick={() => {
+            setFiltered(false);
+            props.viewAll();
+          }}
+        >
+          View All
+        </Button>
+      ) : (
+        <div></div>
+      )}
       <form onSubmit={handleSubmit}>
         <label>
           Minimum: $<input name="min_price" type="text"></input>
@@ -25,8 +39,8 @@ export default function Filter(props) {
         <label>
           Maximum: $<input name="max_price" type="text"></input>
         </label>
-        <input type="submit" value="Submit"></input>
+        <input type="submit" value="Filter"></input>
       </form>
-    </div>
+    </span>
   );
 }

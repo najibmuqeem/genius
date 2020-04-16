@@ -70,6 +70,12 @@ export default function Products(props) {
     setProducts(products);
   };
 
+  const viewAll = () => {
+    getProductsForCategory(1, props.id).then((res) => {
+      setProducts(() => res);
+    });
+  };
+
   console.log("current products", products);
   const productList = products.map((product) => {
     //console.log(product);
@@ -99,6 +105,7 @@ export default function Products(props) {
           category_id={props.id}
           filterProducts={filterProducts}
           products={productList}
+          viewAll={viewAll}
         ></Filter>
         <ul class="products">{productList}</ul>
       </main>
