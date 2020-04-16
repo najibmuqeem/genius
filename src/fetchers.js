@@ -87,6 +87,10 @@ const getProductsForUser = (user_id) => {
   return getData(`http://localhost:8000/products/friends`);
 };
 
+const editProduct = (product) => {
+  return postData(`http://localhost:8000/products/edit`, product);
+};
+
 const deleteProduct = (product_id) => {
   console.log("deleteProduct ", product_id);
   return deleteData("http://localhost:8000/products/delete", { product_id });
@@ -103,14 +107,17 @@ const unmarkPurchased = (product_id) => {
 };
 
 export {
-  addProduct,
-  addCategory,
-  addFriends,
-  addUser,
-  getProductsForCategory,
-  getCategoriesForUser,
-  getProductsForUser,
-  deleteProduct,
-  markPurchased,
-  unmarkPurchased,
+
+	addProduct,
+	addCategory,
+	addFriends,
+	addUser,
+	getProductsForCategory,
+	getCategoriesForUser,
+	getProductsForUser,
+	deleteProduct,
+	markPurchased,
+	unmarkPurchased,
+  editProduct
+
 };

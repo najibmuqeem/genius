@@ -60,6 +60,7 @@ export default function Products(props) {
   const productList = products.map((product) => {
     console.log(product);
     return (
+
 			<Product
 				id={product.id}
 				product_name={product.product_name}
@@ -73,6 +74,7 @@ export default function Products(props) {
 				onSoldClick={markSold}
 			/>
 		);
+
   });
 
   return (

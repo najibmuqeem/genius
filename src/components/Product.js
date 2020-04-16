@@ -1,6 +1,8 @@
 import Button from "./Button.js";
 import "./components_styles/product.css";
-import React from "react";
+
+import React, { useState } from "react";
+import EditForm from "./EditForm.js";
 let classNames = require("classnames");
 
 export default function Product(props) {
@@ -8,9 +10,26 @@ export default function Product(props) {
 		"product-purchased": props.purchased
 		
 	});
-  
-	return (
-		<li class={productClass}>
+  const [edit, setEdit] = useState(false);
+
+  return (
+    <div>
+      {edit ? (
+        <li class="product-card">
+          <EditForm
+            id={props.id}
+            name={props.product_name}
+            price={props.price}
+            img_src={props.img_src}
+            description={props.description}
+            store_name={props.store_name}
+            web_url={props.web_url}
+            purchased={props.purchased}
+            setEdit={setEdit}
+          ></EditForm>
+        </li>
+      ) : (
+        <li class={productClass}>
 			<h4>
 				<a href={props.web_url}>{props.product_name}</a>
 			</h4>
@@ -22,5 +41,8 @@ export default function Product(props) {
 			<Button onButtonClick={()=>{props.onSoldClick(props.id)}}>Mark purchased</Button>
 			<Button>Edit</Button>
 		</li>
-	);
+      )}
+    </div>
+  );
+
 }
