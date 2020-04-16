@@ -78,13 +78,13 @@ export default function Products(props) {
   });
 
   return (
-    <>
-      <Header />
-      <main>
-        <Tabs getCategoryId={props.getCategoryId} />
-        <ul class="products">{productList}</ul>
-      </main>
-      <Footer />
-    </>
-  );
+		<>
+			<Header />
+			<main>
+				<Tabs getCategoryId={props.getCategoryId} activeTab={props.id} />
+				<ul class="products">{productList}</ul>
+			</main>
+			<Footer />
+		</>
+	);
 }
