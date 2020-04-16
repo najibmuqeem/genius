@@ -4,10 +4,11 @@ import Footer from "./Footer.js";
 import Tabs from "./Tabs.js";
 import "./components_styles/products.css";
 import {
-	getProductsForCategory,
-	deleteProduct,
-	markPurchased,
-	unmarkPurchased
+  getProductsForCategory,
+  deleteProduct,
+  markPurchased,
+  unmarkPurchased,
+  editProduct,
 } from "../fetchers.js";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -35,56 +36,63 @@ export default function Products(props) {
   };
 
   const markSold = (id) => {
-		console.log("mark purchased ", id);
-		const newArrOfProduct = products.map((product) => {
+    console.log("mark purchased ", id);
+    const newArrOfProduct = products.map((product) => {
       if (product.id === id) {
         if (product.purchased) {
           product.purchased = false;
-          unmarkPurchased(id)
+          unmarkPurchased(id);
         } else {
           product.purchased = true;
-					markPurchased(id);
+          markPurchased(id);
         }
       }
       return product;
     });
-		//markPurchased(id);
-		//console.log(newArrOfProduct);
-		setProducts(newArrOfProduct);
-		//console.log("new array", products);
-	};
+    //markPurchased(id);
+    //console.log(newArrOfProduct);
+    setProducts(newArrOfProduct);
+    //console.log("new array", products);
+  };
 
-
+  const editProduct1 = (oldProduct) => {
+    editProduct(oldProduct).then((res) => {
+      const newArrOfProduct = products.filter(
+        (product) => product.id !== oldProduct.id
+      );
+      newArrOfProduct.push(res);
+      setProducts(newArrOfProduct);
+    });
+  };
 
   console.log("current products", products);
   const productList = products.map((product) => {
     //console.log(product);
     return (
-
-			<Product
-				id={product.id}
-				product_name={product.product_name}
-				price={product.price / 100}
-				description={product.description}
-				store_name={product.store_name}
-				img_src={product.img_src}
-				web_url={product.web_url}
-				purchased={product.purchased}
-				onDeleteClick={deleteProduct1}
-				onSoldClick={markSold}
-			/>
-		);
-
+      <Product
+        id={product.id}
+        product_name={product.product_name}
+        price={product.price / 100}
+        description={product.description}
+        store_name={product.store_name}
+        img_src={product.img_src}
+        web_url={product.web_url}
+        purchased={product.purchased}
+        onDeleteClick={deleteProduct1}
+        onSoldClick={markSold}
+        onEditSubmit={editProduct1}
+      />
+    );
   });
 
   return (
-		<>
-			<Header />
-			<main>
-				<Tabs getCategoryId={props.getCategoryId} activeTab={props.id} />
-				<ul class="products">{productList}</ul>
-			</main>
-			<Footer />
-		</>
-	);
+    <>
+      <Header />
+      <main>
+        <Tabs getCategoryId={props.getCategoryId} activeTab={props.id} />
+        <ul class="products">{productList}</ul>
+      </main>
+      <Footer />
+    </>
+  );
 }
