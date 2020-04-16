@@ -1,6 +1,6 @@
 import React from "react";
 import "./components_styles/login.css";
-import { Link, BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 
 export default function Login(props) {

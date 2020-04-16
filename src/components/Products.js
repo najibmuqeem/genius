@@ -58,7 +58,7 @@ export default function Products(props) {
 
   console.log("current products", products);
   const productList = products.map((product) => {
-    console.log(product);
+    //console.log(product);
     return (
 
 			<Product

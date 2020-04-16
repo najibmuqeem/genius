@@ -6,15 +6,21 @@ import { getFriendsForUser } from "../fetchers.js";
 export default function Header() {
   const [friends, setFriends] = useState([]);
 
-  useEffect(() => {
+  if (friends.length === 0) {
 		getFriendsForUser(1).then((res) => {
       setFriends(() => res);
-      console.log(res)
+      console.log(res);
 		});
-  });
+  }
   
+  const friendsList = friends.map((friend) => {
+    return (
+			<Link to="/friends">
+				<li class="user-nav__friend">{friend.username}</li>
+			</Link>
+		);
+  })
   
-
   return (
     <header>
       <nav>
@@ -38,10 +44,7 @@ export default function Header() {
           <li class="user-nav__item friends">
             <p>Friends</p>
             <ul class="user-nav__friends">
-              <Link to="/friends">
-                <li class="user-nav__friend">Monica Geller</li>
-              </Link>
-              <li class="user-nav__friend">Ross Geller</li>
+              {friendsList}
             </ul>
           </li>
           <li class="user-nav__item account">
