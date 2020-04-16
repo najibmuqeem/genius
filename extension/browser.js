@@ -1,6 +1,5 @@
 let product = {};
 
-//
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   console.log("COMPLETE");
 
@@ -23,7 +22,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   const dollarFinder = (node) => {
     let child, next;
     if (node.nodeType === 3) {
-      console.log(node);
+      //console.log(node);
       if (
         (node.nodeValue.includes("$") || node.nodeValue.includes("CAD")) &&
         node.nodeValue.length < 40
@@ -32,12 +31,12 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         return foundPrice;
       }
     } else {
-      console.log("go to childnodes");
+      //console.log("go to childnodes");
       child = node.firstChild;
       while (child) {
         next = child.nextSibling;
         foundPrice = dollarFinder(child);
-        console.log("found price " + foundPrice);
+        //console.log("found price " + foundPrice);
         if (foundPrice) {
           productPrice = foundPrice;
           break;
@@ -53,17 +52,17 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     for (let selector of priceSelectors) {
       let priceElement = document.querySelector(selector);
       if (priceElement) {
-        console.log(priceElement.innerText);
+        //console.log(priceElement.innerText);
         if (priceElement.children.length === 0) {
-          console.log("return inner text");
-          console.log(priceElement);
-          console.log(priceElement.innerText);
+          //console.log("return inner text");
+          //console.log(priceElement);
+          //console.log(priceElement.innerText);
           foundPrice = priceElement.innerText;
           return foundPrice;
         } else {
-          console.log("go and search deeper");
+          //console.log("go and search deeper");
           dollarFinder(priceElement);
-          console.log("dollarFinder found " + foundPrice);
+          //console.log("dollarFinder found " + foundPrice);
           return foundPrice;
         }
       }
@@ -71,7 +70,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   };
 
   productPrice = priceFinder();
-  console.log("priceFinder found " + productPrice);
+  //console.log("priceFinder found " + productPrice);
 
   // function to convert price to number
   function priceToNumber(str) {
@@ -86,7 +85,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
   //product URL
   let productUrl = window.location.href;
-  console.log("URL ", productUrl);
+  //console.log("URL ", productUrl);
   product.url = productUrl;
 
   //store Name
@@ -97,7 +96,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     upper = pre.charAt(0).toUpperCase();
     rest = pre.slice(1);
     store = upper + rest;
-    console.log(store);
+    //console.log(store);
     return store;
   };
 

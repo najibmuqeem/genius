@@ -235,6 +235,18 @@ const editProduct = function (product) {
   );
 };
 
+const filterByPrice = function (user_id, category_id, min_price, max_price) {
+  return pool.query(
+    `
+    SELECT products.id, products.category_id, products.product_name, products.price, products.img_src, products.store_name, products.description, products.web_url, products.purchased
+    FROM products
+    JOIN categories ON category_id = categories.id
+    WHERE user_id = $1 AND category_id = $2 AND price >= $3 AND price <= $4;
+    `,
+    [user_id, category_id, min_price, max_price]
+  );
+};
+
 //export query functions
 module.exports = {
   getProductsForUser,
@@ -255,4 +267,5 @@ module.exports = {
   editProduct,
   unmarkPurchased,
   deleteProduct,
+  filterByPrice,
 };

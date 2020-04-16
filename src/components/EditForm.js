@@ -28,7 +28,9 @@ export default function EditForm(props) {
     props.submit(product);
     setSubmitted(true);
     setProduct(product);
+    props.setEdit(false);
   };
+
   return (
     <div>
       {submitted ? (
