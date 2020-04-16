@@ -1,4 +1,4 @@
-import Product from "./Product.js";
+import ViewCard from "./ViewCard.js";
 import Header from "./Header.js";
 import Footer from "./Footer.js";
 import { getPurchased } from "../fetchers.js";
@@ -15,7 +15,7 @@ export default function Purchased() {
   }
   const purchasedList = purchased.map((product) => {
     return (
-      <Product
+      <ViewCard
         product_name={product.product_name}
         price={product.price / 100}
         description={product.description}
