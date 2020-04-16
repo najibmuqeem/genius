@@ -1,94 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" src="favicon.ico" />
-  <link rel="stylesheet" href="stylesheets/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" src="favicon.ico" />
+    <link rel="stylesheet" href="stylesheets/style.css" />
 
-  <title>Genius</title>
-</head>
-<body>
-  <header>
-    <nav>
-      <ul class="main-nav">
-        <li class="main-nav__item">Genius logo</li>
-        <li class="main-nav__item"><a href="">Home</a></li>
-      </ul>
-      <ul class="user-nav">
-        <li class="user-nav__item">
-          <div class="friends">
-            Friends
-            <ul class="user-nav__friends">
-              <!-- replace friends li by friends from DB -->
-              <li class="user-nav__friend">Rachel Green</li>
-              <li class="user-nav__friend">Ross Geller</li>
-            </ul>
-          </div>
-        </li>
-        <li class="user-nav__item">
-          <div class="account">
-            Welcome, username
-            <ul class="user-nav__user">
-              <!-- replace friends li by friends from DB -->
-              <li class="user-nav__friend">Profile</li>
-              <li class="user-nav__friend">Purchase history</li>
-            </ul>
-          </div>
-        </li>
-        <li class="user-nav__item">Log out</li>
-      </ul>
-
-    </nav>
-  </header>
-  <main>
-    <div class="products-container">
-      <h1>Products</h1>
-      <div class="products-filter">
-        <h3>Filter by</h3>
-        <form action="/users/filteredCats" method="get" class="filters-form">
-        <div class="form-container">
-            <fieldset>
-              <label>Price:</label>
-                <input class="min" type="number" name="minimum_fee" id="minimum_price" placeholder="min">
-                <input class="max" type="number" name="maximum_fee" id="maximum_price" placeholder="max">
+    <title>Genius</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="main-nav">
+          <li class="main-nav__item">Genius logo</li>
+          <li class="main-nav__item"><a href="">Home</a></li>
+        </ul>
+        <ul class="user-nav">
+          <li class="user-nav__item">
+            <div class="friends">
+              Friends
+              <ul class="user-nav__friends">
+                <!-- replace friends li by friends from DB -->
+                <li class="user-nav__friend">Rachel Green</li>
+                <li class="user-nav__friend">Ross Geller</li>
+              </ul>
+            </div>
+          </li>
+          <li class="user-nav__item">
+            <div class="account">
+              Welcome, username
+              <ul class="user-nav__user">
+                <!-- replace friends li by friends from DB -->
+                <li class="user-nav__friend">Profile</li>
+                <li class="user-nav__friend">Purchase history</li>
+              </ul>
+            </div>
+          </li>
+          <li class="user-nav__item">Log out</li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="products-container">
+        <h1>Products</h1>
+        <div class="products-filter">
+          <h3>Filter by</h3>
+          <form action="/users/filteredCats" method="get" class="filters-form">
+            <div class="form-container">
+              <fieldset>
+                <label>Price:</label>
+                <input
+                  class="min"
+                  type="number"
+                  name="minimum_fee"
+                  id="minimum_price"
+                  placeholder="min"
+                />
+                <input
+                  class="max"
+                  type="number"
+                  name="maximum_fee"
+                  id="maximum_price"
+                  placeholder="max"
+                />
               </fieldset>
-            <fieldset>
-              <label for="colour">Colour:</label>
-              <select class="filter-colour" name="colour" id="colour">
-                <option value="" name="colour"></option>
+              <fieldset>
+                <label for="colour">Colour:</label>
+                <select class="filter-colour" name="colour" id="colour">
+                  <option value="" name="colour"></option>
 
-                <option value="Black" name="colour">Black</option>
-                <option value="White" name="colour">White</option>
-                <option value="Purple" name="colour">Purple</option>
-                <option value="Green" name="colour">Green</option>
-                <option value="Fuchsia" name="colour">Fuchsia</option>
-
-              </select>
-            </fieldset>
-            <fieldset>
-              <label for="size">Size:</label>
-              <select class="filter-size" name="size" id="size">
-                <option value="" name="size"></option>
-                <option value="s" name="size">S</option>
-                <option value="m" name="size">M</option>
-                <option value="l" name="size">L</option>
-              </select>
-            </fieldset>
-            <button type="submit" class="button">
-              Filter
-            </button>
-          </div>
-        </form>
+                  <option value="Black" name="colour">Black</option>
+                  <option value="White" name="colour">White</option>
+                  <option value="Purple" name="colour">Purple</option>
+                  <option value="Green" name="colour">Green</option>
+                  <option value="Fuchsia" name="colour">Fuchsia</option>
+                </select>
+              </fieldset>
+              <fieldset>
+                <label for="size">Size:</label>
+                <select class="filter-size" name="size" id="size">
+                  <option value="" name="size"></option>
+                  <option value="s" name="size">S</option>
+                  <option value="m" name="size">M</option>
+                  <option value="l" name="size">L</option>
+                </select>
+              </fieldset>
+              <button type="submit" class="button">
+                Filter
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
-  </main>
-  <footer>
-    <ul class="footer-list">
-      <li class="footer-list__item"><a href="mailto: undefined@gmail.com">Contact us</a></li>
-      <li class="footer-list__item">XYZ</li>
-      <li class="footer-list__item">&copy; Undefined</li>
-    </ul>
-  </footer>
-</body>
+    </main>
+    <footer>
+      <ul class="footer-list">
+        <li class="footer-list__item">
+          <a href="mailto: undefined@gmail.com">Contact us</a>
+        </li>
+        <li class="footer-list__item">XYZ</li>
+        <li class="footer-list__item">&copy; Undefined</li>
+      </ul>
+    </footer>
+  </body>
 </html>

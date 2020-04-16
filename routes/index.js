@@ -18,13 +18,11 @@ router.get("/products/c/:id", (req, res, next) => {
   });
 });
 
-// router.get("/products/:cat_id", (req, res) => {
-//   db.getProductsForCategory(req.body.user_id, req.params.cat_id).then(
-//     (data) => {
-//       res.json(data.rows);
-//     }
-//   );
-// });
+router.get("/products/friends", (req, res, next) => {
+  db.getProductsForUser(2).then((data) => {
+    res.json(data.rows);
+  });
+});
 
 router.get("/login", (req, res) => {
   res.render("login_page");
@@ -51,23 +49,23 @@ router.post("/products/edit", (req, res) => {
 
 router.post("/products/delete", (req, res) => {
   //console.log(req.body.product_id);
-	db.deleteProduct(req.body.product_id).then((data) => {
-		res.json(data.rows[0]);
-	});
+  db.deleteProduct(req.body.product_id).then((data) => {
+    res.json(data.rows[0]);
+  });
 });
 
 router.post("/products/purchased", (req, res) => {
   //console.log(req.body.product_id);
-	db.markPurchased(req.body.product_id).then((data) => {
-		res.json(data.rows[0]);
-	});
+  db.markPurchased(req.body.product_id).then((data) => {
+    res.json(data.rows[0]);
+  });
 });
 
 router.post("/products/unpurchased", (req, res) => {
-	console.log(req.body.product_id);
-	db.unmarkPurchased(req.body.product_id).then((data) => {
-		res.json(data.rows[0]);
-	});
+  console.log(req.body.product_id);
+  db.unmarkPurchased(req.body.product_id).then((data) => {
+    res.json(data.rows[0]);
+  });
 });
 
 router.post("/categories", (req, res) => {

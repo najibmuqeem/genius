@@ -1,9 +1,11 @@
 import Product from "./Product.js";
+import Header from "./Header.js";
+import Footer from "./Footer.js";
 import { getProductsForUser } from "../fetchers.js";
 import React, { useState } from "react";
 //let classNames = require("classnames");
 
-export default function ProductsForFriends() {
+export default function Friends() {
   const [products, setProducts] = useState([]);
   const user = 2;
 
@@ -30,5 +32,11 @@ export default function ProductsForFriends() {
     );
   });
 
-  return <div class="products">{productList}</div>;
+  return (
+    <>
+      <Header />
+      <div class="products">{productList}</div>
+      <Footer />
+    </>
+  );
 }

@@ -26,7 +26,9 @@ export default function Header() {
           <li class="user-nav__item friends">
             <p>Friends</p>
             <ul class="user-nav__friends">
-              <li class="user-nav__friend">Monica Geller</li>
+              <Link to="/friends">
+                <li class="user-nav__friend">Monica Geller</li>
+              </Link>
               <li class="user-nav__friend">Ross Geller</li>
             </ul>
           </li>
