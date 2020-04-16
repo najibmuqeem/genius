@@ -24,6 +24,12 @@ router.get("/products/friends", (req, res, next) => {
   });
 });
 
+router.get("/products/purchase-history", (req, res, next) => {
+  db.getPurchased(1).then((data) => {
+    res.json(data.rows);
+  });
+});
+
 router.get("/login", (req, res) => {
   res.render("login_page");
 });

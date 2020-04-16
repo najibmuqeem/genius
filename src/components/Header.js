@@ -36,7 +36,9 @@ export default function Header() {
             <p>Welcome, Rachel</p>
             <ul class="user-nav__user">
               <li class="user-nav__friend">Profile</li>
-              <li class="user-nav__friend">Purchase history</li>
+              <Link to="/purchased">
+                <li class="user-nav__friend">Purchase history</li>
+              </Link>
             </ul>
           </li>
           <li class="user-nav__item">
