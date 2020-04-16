@@ -30,6 +30,12 @@ router.get("/products/purchase-history", (req, res, next) => {
   });
 });
 
+router.get("/friends", (req, res, next) => {
+	db.getFriends(1).then((data) => {
+		res.json(data.rows);
+	});
+});
+
 router.get("/login", (req, res) => {
   res.render("login_page");
 });
