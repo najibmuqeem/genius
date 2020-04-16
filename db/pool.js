@@ -22,14 +22,14 @@ const getProductsForUser = function (user_id) {
 
 const deleteProduct = function (product_id) {
   return pool.query(
-		`
+    `
     DELETE
     FROM products
     WHERE id = $1;
     `,
-		[product_id]
-	);
-}
+    [product_id]
+  );
+};
 
 const getCategoriesForUser = function (user_id) {
   return pool.query(
@@ -45,16 +45,15 @@ const getCategoriesForUser = function (user_id) {
 };
 
 const getProductsForCategory = function (user_id, category_id) {
-
-	return pool.query(
-		`
+  return pool.query(
+    `
     SELECT products.id, products.category_id, products.product_name, products.price, products.img_src, products.store_name, products.description, products.web_url, products.purchased
     FROM products
     JOIN categories ON category_id = categories.id
     WHERE user_id = $1 AND category_id = $2;
     `,
-		[user_id, category_id]
-	);
+    [user_id, category_id]
+  );
 };
 const getFriends = function (user_id) {
   return pool.query(
@@ -174,14 +173,14 @@ const markPurchased = function (product_id) {
 };
 
 const unmarkPurchased = function (product_id) {
-	return pool.query(
-		`
+  return pool.query(
+    `
     UPDATE products
     SET purchased = false
     WHERE id = $1;
     `,
-		[product_id]
-	);
+    [product_id]
+  );
 };
 
 const getNumProductsForCategory = function (user_id, category_id) {
@@ -229,24 +228,37 @@ const editProduct = function (product) {
   );
 };
 
+const filterByPrice = function (user_id, category_id, min_price, max_price) {
+  return pool.query(
+    `
+    SELECT products.id, products.category_id, products.product_name, products.price, products.img_src, products.store_name, products.description, products.web_url, products.purchased
+    FROM products
+    JOIN categories ON category_id = categories.id
+    WHERE user_id = $1 AND category_id = $2 AND price >= $3 AND price <= $4;
+    `,
+    [user_id, category_id, min_price, max_price]
+  );
+};
+
 //export query functions
 module.exports = {
-	getProductsForUser,
-	getCategoriesForUser,
-	getProductsForCategory,
-	getFriends,
-	getPurchased,
-	getUsers,
-	getUserWithID,
-	addUser,
-	addCategory,
-	addFriends,
-	addProduct,
-	getMiscInfo,
+  getProductsForUser,
+  getCategoriesForUser,
+  getProductsForCategory,
+  getFriends,
+  getPurchased,
+  getUsers,
+  getUserWithID,
+  addUser,
+  addCategory,
+  addFriends,
+  addProduct,
+  getMiscInfo,
   markPurchased,
   getNumProductsForCategory,
   getPriceForCategory,
   editProduct,
   unmarkPurchased,
-	deleteProduct
+  deleteProduct,
+  filterByPrice,
 };
