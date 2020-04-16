@@ -48,8 +48,12 @@ router.get("/categories/:user_id", (req, res) => {
 });
 
 router.post("/products", (req, res) => {
+  console.log("create product", req.body)
   db.addProduct(req.body).then((data) => {
     res.json(data.rows[0]);
+  }).catch((err)=>{
+    console.log(err);
+    res.status(500)
   });
 });
 
