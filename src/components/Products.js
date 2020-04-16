@@ -18,9 +18,6 @@ import { Link } from "react-router-dom";
 export default function Products(props) {
   const [products, setProducts] = useState([]);
 
-  let a = getProductsForCategory(1, props.id);
-  console.log(a);
-
   const viewAll = () => {
     getProductsForCategory(1, props.id).then((res) => {
       setProducts(() => res);
@@ -32,12 +29,9 @@ export default function Products(props) {
   }, [props.id]);
 
   const deleteProduct1 = (id) => {
-    console.log("delete from products ", id);
     const newArrOfProduct = products.filter((product) => product.id !== id);
     deleteProduct(id);
-    //console.log(newArrOfProduct);
     setProducts(newArrOfProduct);
-    //console.log("new array", products);
   };
 
   const markSold = (id) => {

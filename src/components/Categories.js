@@ -1,6 +1,8 @@
 import Category from "./Category.js";
 import Header from "./Header.js";
 import Footer from "./Footer.js";
+import Button from "./Button.js";
+import CreateForm from "./CreateForm.js";
 import "./components_styles/categories.css";
 import { getCategoriesForUser } from "../fetchers.js";
 import React, { useState } from "react";
@@ -30,6 +32,12 @@ export default function Categories(props) {
     );
   });
 
+  const [show, setShow] = useState(false);
+
+  const showForm = (show) => {
+    return show ? setShow(false) : setShow(true);
+  }
+
   return (
     (
       <>
@@ -38,7 +46,8 @@ export default function Categories(props) {
           <div>Welcome to Genius</div>
           <h1>Categories</h1>
           <div class="new-category">
-            <button type="button">Create new category</button>
+            <button type="button" onClick={() => {showForm(show); console.log(show)}}>Create new category</button>
+            {show ? (<CreateForm />) : (<p></p>)}
           </div>
           <ul class="categories">{categoryList}</ul>
         </main>
