@@ -110,17 +110,24 @@ const unmarkPurchased = (product_id) => {
   return postData("http://localhost:8000/products/unpurchased", { product_id });
 };
 
+const getFriendsForUser = (user_id) => {
+	return getData(`http://localhost:8000/friends`, {
+		user_id,
+	});
+};
+
 export {
-  addProduct,
-  addCategory,
-  addFriends,
-  addUser,
-  getProductsForCategory,
-  getCategoriesForUser,
-  getProductsForUser,
-  deleteProduct,
-  markPurchased,
-  unmarkPurchased,
-  editProduct,
-  getPurchased,
+	addProduct,
+	addCategory,
+	addFriends,
+	addUser,
+	getProductsForCategory,
+	getCategoriesForUser,
+	getProductsForUser,
+	deleteProduct,
+	markPurchased,
+	unmarkPurchased,
+	editProduct,
+	getPurchased,
+	getFriendsForUser
 };
