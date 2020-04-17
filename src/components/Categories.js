@@ -4,7 +4,7 @@ import Footer from "./Footer.js";
 import Button from "./Button.js";
 import CreateForm from "./CreateForm.js";
 import "./components_styles/categories.css";
-import { getCategoriesForUser } from "../fetchers.js";
+import { getCategoriesForUser, addCategory } from "../fetchers.js";
 import React, { useState } from "react";
 //let classNames = require("classnames");
 
@@ -15,6 +15,18 @@ export default function Categories(props) {
     getCategoriesForUser(user).then((res) => {
       setCategories(() => res);
     });
+  }
+
+  const createCategory = (category) => {
+    console.log("from categories ", category);
+    let newCat = addCategory(user, category.category_name, category.public)
+      .then((res)=>{
+        console.log(res)
+      })
+    console.log(newCat)
+    //categories.push(category)
+		//deleteProduct(id);
+		//setCategories(categories);
   }
 
   console.log(categories);
@@ -47,8 +59,8 @@ export default function Categories(props) {
           <div>Welcome to Genius</div>
           <h1>Categories</h1>
           <div class="new-category">
-            <button type="button" onClick={() => {showForm(show); console.log(show)}}>Create new category</button>
-            {show ? (<CreateForm />) : (<p></p>)}
+            <button type="button" onClick={() => showForm(show)}>Create new category</button>
+            {show ? (<CreateForm submit={createCategory}/>) : (<p></p>)}
           </div>
           <ul class="categories">{categoryList}</ul>
         </main>

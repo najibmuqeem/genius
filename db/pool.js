@@ -36,7 +36,7 @@ const getCategoriesForUser = function (user_id) {
     `
     SELECT categories.id, categories.category_name, categories.public, count(products.id), sum(products.price)
     FROM categories
-    JOIN products ON category_id = categories.id
+    LEFT JOIN products ON category_id = categories.id
     WHERE user_id = $1
     GROUP by categories.id;
     `,
@@ -113,14 +113,14 @@ const addFriendProduct = function () {
   return pool.query(`INSERT INTO products()`);
 };
 
-const addCategory = function (user_id, category_name) {
-  return pool.query(
-    `
-    INSERT INTO categories (user_id, category_name) VALUES ($1, $2)
+const addCategory = function (user_id, category_name, category_public) {
+	return pool.query(
+		`
+    INSERT INTO categories (user_id, category_name, public) VALUES ($1, $2, $3)
     RETURNING *;
     `,
-    [user_id, category_name]
-  );
+		[user_id, category_name, category_public]
+	);
 };
 
 const addFriends = function (user_1_id, user_2_id) {
