@@ -5,7 +5,13 @@
 }
 
 .product-purchased {
+  filter: grayscale(85%)
+}
+
+.product-purchased::before {
+  content: "purchased";
   background-color: red;
+  color: white;
 }
 
 .filter-category {
