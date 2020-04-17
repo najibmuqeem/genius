@@ -19,21 +19,38 @@ export default function CreateForm(props) {
 		<form class="create-category" onSubmit={handleSubmit}>
 			<div class="create-name">
 				<label for="categoryName">Category name: </label>
-				<input type="text" id="categoryName" name="categoryName" autoComplete="off"/>
+				<input
+					type="text"
+					id="categoryName"
+					name="categoryName"
+					autoComplete="off"
+					required
+				/>
 			</div>
 			<p class="create-text">Make category: </p>
 			<div class="create-radio">
 				<div class="radio-wrapper">
-					<input type="radio" id="public" name="public" value="true" />
+					<input
+						class="visually-hidden"
+						type="radio"
+						id="public"
+						name="public"
+						value="true"
+					/>
 					<label for="public">Public</label>
 				</div>
 				<div class="radio-wrapper">
-					<input type="radio" id="private" name="public" value="false" />
+					<input
+						class="visually-hidden"
+						type="radio"
+						id="private"
+						name="public"
+						value="false"
+					/>
 					<label for="private">Private</label>
 				</div>
 			</div>
-			<button class="button" type="Submit"
-			>
+			<button class="add-button" type="Submit">
 				Add category
 			</button>
 		</form>
