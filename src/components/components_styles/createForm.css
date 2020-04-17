@@ -1,13 +1,14 @@
 .create-category {
   display: block;
-  position: absolute;
+  
   background-color: var(--warm-white);
   width: 520px;
-  left: 50%;
+  margin: 0 auto;
+  /* left: 50%;
   margin-left: -260px;
-  top: 30vh;
+  top: 30vh; */
   min-height: 300px;
-  border: 1px solid rgba(190,211,195, 0.5);
+  /* border: 1px solid rgba(190,211,195, 0.5); */
   color: var(--main-green-blue);
 }
 

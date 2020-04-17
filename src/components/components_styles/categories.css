@@ -1,5 +1,13 @@
 .categories {
-  display: flex;
-  flex-wrap: wrap; 
+  /* position: absolute; */
+  margin: 30px auto;
+  /* height: 300px; */
   justify-content: center;
+  /* width: 900px; */
+  top: 60px;
+  left: calc(50% - 450px);
+  display: flex;
+  /* outline: 1px solid gray; */
 }
+
+ 

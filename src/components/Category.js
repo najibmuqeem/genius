@@ -18,7 +18,7 @@ export default function Category(props) {
 					onClick={() => props.getCategoryId(props.id)}
 				>
 					<h4>{props.name}</h4>
-					<img src="" width="180" height="180" />
+					
 					<p> count: {props.count} </p>
 					<p> items sum: ${props.sum / 100} </p>
 				</div>
