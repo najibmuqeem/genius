@@ -5,12 +5,13 @@ import Button from "./Button.js";
 import CreateForm from "./CreateForm.js";
 import "./components_styles/categories.css";
 import { getCategoriesForUser, addCategory } from "../fetchers.js";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 //let classNames = require("classnames");
 
 export default function Categories(props) {
   const [categories, setCategories] = useState([]);
   const user = 1;
+
   if (categories.length === 0) {
     getCategoriesForUser(user).then((res) => {
       setCategories(() => res);
@@ -20,9 +21,10 @@ export default function Categories(props) {
   const createCategory = (category) => {
     console.log("from categories ", category);
     let newCat = addCategory(user, category.category_name, category.public)
-      .then((res)=>{
-        console.log(res)
-      })
+			.then(getCategoriesForUser(user).then((res) => {
+      setCategories(() => res);
+    }))
+
     console.log(newCat)
     //categories.push(category)
 		//deleteProduct(id);
@@ -31,7 +33,7 @@ export default function Categories(props) {
 
   console.log(categories);
   const categoryList = categories.map((category) => {
-    console.log(category);
+    //console.log(category);
     return (
       <Category
         id={category.id}

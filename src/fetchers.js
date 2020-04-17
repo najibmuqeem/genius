@@ -76,9 +76,6 @@ const addProduct = (product) => {
 };
 
 const addCategory = (user_id, category_name, category_public) => {
-  console.log(user_id)
-  console.log(category_name)
-  console.log(category_public);
   return postData("http://localhost:8000/categories", { user_id, category_name, category_public });
 };
 
