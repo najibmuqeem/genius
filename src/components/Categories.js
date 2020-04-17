@@ -5,30 +5,17 @@ import Button from "./Button.js";
 import CreateForm from "./CreateForm.js";
 import "./components_styles/categories.css";
 import { getCategoriesForUser, addCategory } from "../fetchers.js";
-import React, { useState, useEffect } from "react";
-//let classNames = require("classnames");
+import React, { useState } from "react";
 
 export default function Categories(props) {
   const [categories, setCategories] = useState([]);
   const user = 1;
 
   if (categories.length === 0) {
-  //useEffect(()=> {
     getCategoriesForUser(user).then((res) => {
       setCategories(() => res);
     });
   }
-  //}, [categories.length])
-
-  // const viewAll = () => {
-  //   getCategoriesForUser(user).then((res) => {
-  //      setCategories(() => res);
-  //  });
-  // };
-
-  // useEffect(() => {
-  //   viewAll();
-  // }, [categories]);
   
   const createCategory = (category) => {
     console.log("from categories ", category);
@@ -37,19 +24,15 @@ export default function Categories(props) {
       category.category_name,
       category.public
     ).then((res) => {
-      
       getCategoriesForUser(user).then((res) => {
 				setCategories(() => res);
 			});
-      // categories.push(res);
-      // setCategories(categories);
     });
-    //console.log(newCat)
+  
   }
 
   console.log(categories);
   const categoryList = categories.map((category) => {
-    //console.log(category);
     return (
       <Category
         id={category.id}
