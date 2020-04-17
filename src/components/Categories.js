@@ -13,22 +13,38 @@ export default function Categories(props) {
   const user = 1;
 
   if (categories.length === 0) {
+  //useEffect(()=> {
     getCategoriesForUser(user).then((res) => {
       setCategories(() => res);
     });
   }
+  //}, [categories.length])
 
+  // const viewAll = () => {
+  //   getCategoriesForUser(user).then((res) => {
+  //      setCategories(() => res);
+  //  });
+  // };
+
+  // useEffect(() => {
+  //   viewAll();
+  // }, [categories]);
+  
   const createCategory = (category) => {
     console.log("from categories ", category);
-    let newCat = addCategory(user, category.category_name, category.public)
-			.then(getCategoriesForUser(user).then((res) => {
-      setCategories(() => res);
-    }))
-
-    console.log(newCat)
-    //categories.push(category)
-		//deleteProduct(id);
-		//setCategories(categories);
+    let newCat = addCategory(
+      user,
+      category.category_name,
+      category.public
+    ).then((res) => {
+      
+      getCategoriesForUser(user).then((res) => {
+				setCategories(() => res);
+			});
+      // categories.push(res);
+      // setCategories(categories);
+    });
+    //console.log(newCat)
   }
 
   console.log(categories);
