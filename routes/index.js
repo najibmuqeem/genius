@@ -43,7 +43,6 @@ router.get("/login", (req, res) => {
 router.get("/categories/:user_id", (req, res) => {
   db.getCategoriesForUser(req.params.user_id).then((data) => {
     res.json(data.rows);
-    console.log(data.rows);
   });
 });
 
@@ -99,7 +98,9 @@ router.post("/products/unpurchased", (req, res) => {
 });
 
 router.post("/categories", (req, res) => {
-  db.addCategory(req.body.user_id, req.body.category_name).then((data) => {
+  db.addCategory(req.body.user_id, req.body.category_name, req.body.category_public).then((data) => {
+    console.log("from router")
+    console.log(data.rows[0])
     res.json(data.rows[0]);
   });
 });

@@ -71,12 +71,16 @@ async function getData(url = "", data = {}) {
 }
 
 const addProduct = (product) => {
-  console.log(product);
+  //console.log(product);
   return postData("http://localhost:8000/products", product);
 };
 
-const addCategory = (user_id, category_name) => {
-  postData("http://localhost:8000/categories", { user_id, category_name });
+const addCategory = (user_id, category_name, category_public) => {
+  return editData("http://localhost:8000/categories", {
+		user_id,
+		category_name,
+		category_public,
+	});
 };
 
 const addFriends = (user_1_id, user_2_id) => {
