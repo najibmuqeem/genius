@@ -89,19 +89,19 @@ export default function Products(props) {
   });
 
   return (
-    <>
-      <Header />
-      <main>
-        <Tabs getCategoryId={props.getCategoryId} activeTab={props.id} />
-        <Filter
-          category_id={props.id}
-          filterProducts={filterProducts}
-          products={productList}
-          viewAll={viewAll}
-        ></Filter>
-        <ul class="products">{productList}</ul>
-      </main>
-      <Footer />
-    </>
-  );
+		<>
+			<Header />
+			<main class="page-main">
+				<Tabs getCategoryId={props.getCategoryId} activeTab={props.id} />
+				<Filter
+					category_id={props.id}
+					filterProducts={filterProducts}
+					products={productList}
+					viewAll={viewAll}
+				></Filter>
+				<ul class="products">{productList}</ul>
+			</main>
+			<Footer />
+		</>
+	);
 }

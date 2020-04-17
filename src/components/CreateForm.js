@@ -1,6 +1,6 @@
 import Button from "./Button.js";
 import React, { useState } from "react";
-import { promiseImpl } from "ejs";
+import "./components_styles/createForm.css";
 let classNames = require("classnames");
 
 export default function CreateForm(props) {
@@ -12,16 +12,26 @@ export default function CreateForm(props) {
 			public: e.target.public.value,
 		};
     console.log("from create form ", category);
-    props.submit(category);
+		props.submit(category);
+		props.showForm(props.show);
   }
   return (
-		<form onSubmit={handleSubmit}>
-			<label for="categoryName">Category name: </label>
-			<input type="text" id="categoryName" name="categoryName" />
-			<input type="radio" id="public" name="public" value="true" />
-			<label for="public">Public</label>
-			<input type="radio" id="private" name="public" value="false" />
-			<label for="private">Private</label>
+		<form class="create-category" onSubmit={handleSubmit}>
+			<div class="create-name">
+				<label for="categoryName">Category name: </label>
+				<input type="text" id="categoryName" name="categoryName" autoComplete="off"/>
+			</div>
+			<p class="create-text">Make category: </p>
+			<div class="create-radio">
+				<div class="radio-wrapper">
+					<input type="radio" id="public" name="public" value="true" />
+					<label for="public">Public</label>
+				</div>
+				<div class="radio-wrapper">
+					<input type="radio" id="private" name="public" value="false" />
+					<label for="private">Private</label>
+				</div>
+			</div>
 			<button class="button" type="Submit"
 			>
 				Add category
