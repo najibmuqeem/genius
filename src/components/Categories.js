@@ -56,7 +56,6 @@ export default function Categories(props) {
 		<>
 			<Header />
 			<main class="page-main">
-				<div>Welcome to Genius</div>
 				<h1>Categories</h1>
 				<div class="new-category">
 					<button class="button" type="button" onClick={() => showForm(show)}>
