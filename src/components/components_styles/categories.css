@@ -1,13 +1,12 @@
 .categories {
-  /* position: absolute; */
-  margin: 30px auto;
-  /* height: 300px; */
-  justify-content: center;
-  /* width: 900px; */
-  top: 60px;
-  left: calc(50% - 450px);
   display: flex;
-  /* outline: 1px solid gray; */
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 30px auto;
 }
 
+.page-main h1 {
+  font-size: 30px;
+  padding-top: 30px;
+}
  

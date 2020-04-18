@@ -58,7 +58,7 @@ export default function Categories(props) {
 			<main class="page-main">
 				<h1>Categories</h1>
 				<div class="new-category">
-					<button class="button" type="button" onClick={() => showForm(show)}>
+					<button class="button btn-rose" type="button" onClick={() => showForm(show)}>
 						Create new category
 					</button>
 					{show ? <CreateForm submit={createCategory} showForm={showForm} show={show}/> : <p></p>}
