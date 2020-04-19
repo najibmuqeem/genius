@@ -5,6 +5,7 @@ import Purchased from "./Purchased";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Products from "./Products";
+import Api from "./api";
 
 function LoggedInApp(props) {
   return (
@@ -18,6 +19,9 @@ function LoggedInApp(props) {
         </Route>
         <Route path="/purchased">
           <Purchased />
+        </Route>
+        <Route path="/picture">
+          <Api />
         </Route>
         <Route path="/">
           <Categories
