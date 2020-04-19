@@ -18,6 +18,14 @@ export default function Button(props) {
 				//event.stopPropagation();
 				props.onButtonClick();
 			}}
+			onMouseOver={()=>{
+				const currentItem = document.querySelector(".icon-btn");
+				currentItem.innerText=props.children;
+			}}
+			onMouseOut={()=>{
+				const currentItem = document.querySelector(".icon-btn");
+				currentItem.innerText = '';
+			}}
 		>
 			{props.children}
 		</button>

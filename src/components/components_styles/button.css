@@ -2,7 +2,7 @@
   width: 50px;
   height: 50px;
   position: relative;
-  font-size: 0;
+  font-size: 2px;
   border: none;
 }
 
@@ -21,29 +21,28 @@
   height: 50px;
   border: none;
   border-radius: 50%;
-  
+  background-color: var(--light-rose);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .edit-btn::before {
-  background-color: var(--light-rose);
+  
   background-image: url("images/create-24px.svg");
-  background-position: center;
-  background-repeat: no-repeat;
+ 
   background-size: 70%;
 }
 
 .delete-btn::before {
-  background-color: var(--light-rose);
+  
   background-image: url("images/delete_sweep-24px.svg");
-  background-position: center;
-  background-repeat: no-repeat;
+  
   background-size: 70%;
 }
 
 .sold-btn::before {
-  background-color: var(--light-rose);
+  
   background-image: url("images/check_circle_outline-24px.svg");
-  background-position: center;
-  background-repeat: no-repeat;
+  
   background-size: 100%;
 }
