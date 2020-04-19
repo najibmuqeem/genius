@@ -2,7 +2,6 @@ import Login from "./Login";
 import Categories from "./Categories";
 import Friends from "./Friends";
 import Purchased from "./Purchased";
-import Api from "./api";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Products from "./Products";
@@ -16,9 +15,6 @@ function LoggedInApp(props) {
         </Route>
         <Route path="/friends">
           <Friends />
-        </Route>
-        <Route path="/picture">
-          <Api />
         </Route>
         <Route path="/purchased">
           <Purchased />

@@ -1,38 +1,24 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../db/pool");
-const api = require("../api.js");
-var multer = require("multer");
-const path = require("path");
-
-const storage = multer.diskStorage({
-  destination: "./public/uploads/",
-  filename: function (req, file, cb) {
-    cb(null, "IMAGE-" + Date.now() + path.extname(file.originalname));
-  },
-});
-const upload = multer({
-  storage: storage,
-  limits: { fileSize: 1000000 },
-}).single("myImage");
 
 router.get("/", (req, res) => {
   res.send("index");
 });
 
-router.get("/products/u/:id", (req, res) => {
+router.get("/products/u/:id", (req, res, next) => {
   db.getProductsForUser(req.params.id).then((data) => {
     res.json(data.rows);
   });
 });
 
-router.get("/products/c/:id", (req, res) => {
+router.get("/products/c/:id", (req, res, next) => {
   db.getProductsForCategory(1, req.params.id).then((data) => {
     res.json(data.rows);
   });
 });
 
-router.get("/products/friends", (req, res) => {
+router.get("/products/friends", (req, res, next) => {
   db.getProductsForUser(2).then((data) => {
     res.json(data.rows);
   });
@@ -112,13 +98,9 @@ router.post("/products/unpurchased", (req, res) => {
 });
 
 router.post("/categories", (req, res) => {
-  db.addCategory(
-    req.body.user_id,
-    req.body.category_name,
-    req.body.category_public
-  ).then((data) => {
-    console.log("from router");
-    console.log(data.rows[0]);
+  db.addCategory(req.body.user_id, req.body.category_name, req.body.category_public).then((data) => {
+    console.log("from router")
+    console.log(data.rows[0])
     res.json(data.rows[0]);
   });
 });
@@ -126,19 +108,6 @@ router.post("/categories", (req, res) => {
 router.post("/friends", (req, res) => {
   db.addFriends(req.body.user_1_id, req.body.user_2_id).then((data) => {
     res.json(data.rows[0]);
-  });
-});
-
-router.post("/picture", (req, res) => {
-  upload(req, res, (err) => {
-    console.log("Request file ---", req.file); //Here you get file.
-
-    const thing = req.file.path;
-    api(thing).then((data) => {
-      console.log("returned data:", data);
-      res.json(data);
-    });
-    if (!err) return res.send(200).end();
   });
 });
 
