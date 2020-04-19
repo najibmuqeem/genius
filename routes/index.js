@@ -136,9 +136,9 @@ router.post("/picture", (req, res) => {
     const thing = req.file.path;
     api(thing).then((data) => {
       console.log("returned data:", data);
-      res.json(data);
+      res.set("Content-Type", "application/json");
+      const sendToClient = res.json(data); // Yeh this looks good here
     });
-    if (!err) return res.send(200).end();
   });
 });
 

@@ -22,9 +22,10 @@ class Api extends React.Component {
         "content-type": "multipart/form-data",
       },
     };
-    axios.post("/picture", formData, config).catch((error) => {});
-
-    // postPicture(formData, config);
+    axios
+      .post("/picture", formData, config)
+      .then((result) => console.log("Result is: ", result.data)) // Try now. This is where you should get it
+      .catch((error) => console.error("Error is: ", error));
   }
   onChange(e) {
     this.setState({ file: e.target.files[0] });

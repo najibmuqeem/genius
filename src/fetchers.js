@@ -17,7 +17,7 @@ async function uploadData(url = "", data = {}, config) {
     referrerPolicy: "no-referrer", // no-referrer, *client
     body: JSON.stringify(data), // body data type must match "Content-Type" header
   });
-  return response.json(); // parses JSON response into native JavaScript objects
+  return response.data; // parses JSON response into native JavaScript objects
 }
 async function postData(url = "", data = {}) {
   // Default options are marked with *
