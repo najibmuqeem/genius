@@ -20,28 +20,31 @@ export default function Filter(props) {
     setFiltered(true);
   };
   return (
-    <span>
-      {filtered ? (
-        <Button
-          onButtonClick={() => {
-            setFiltered(false);
-            props.viewAll();
-          }}
-        >
-          View All
-        </Button>
-      ) : (
-        <div></div>
-      )}
-      <form onSubmit={handleSubmit} class="filter-form">
-        <label>
-          Minimum: $<input name="min_price" type="text"></input>
-        </label>
-        <label>
-          Maximum: $<input name="max_price" type="text"></input>
-        </label>
-        <input class="ext-button" type="submit" value="Filter"></input>
-      </form>
-    </span>
-  );
+		<div class="filter-box">
+			<form onSubmit={handleSubmit} class="filter-form">
+      <span>Filter products by price: </span>
+        <div>
+				  <label for="min-price">Minimum: $</label>
+				  <input id="min-price" name="min_price" type="number" class="filter-price"></input>
+        </div>
+        <div>
+				  <label for="max-price">Maximum: $</label>
+				  <input id="max-price" name="max_price" type="number" class="filter-price"></input>  
+        </div>
+				<input class="fiter-btn" type="submit" value="Filter"></input>
+			</form>
+			{filtered ? (
+				<Button
+					onButtonClick={() => {
+						setFiltered(false);
+						props.viewAll();
+					}}
+				>
+					View All
+				</Button>
+			) : (
+				<></>
+			)}
+		</div>
+	);
 }
