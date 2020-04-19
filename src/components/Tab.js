@@ -8,9 +8,9 @@ export default function Tab(props) {
   });
   
   return (
-		<li>
+		<li class={tabClass}>
 			<Link to="/products">
-				<h4 class={tabClass} onClick={() => props.getCategoryId(props.id)}>
+				<h4 onClick={() => props.getCategoryId(props.id)}>
 					{props.category_name}
 				</h4>
 			</Link>

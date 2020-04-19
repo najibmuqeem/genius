@@ -2,9 +2,12 @@
   display: flex;
   justify-content: flex-start;
   align-content: stretch;
+  align-items: stretch;
   padding: 10px 60px 0;
   background-color: var(--main-green-blue);
+  font-weight: 400;
 }
+
 
 .tab {
   position: relative;
@@ -14,9 +17,12 @@
   font-weight: 400;
   text-transform: uppercase;
   color: var(--navy);
-  
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+}
+
+.tab h4 {
+  font-weight: 400;
 }
 
 

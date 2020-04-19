@@ -40,7 +40,7 @@ export default function Filter(props) {
         <label>
           Maximum: $<input name="max_price" type="text"></input>
         </label>
-        <input type="submit" value="Filter"></input>
+        <input class="ext-button" type="submit" value="Filter"></input>
       </form>
     </span>
   );

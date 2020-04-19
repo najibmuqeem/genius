@@ -1,11 +1,15 @@
 import React from "react";
 import "./components_styles/button.css";
-//let classNames = require("classnames");
+let classNames = require("classnames");
 
 export default function Button(props) {
+	const btnClass = classNames("button btn-rose cat-btn", {
+		"ext-button": props.filter,
+	});
+
 	return (
 		<button
-			class="button btn-rose cat-btn"
+			class={btnClass}
 			onClick={(event) => {
 				//event.stopPropagation();
 				props.onButtonClick();

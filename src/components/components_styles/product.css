@@ -1,17 +1,34 @@
 .product-card {
-  outline: 1px solid green;
-  width: 300px;
+  outline: 1px solid var(--mint);
+  width: 330px;
   margin: 10px 30px;
 }
 
+.product-card h4 {
+  min-height: 70px;
+  margin: 30px 15px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--main-green-blue);
+}
+
+.product-card img {
+  object-fit: cover;
+  display: block;
+  margin: auto;
+}
+
 .product-purchased {
-  filter: grayscale(85%)
+  filter: grayscale(85%);
+  position: relative;
 }
 
 .product-purchased::before {
   content: "purchased";
   background-color: red;
   color: white;
+  position: absolute;
 }
 
 .filter-category {
