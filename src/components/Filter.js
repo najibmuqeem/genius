@@ -1,4 +1,5 @@
 import Button from "./Button.js";
+import "./components_styles/filter.css";
 import React, { useEffect, useState } from "react";
 import { filterByPrice } from "../fetchers.js";
 //let classNames = require("classnames");
@@ -32,7 +33,7 @@ export default function Filter(props) {
       ) : (
         <div></div>
       )}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} class="filter-form">
         <label>
           Minimum: $<input name="min_price" type="text"></input>
         </label>
