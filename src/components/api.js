@@ -24,7 +24,13 @@ class Api extends React.Component {
     };
     axios
       .post("/picture", formData, config)
-      .then((result) => console.log("Result is: ", result.data)) // Try now. This is where you should get it
+      .then((result) => {
+        const urlArr = result.data;
+        const urlList = urlArr.forEach((url) => {
+          console.log(url);
+          return <a href={url}>{url}</a>;
+        });
+      }) // Try now. This is where you should get it
       .catch((error) => console.error("Error is: ", error));
   }
   onChange(e) {
@@ -39,6 +45,7 @@ class Api extends React.Component {
           <h1>File Upload</h1>
           <input type="file" name="myImage" onChange={this.onChange} />
           <button type="submit">Upload</button>
+          <div>{this.urlList}</div>
         </form>
         <Footer />
       </>
