@@ -1,5 +1,12 @@
 .categories {
   display: flex;
-  flex-wrap: wrap; 
   justify-content: center;
+  flex-wrap: wrap;
+  margin: 30px auto;
 }
+
+.page-main h1 {
+  font-size: 30px;
+  padding-top: 30px;
+}
+ 

@@ -18,11 +18,17 @@ export default function Category(props) {
 					onClick={() => props.getCategoryId(props.id)}
 				>
 					<h4>{props.name}</h4>
-					<img src="" width="180" height="180" />
-					<p> count: {props.count} </p>
-					<p> items sum: ${props.sum / 100} </p>
+					<div class="cat-property">
+						<p>Number of items:</p>
+						<p>{props.count}</p>
+					</div>
+					<div class="cat-property">
+						<p>Category total:</p>
+						<p>${props.sum / 100}</p>
+					</div>
 				</div>
 			</Link>
+			<div class="cat-btns">
 			<Button
 				onButtonClick={() => {
 					props.onButtonClick();
@@ -31,6 +37,7 @@ export default function Category(props) {
 				Delete
 			</Button>
 			<Button>Edit</Button>
+			</div>
 		</li>
 	);
 }

@@ -1,0 +1,110 @@
+.create-category {
+  display: block;
+  
+  background-color: var(--warm-white);
+  width: 520px;
+  margin: 0 auto;
+  /* left: 50%;
+  margin-left: -260px;
+  top: 30vh; */
+  min-height: 300px;
+  /* border: 1px solid rgba(190,211,195, 0.5); */
+  color: var(--main-green-blue);
+}
+
+.create-name label {
+  display: block;
+  margin: 30px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.create-name input {
+  display: block;
+  box-sizing: border-box;
+  width: 460px;
+  margin: 30px auto;
+  font-size: 17px;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+  padding: 7px 7px;
+  color: var(--dark-blue);
+  background-color: var(--light-bg-gb);
+  border: none;
+  border: 1px solid var(--bg-green-blue);
+  outline: none;
+  transition: background-color 0.6s;
+}
+
+.create-name input:focus {
+  outline: none;
+  background-color: var(--bg-green-blue);
+}
+
+.create-radio {
+  margin: 30px 70px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.create-text {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.radio-wrapper label {
+  position: relative;
+  padding-left: 23px;
+  /* //padding-top: 0.25em; */
+  text-transform: uppercase;
+  font-size: 0.75em;
+}
+
+.radio-wrapper label::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid var(--main-green-blue);
+}
+
+.radio-wrapper input:checked ~ label::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--main-green-blue);
+}
+
+.add-button {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0.3em 4%;
+  border-radius: 1em;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--main-green-blue);
+  cursor: pointer;
+  background-color: var(--warm-white);
+  border: 1px solid var(--main-green-blue);
+  transition-property: background-color, color;
+  transition-duration: 0.6s;
+}
+
+.add-button:hover,
+.add-button:focus {
+  outline: none;
+  background-color: var(--main-green-blue);
+  color: var(--warm-white);
+}
+
+

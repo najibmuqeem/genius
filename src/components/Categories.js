@@ -53,20 +53,19 @@ export default function Categories(props) {
   }
 
   return (
-    (
-      <>
-        <Header />
-        <main>
-          <div>Welcome to Genius</div>
-          <h1>Categories</h1>
-          <div class="new-category">
-            <button type="button" onClick={() => showForm(show)}>Create new category</button>
-            {show ? (<CreateForm submit={createCategory}/>) : (<p></p>)}
-          </div>
-          <ul class="categories">{categoryList}</ul>
-        </main>
-        <Footer />
-      </>
-    )
-  );
+		<>
+			<Header />
+			<main class="page-main">
+				<h1>Categories</h1>
+				<div class="new-category">
+					<button class="button btn-rose" type="button" onClick={() => showForm(show)}>
+						Create new category
+					</button>
+					{show ? <CreateForm submit={createCategory} showForm={showForm} show={show}/> : <p></p>}
+				</div>
+				<ul class="categories">{categoryList}</ul>
+			</main>
+			<Footer />
+		</>
+	);
 }

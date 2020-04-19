@@ -33,7 +33,24 @@ a {
   color: inherit;
 }
 
+.page-main {
+  padding: 0;
+}
+
 main h1 {
   color: var(--dusty-rose);
 }
 
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+}

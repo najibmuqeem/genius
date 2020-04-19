@@ -14,15 +14,16 @@
 header {
   background-color: var(--main-green-blue);
   color: var(--warm-white);
-  font-size: 0.8em;
+  font-size: 1em;
   font-weight: 300;
+  padding: 30px;
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-content: center;
-  padding: 10px;
+  
 }
 
 .main-nav {
