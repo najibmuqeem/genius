@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "delta-entry-274716",
+  "private_key_id": "3ca60a69b9b241839dee4b819a7c58ac0cdbe5d9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDyqtqpgasV9H2G\nqKZbProOA4zaUVlDMLhuqKUGNntXig6G+mnXIvB8oKbaG8rNUF3Z4gti1zMViwjt\nu1EZDb5JuEg3hDK53pqIc+bci8JGY9ZiZAdFWRonE3iT5Kzhpue4ocs+aY5rAhLI\n3+YDkMXEfwlchO7mSJ/RVZK/9eQXzUCfoA4mba3fZJlHK/1tDpb+7yrbGOkLcWj5\naIPqkHPgAf7PR35AUvx4ITeRPAPz5OltbciEUJ1VeNZRlUeY1Mk5YCURcQIWPpLD\nzTtABCyzHLuZebvS+qc438q7z7NpRmspx74alcA7ucj98N1Kb5ACrNGA/VgHJbVN\n+1igLkJjAgMBAAECgf8A6AH/iRInyZsh45HAFLCFsK05obeoYkI8s5IDwZgPy/we\nItNTOr9bd2oTKSODzsVz9u8jytNYutz/fl/MGLsqvecLfIheHx7Rn+/3SyKDDFkV\ncdMiKCS5rNWel5Z8EsJquPc/hEu6SZdoTfKdzl2JCHzxpNaFkzDJUFRhydsPtc/K\n8iKU3B7S5usbuNVmYrG0gwpDZQTwylTZT3xrMffHj/DiAxYM2yOxpOnLwdjMKEpx\nxMspEbJwBEfHKJKB7iV2ZXSe0rkWKzjGO/6wYwbOVdhleBSVVWk15jmb0B7hskgv\nly6IHjltUbLdiDmJrk9EqeyOctS5+kEBiBZJEQECgYEA/qUQN3v7/xbcQVpP8LRD\nIe0B8ARQpfwBnjL4lI4SPHwHoC8oivBl/O2onbQPbhJnMFoQoYh4vlHM8Oja3Noo\n0VhZNqBJ8HOtC5i5fxp6fmWdMlLCorDiYqqIozPDWTcBolG1U95HEvttl6Y+dNcG\n1teToo5W7Ip1KWMkTyeQYeMCgYEA8/V48DfTrOZVpd1ySqp7vyLoxAIwLbf7ITh7\n0C5hhLRalry85dgzia+Qiyq3hVzhAX5ZSGJWOWn5BWcxV60nG8/+8w1p2iwGTsOm\ngH+8LbacxVvUCG5J5AQ1XT/gVNr46WyTHBH4wHFSFEBffUWW6YhDw+LKLjDDJ5Lm\nNajGhYECgYEAltbmHUfHRRqgi+HYeqf9IEqJnEiiEUCPIMvmrfDeYo/B4KQuquau\nMz4AZLJ1dWlXUK/5LAZwJ6TC9m2ov6xHA4MHDbGzOsj612S3dNAVgWvlyxp1CvQm\nlfWYjLwr2lwYDrPB6pU/msHu8Cbc1k9NUNRQMrmISgPWVRbSOkUgZKsCgYAO8SP9\nIo42cs0gIZYUeKinpk23Y6Lrye75s+nxcEXMyPcbcGfpc/qEHlquC2m+I1gsrT5u\nroc1cQYtjIp7IkHY9D5bSKEJGdUxEc6q5Cf0bNDhTaSI96hS7OcP1Q+6YscIFPxV\npcwkjUxHrUGr/I0ntI7h+owDlDz/uYGcG8A9AQKBgQCbAI0wF9CScF/ltx4iSUKe\nIfFaRDPXjUPTcIm16X54jJ7WxJhczdZSHVRt6gl/KV1cjvNLs/ZmAY4gBVgULdj7\nfZAi/+55siGAb03NZOIgg+MEm9XcDYf66N68c0ZFYhhmvFpGfvrq3zgsJO0Q8gUL\nelh0j32mGBPwy1QJ8hXj8A==\n-----END PRIVATE KEY-----\n",
+  "client_email": "lighthouse-final-project@delta-entry-274716.iam.gserviceaccount.com",
+  "client_id": "117511460404248717351",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/lighthouse-final-project%40delta-entry-274716.iam.gserviceaccount.com"
+}
