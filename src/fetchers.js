@@ -1,3 +1,24 @@
+async function uploadData(url = "", data = {}, config) {
+  // Default options are marked with *
+  console.log("data", data);
+  const response = await fetch(url, {
+    method: "POST", // *GET, POST, PUT, DELETE, etc.
+    mode: "cors", // no-cors, *cors, same-origin
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "same-origin", // include, *same-origin, omit
+    // headers: {
+    //   "Content-Type": "application/json",
+    //   // 'Content-Type': 'application/x-www-form-urlencoded',
+    // },
+    headers: {
+      "content-type": "multipart/form-data",
+    },
+    redirect: "follow", // manual, *follow, error
+    referrerPolicy: "no-referrer", // no-referrer, *client
+    body: JSON.stringify(data), // body data type must match "Content-Type" header
+  });
+  return response.data; // parses JSON response into native JavaScript objects
+}
 async function postData(url = "", data = {}) {
   // Default options are marked with *
   const response = await fetch(url, {
@@ -15,7 +36,6 @@ async function postData(url = "", data = {}) {
   });
   return; //response.json(); // parses JSON response into native JavaScript objects
 }
-
 async function editData(url = "", data = {}) {
   // Default options are marked with *
   const response = await fetch(url, {
@@ -77,10 +97,10 @@ const addProduct = (product) => {
 
 const addCategory = (user_id, category_name, category_public) => {
   return editData("http://localhost:8000/categories", {
-		user_id,
-		category_name,
-		category_public,
-	});
+    user_id,
+    category_name,
+    category_public,
+  });
 };
 
 const addFriends = (user_1_id, user_2_id) => {
@@ -130,6 +150,10 @@ const unmarkPurchased = (product_id) => {
   return postData("http://localhost:8000/products/unpurchased", { product_id });
 };
 
+const postPicture = (picture, config) => {
+  return uploadData("http://localhost:8000/picture", picture, config);
+};
+
 const getFriendsForUser = (user_id) => {
   return getData(`http://localhost:8000/friends`, {
     user_id,
@@ -157,4 +181,5 @@ export {
   getPurchased,
   getFriendsForUser,
   filterByPrice,
+  postPicture,
 };

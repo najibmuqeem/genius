@@ -7,20 +7,20 @@ export default function Header() {
   const [friends, setFriends] = useState([]);
 
   if (friends.length === 0) {
-		getFriendsForUser(1).then((res) => {
+    getFriendsForUser(1).then((res) => {
       setFriends(() => res);
       console.log(res);
-		});
+    });
   }
-  
+
   const friendsList = friends.map((friend) => {
     return (
-			<Link to="/friends">
-				<li class="user-nav__friend">{friend.username}</li>
-			</Link>
-		);
-  })
-  
+      <Link to="/friends">
+        <li class="user-nav__friend">{friend.username}</li>
+      </Link>
+    );
+  });
+
   return (
     <header>
       <nav>
@@ -39,13 +39,16 @@ export default function Header() {
               <a href="#">Home</a>
             </li>
           </Link>
+          <Link to="/picture">
+            <li class="main-nav__item">
+              <a href="#">Upload an Image</a>
+            </li>
+          </Link>
         </ul>
         <ul class="user-nav">
           <li class="user-nav__item friends">
             <p>Friends</p>
-            <ul class="user-nav__friends">
-              {friendsList}
-            </ul>
+            <ul class="user-nav__friends">{friendsList}</ul>
           </li>
           <li class="user-nav__item account">
             <p>Welcome, Rachel</p>
