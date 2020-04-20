@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header.js";
 import Footer from "./Footer.js";
 import axios from "axios";
+import "./components_styles/api.css";
 
 class Api extends React.Component {
   constructor(props) {
@@ -39,12 +40,25 @@ class Api extends React.Component {
     return (
       <>
         <Header />
-        <form onSubmit={this.onFormSubmit}>
-          <h1>File Upload</h1>
-          <input type="file" name="myImage" onChange={this.onChange} />
-          <button type="submit">Upload</button>
-          <div>{this.urlList}</div>
-        </form>
+        <div class="upload-main">
+          <form class="upload" onSubmit={this.onFormSubmit}>
+            <h1>File Upload</h1>
+            <input
+              id="file-upload"
+              class="visually-hidden"
+              type="file"
+              name="myImage"
+              onChange={this.onChange}
+            />
+            <label class="button btn-rose" for="file-upload">
+              Upload Image
+            </label>
+            <button class="button btn-rose icon-btn sold-btn ctn" type="submit">
+              Upload
+            </button>
+            <div>{this.urlList}</div>
+          </form>
+        </div>
         <Footer />
       </>
     );

@@ -104,7 +104,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
   const imgGetter = () => {
     for (let image of document.images) {
-      if (image.height > 500 && !image.src.includes("LOADING")) {
+      if (image.height > 400 && !image.src.includes("LOADING")) {
         return image.src;
       }
     }

@@ -1,13 +1,13 @@
 :root {
-  --warm-white: #FDFCF6;
-  --light-rose: #EAD2CE;
-  --melon: #EABDB6;
-  --dusty-rose: #C96A6C;
-  --bg-green-blue: #E5EBE7;
+  --warm-white: #fdfcf6;
+  --light-rose: #ead2ce;
+  --melon: #eabdb6;
+  --dusty-rose: #c96a6c;
+  --bg-green-blue: #e5ebe7;
   --mint: #bed3c3;
-  --main-green-blue: #4C8D99;
+  --main-green-blue: #4c8d99;
   --navy: #212e53;
-  --dark-blue: #1B243D;
+  --dark-blue: #1b243d;
 }
 
 @font-face {
@@ -43,7 +43,10 @@ main h1 {
 
 .visually-hidden:not(:focus):not(:active),
 input[type="checkbox"].visually-hidden,
-input[type="radio"].visually-hidden {
+input[type="radio"].visually-hidden,
+.visually-hidden:active,
+.visually-hidden:hover,
+.visually-hidden:focus {
   position: absolute;
   white-space: nowrap;
   clip: rect(0 0 0 0);

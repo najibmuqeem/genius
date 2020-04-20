@@ -1,7 +1,6 @@
 import Category from "./Category.js";
 import Header from "./Header.js";
 import Footer from "./Footer.js";
-import Button from "./Button.js";
 import CreateForm from "./CreateForm.js";
 import "./components_styles/categories.css";
 import { getCategoriesForUser, addCategory } from "../fetchers.js";
@@ -16,7 +15,7 @@ export default function Categories(props) {
       setCategories(() => res);
     });
   }
-  
+
   const createCategory = (category) => {
     console.log("from categories ", category);
     let newCat = addCategory(
@@ -25,11 +24,10 @@ export default function Categories(props) {
       category.public
     ).then((res) => {
       getCategoriesForUser(user).then((res) => {
-				setCategories(() => res);
-			});
+        setCategories(() => res);
+      });
     });
-  
-  }
+  };
 
   console.log(categories);
   const categoryList = categories.map((category) => {
@@ -41,7 +39,9 @@ export default function Categories(props) {
         sum={category.sum}
         public={category.public}
         getCategoryId={props.getCategoryId}
-        onButtonClick={()=>{props.onButtonClick()}}
+        onButtonClick={() => {
+          props.onButtonClick();
+        }}
       />
     );
   });
@@ -50,22 +50,34 @@ export default function Categories(props) {
 
   const showForm = (show) => {
     return show ? setShow(false) : setShow(true);
-  }
+  };
 
   return (
-		<>
-			<Header />
-			<main class="page-main">
-				<h1>Categories</h1>
-				<div class="new-category">
-					<button class="button btn-rose" type="button" onClick={() => showForm(show)}>
-						Create new category
-					</button>
-					{show ? <CreateForm submit={createCategory} showForm={showForm} show={show}/> : <></>}
-				</div>
-				<ul class="categories">{categoryList}</ul>
-			</main>
-			<Footer />
-		</>
-	);
+    <>
+      <Header />
+      <main class="page-main">
+        <h1>Categories</h1>
+        <div class="new-category">
+          <button
+            class="button btn-rose"
+            type="button"
+            onClick={() => showForm(show)}
+          >
+            Create new category
+          </button>
+          {show ? (
+            <CreateForm
+              submit={createCategory}
+              showForm={showForm}
+              show={show}
+            />
+          ) : (
+            <></>
+          )}
+        </div>
+        <ul class="categories">{categoryList}</ul>
+      </main>
+      <Footer />
+    </>
+  );
 }
