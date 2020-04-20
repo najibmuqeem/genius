@@ -2,8 +2,10 @@ import "./components_styles/header.css";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getFriendsForUser } from "../fetchers.js";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
-export default function Header() {
+export default function Header(props) {
   const [friends, setFriends] = useState([]);
 
   if (friends.length === 0) {
@@ -59,8 +61,8 @@ export default function Header() {
               </Link>
             </ul>
           </li>
-          <li class="user-nav__item">
-            <p>Log out</p>
+          <li class="user-nav__item" onClick={props.logout}>
+            <p id="logout">Log out</p>
           </li>
         </ul>
       </nav>

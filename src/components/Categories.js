@@ -57,6 +57,7 @@ export default function Categories(props) {
         onButtonClick={() => {
           props.onButtonClick();
         }}
+
         product_img={category.product_img}
       />
     );
@@ -70,7 +71,7 @@ export default function Categories(props) {
 
   return (
     <>
-      <Header />
+      <Header logout={props.logout} />
       <main class="page-main">
         <h1>Categories</h1>
         <div class="new-category">
