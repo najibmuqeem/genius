@@ -51,7 +51,7 @@
   height: 50px;
   border: none;
   border-radius: 50%;
-  background-color: #F5ECEA;
+  background-color: #f5ecea;
   background-position: center;
   background-repeat: no-repeat;
   transition-property: background-color background-image;
@@ -101,11 +101,13 @@
   background-image: url("images/hover-ok.svg");
 }
 
+
 .copy-btn:hover::before {
   background-image: url("images/hover-plus.svg");
 }
 
 .icon-btn:active::before  {
+
   background-color: #fff;
   transition: background-color 0.6s;
 }
@@ -114,6 +116,7 @@
   background-image: url("images/icons8-ok(1).svg");
 }
 
+
 .friend-btn {
   border: 1px solid var(--main-green-blue);
   color: var(--main-green-blue)
@@ -121,4 +124,13 @@
 
 .friend-btn:hover {
   border: 1px solid var(--main-green-blue);
+
+.ctn {
+  text-align: center;
+  padding: 0;
+}
+
+.file {
+  padding-left: 110px;
+  padding-right: 0px;
 }

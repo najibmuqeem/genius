@@ -4,7 +4,7 @@ import Footer from "./Footer.js";
 import { getPurchased } from "../fetchers.js";
 import React, { useState } from "react";
 
-export default function Purchased() {
+export default function Purchased(props) {
   const [purchased, setPurchased] = useState([]);
   const user = 1;
 
@@ -26,7 +26,7 @@ export default function Purchased() {
   });
   return (
     <>
-      <Header />
+      <Header logout={props.logout} />
       <div class="products">{purchasedList}</div>
       <Footer />
     </>

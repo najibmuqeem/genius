@@ -1,0 +1,26 @@
+.upload {
+  text-align: center;
+}
+
+h1 {
+  font-size: 30px;
+  padding-top: 30px;
+  color: var(--dusty-rose);
+}
+
+.upload-main {
+  min-height: calc(100vh - 122.5px - 82.5px);
+}
+
+#file-upload + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: var(--dusty-rose);
+  background-color: var(--warm-white);
+  display: inline-block;
+}
+#file-upload:focus + label,
+#file-upload + label:hover {
+  background-color: var(--dusty-rose);
+  color: var(--warm-white);
+}

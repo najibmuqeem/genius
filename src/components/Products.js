@@ -12,7 +12,6 @@ import {
   editProduct,
 } from "../fetchers.js";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 //let classNames = require("classnames");
 
 export default function Products(props) {
@@ -60,6 +59,13 @@ export default function Products(props) {
         (product) => product.id !== oldProduct.id
       );
       newArrOfProduct.push(res);
+      newArrOfProduct.sort((current, next) => {
+        const currentName = current.product_name;
+        const nextName = next.product_name;
+        if (currentName < nextName) return -1;
+        if (currentName > nextName) return 1;
+        return 0;
+      });
       setProducts(newArrOfProduct);
     });
   };
@@ -89,19 +95,19 @@ export default function Products(props) {
   });
 
   return (
-		<>
-			<Header />
-			<main class="page-main">
-				<Tabs getCategoryId={props.getCategoryId} activeTab={props.id} />
-				<Filter
-					category_id={props.id}
-					filterProducts={filterProducts}
-					products={productList}
-					viewAll={viewAll}
-				></Filter>
-				<ul class="products">{productList}</ul>
-			</main>
-			<Footer />
-		</>
-	);
+    <>
+      <Header logout={props.logout} />
+      <main class="page-main">
+        <Tabs getCategoryId={props.getCategoryId} activeTab={props.id} />
+        <Filter
+          category_id={props.id}
+          filterProducts={filterProducts}
+          products={productList}
+          viewAll={viewAll}
+        ></Filter>
+        <ul class="products">{productList}</ul>
+      </main>
+      <Footer />
+    </>
+  );
 }
