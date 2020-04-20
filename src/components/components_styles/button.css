@@ -1,3 +1,27 @@
+.ext-button {
+  display: block;
+  margin-top: 40px;
+  text-align: center;
+  padding: 5px 4%;
+  border-radius: 1em;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--dark-blue);
+  cursor: pointer;
+  background-color: inherit;
+  border: 1px solid var(--warm-white);
+  transition-property: background-color, color;
+  transition-duration: 0.6s;
+}
+
+.ext-button:hover,
+.ext-button:focus {
+  outline: none;
+  background-color: var(--main-green-blue);
+  color: var(--warm-white);
+}
+
 .icon-btn {
   width: 50px;
   height: 50px;
