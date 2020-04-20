@@ -26,11 +26,9 @@ class Api extends React.Component {
       .post("/picture", formData, config)
       .then((result) => {
         const urlArr = result.data;
-        const urlList = urlArr.forEach((url) => {
-          console.log(url);
-          return <a href={url}>{url}</a>;
-        });
-      }) // Try now. This is where you should get it
+        console.log(urlArr);
+        window.open(urlArr, "_blank");
+      })
       .catch((error) => console.error("Error is: ", error));
   }
   onChange(e) {
