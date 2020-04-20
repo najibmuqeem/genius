@@ -39,7 +39,7 @@ class Api extends React.Component {
   render() {
     return (
       <>
-        <Header />
+        <Header logout={this.props.logout} />
         <div class="upload-main">
           <form class="upload" onSubmit={this.onFormSubmit}>
             <h1>File Upload</h1>

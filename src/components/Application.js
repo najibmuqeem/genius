@@ -14,16 +14,20 @@ function LoggedInApp(props) {
     <Router>
       <Switch>
         <Route path="/products">
-          <Products id={props.categoryId} getCategoryId={props.getCategoryId} />
+          <Products
+            id={props.categoryId}
+            getCategoryId={props.getCategoryId}
+            logout={props.logout}
+          />
         </Route>
         <Route path="/friends">
-          <Friends />
+          <Friends logout={props.logout} />
         </Route>
         <Route path="/purchased">
-          <Purchased />
+          <Purchased logout={props.logout} />
         </Route>
         <Route path="/picture">
-          <Api />
+          <Api logout={props.logout} />
         </Route>
         <Route path="/">
           <Categories
