@@ -114,13 +114,13 @@ const addFriendProduct = function () {
 };
 
 const addCategory = function (user_id, category_name, category_public) {
-	return pool.query(
-		`
+  return pool.query(
+    `
     INSERT INTO categories (user_id, category_name, public) VALUES ($1, $2, $3)
     RETURNING *;
     `,
-		[user_id, category_name, category_public]
-	);
+    [user_id, category_name, category_public]
+  );
 };
 
 const addFriends = function (user_1_id, user_2_id) {
@@ -237,14 +237,17 @@ const editProduct = function (product) {
 };
 
 const filterByPrice = function (user_id, category_id, min_price, max_price) {
+  let fixedPrice;
+  max_price === "0" ? (fixedPrice = "999999") : (fixedPrice = max_price);
   return pool.query(
     `
     SELECT products.id, products.category_id, products.product_name, products.price, products.img_src, products.store_name, products.description, products.web_url, products.purchased
     FROM products
     JOIN categories ON category_id = categories.id
-    WHERE user_id = $1 AND category_id = $2 AND price >= $3 AND price <= $4;
+    WHERE user_id = $1 AND category_id = $2 AND price >= $3 AND price <= $4
+    ORDER BY products.product_name;
     `,
-    [user_id, category_id, min_price, max_price]
+    [user_id, category_id, min_price, fixedPrice]
   );
 };
 
