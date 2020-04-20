@@ -8,10 +8,8 @@ export default function Category(props) {
   const categoryClass = classNames("category", {
     "category-private": !props.public,
   });
-  console.log(props.product_img);
   const displayImg = props.product_img.map((image) => {
-    console.log(image);
-    return <img src={image} />;
+    return <img height="350" width="330" src={image} />;
   });
 
   return (
@@ -22,7 +20,7 @@ export default function Category(props) {
           onClick={() => props.getCategoryId(props.id)}
         >
           <h4>{props.name}</h4>
-          <div>{displayImg}</div>
+          <div class="category-image">{displayImg}</div>
           <div class="cat-property">
             <p>Number of items:</p>
             <p>{props.count}</p>

@@ -29,8 +29,6 @@ export default function Categories(props) {
             ...response.slice(0, 4).map((r) => r.img_src),
           ];
         });
-
-        console.log("===>?", duplicate);
         setCategories(duplicate);
       });
     });
@@ -47,10 +45,7 @@ export default function Categories(props) {
       });
     });
   };
-  // console.log(categories);
   const categoryList = categories.map((category) => {
-    console.log(category);
-    console.log(category.product_img);
     return (
       <Category
         id={category.id}
