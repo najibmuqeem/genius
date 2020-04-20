@@ -21,28 +21,34 @@
   height: 50px;
   border: none;
   border-radius: 50%;
-  background-color: var(--light-rose);
+  background-color: #F5ECEA;
   background-position: center;
   background-repeat: no-repeat;
+  transition: background-color 0.6s;
 }
 
 .edit-btn::before {
-  
-  background-image: url("images/create-24px.svg");
- 
-  background-size: 70%;
+  background-image: url("images/icons8-edit.svg");
+  background-size: 50%;
 }
 
 .delete-btn::before {
-  
-  background-image: url("images/delete_sweep-24px.svg");
-  
-  background-size: 70%;
+  background-image: url("images/icons8-trash-can.svg");
+  background-size: 50%;
 }
 
 .sold-btn::before {
-  
-  background-image: url("images/check_circle_outline-24px.svg");
-  
-  background-size: 100%;
+  background-image: url("images/icons8-ok.svg");
+  background-size: 60%;
+}
+
+.icon-btn:hover::before {
+  background-color: var(--melon);
+  transition: background-color 0.6s;
+}
+
+.icon-btn:active::before  {
+  background-color: #fff;
+  transition: background-color 0.6s;
+
 }
