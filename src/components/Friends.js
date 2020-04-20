@@ -5,7 +5,7 @@ import { getProductsForUser } from "../fetchers.js";
 import React, { useState } from "react";
 //let classNames = require("classnames");
 
-export default function Friends() {
+export default function Friends(props) {
   const [products, setProducts] = useState([]);
   const user = 2;
 
@@ -36,7 +36,7 @@ export default function Friends() {
 
   return (
     <>
-      <Header />
+      <Header logout={props.logout} />
       <div class="products">{productList}</div>
       <Footer />
     </>

@@ -96,7 +96,7 @@ export default function Products(props) {
 
   return (
     <>
-      <Header />
+      <Header logout={props.logout} />
       <main class="page-main">
         <Tabs getCategoryId={props.getCategoryId} activeTab={props.id} />
         <Filter
