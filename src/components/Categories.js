@@ -3,7 +3,11 @@ import Header from "./Header.js";
 import Footer from "./Footer.js";
 import CreateForm from "./CreateForm.js";
 import "./components_styles/categories.css";
-import { getCategoriesForUser, addCategory } from "../fetchers.js";
+import {
+  getCategoriesForUser,
+  addCategory,
+  getProductsForCategory,
+} from "../fetchers.js";
 import React, { useState } from "react";
 
 export default function Categories(props) {
@@ -12,12 +16,27 @@ export default function Categories(props) {
 
   if (categories.length === 0) {
     getCategoriesForUser(user).then((res) => {
-      setCategories(() => res);
+      const duplicate = [...res];
+      const promises = [];
+      for (let category of duplicate) {
+        category.product_img = [];
+        promises.push(getProductsForCategory(1, category.id)); //.then((result) => {
+      }
+
+      Promise.all(promises).then((response) => {
+        response.forEach((response, index) => {
+          duplicate[index].product_img = [
+            ...response.slice(0, 4).map((r) => r.img_src),
+          ];
+        });
+
+        console.log("===>?", duplicate);
+        setCategories(duplicate);
+      });
     });
   }
 
   const createCategory = (category) => {
-    console.log("from categories ", category);
     let newCat = addCategory(
       user,
       category.category_name,
@@ -28,9 +47,10 @@ export default function Categories(props) {
       });
     });
   };
-
-  console.log(categories);
+  // console.log(categories);
   const categoryList = categories.map((category) => {
+    console.log(category);
+    console.log(category.product_img);
     return (
       <Category
         id={category.id}
@@ -42,6 +62,7 @@ export default function Categories(props) {
         onButtonClick={() => {
           props.onButtonClick();
         }}
+        product_img={category.product_img}
       />
     );
   });

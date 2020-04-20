@@ -53,7 +53,11 @@ class Api extends React.Component {
             <label class="button btn-rose" for="file-upload">
               Upload Image
             </label>
-            <button class="button btn-rose icon-btn sold-btn ctn" type="submit">
+            <button
+              onClick={() => console.log("Searching...")}
+              class="button btn-rose icon-btn sold-btn ctn"
+              type="submit"
+            >
               Upload
             </button>
             <div>{this.urlList}</div>
