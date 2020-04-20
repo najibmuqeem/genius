@@ -28,50 +28,57 @@ export default function ViewCard(props) {
   const friendProduct = {};
 
   return (
-    <>
-      <li>
-        <h4>
-          <a target="_blank" href={props.web_url}>
-            {props.product_name}
-          </a>
-        </h4>
-        <p>${props.price}</p>
-        <img width="100" height="100" src={props.img_src} />
-        <p>{props.description}</p>
-        <p>{props.store_name}</p>
-        <div class={props.id}>
-          <button
-            onClick={() => {
+		<>
+			<li class="product-card">
+				<h4>
+					<a target="_blank" href={props.web_url}>
+						{props.product_name}
+					</a>
+				</h4>
+				<div class="prod-props">
+					<p>{props.store_name}</p>
+					<p class="prod-price">${props.price}</p>
+				</div>
+
+				<img width="330" height="330" src={props.img_src} />
+				<p class="prod-desc">{props.description}</p>
+        <div class="copy-container">
+				<div class={props.id}>
+					<button
+						onClick={() => {
               toggleDropdown(props.id);
             }}
-          >
-            Add to Wishlist
-          </button>
+            class="icon-btn copy-btn"
+					>
+						Add to Wishlist
+					</button>
+				</div>
         </div>
-        <form class="filter-category" id={props.id}>
-          <select class="mySelect" name="category_id">
-            {categoryList}
-          </select>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              friendProduct.product_name = props.product_name;
-              friendProduct.price = props.price;
-              friendProduct.img_src = props.img_src;
-              friendProduct.store_name = props.store_name;
-              friendProduct.web_url = props.web_url;
-              const currentItem = document.getElementById(props.id);
-              friendProduct.category_id = currentItem.getElementsByClassName(
-                "mySelect"
-              )[0].value;
-              addProduct(friendProduct);
-              //console.log(friendProduct);
+				<form class="filter-category" id={props.id}>
+					<select class="mySelect" name="category_id">
+						{categoryList}
+					</select>
+					<button
+						onClick={(e) => {
+							e.preventDefault();
+							friendProduct.product_name = props.product_name;
+							friendProduct.price = props.price;
+							friendProduct.img_src = props.img_src;
+							friendProduct.store_name = props.store_name;
+							friendProduct.web_url = props.web_url;
+							const currentItem = document.getElementById(props.id);
+							friendProduct.category_id = currentItem.getElementsByClassName(
+								"mySelect"
+							)[0].value;
+							addProduct(friendProduct);
+							//console.log(friendProduct);
             }}
-          >
-            Submit
-          </button>
-        </form>
-      </li>
-    </>
-  );
+            class="button ext-button friend-btn"
+					>
+						Add
+					</button>
+				</form>
+			</li>
+		</>
+	);
 }

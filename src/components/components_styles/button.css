@@ -30,6 +30,12 @@
   border: none;
 }
 
+.copy-btn {
+  display: block;
+  text-align: center;
+  margin: 20px auto;
+}
+
 .icon-btn:hover,
 .icon-btn:active,
 .icon-btn:focus {
@@ -67,6 +73,17 @@
   background-size: 60%;
 }
 
+.copy-btn::before {
+  background-image: url("images/icons8-plus.svg");
+  background-size: 60%;
+}
+
+.friend-btn {
+  margin: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .icon-btn:hover::before {
   background-color: var(--melon);
   transition: background-color 0.6s;
@@ -84,7 +101,13 @@
   background-image: url("images/hover-ok.svg");
 }
 
-.icon-btn:active::before {
+
+.copy-btn:hover::before {
+  background-image: url("images/hover-plus.svg");
+}
+
+.icon-btn:active::before  {
+
   background-color: #fff;
   transition: background-color 0.6s;
 }
@@ -92,6 +115,16 @@
 .product-purchased .sold-btn::before {
   background-image: url("images/icons8-ok(1).svg");
 }
+
+
+.friend-btn {
+  border: 1px solid var(--main-green-blue);
+  color: var(--main-green-blue)
+}
+
+.friend-btn:hover {
+  border: 1px solid var(--main-green-blue);
+
 .ctn {
   text-align: center;
   padding: 0;
