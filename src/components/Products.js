@@ -12,7 +12,6 @@ import {
   editProduct,
 } from "../fetchers.js";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 //let classNames = require("classnames");
 
 export default function Products(props) {
@@ -89,19 +88,19 @@ export default function Products(props) {
   });
 
   return (
-		<>
-			<Header />
-			<main class="page-main">
-				<Tabs getCategoryId={props.getCategoryId} activeTab={props.id} />
-				<Filter
-					category_id={props.id}
-					filterProducts={filterProducts}
-					products={productList}
-					viewAll={viewAll}
-				></Filter>
-				<ul class="products">{productList}</ul>
-			</main>
-			<Footer />
-		</>
-	);
+    <>
+      <Header />
+      <main class="page-main">
+        <Tabs getCategoryId={props.getCategoryId} activeTab={props.id} />
+        <Filter
+          category_id={props.id}
+          filterProducts={filterProducts}
+          products={productList}
+          viewAll={viewAll}
+        ></Filter>
+        <ul class="products">{productList}</ul>
+      </main>
+      <Footer />
+    </>
+  );
 }
