@@ -1,7 +1,8 @@
 .product-card {
-  outline: 1px solid var(--mint);
+  border: 1px solid var(--mint);
   width: 330px;
   margin: 10px 30px;
+  border-radius: 15px;
 }
 
 .product-card h4 {
@@ -79,9 +80,17 @@
 .prod-btn-container {
   display: flex;
   justify-content: space-between;
-  margin: 0 20px;
+  margin: 0 20px 15px;
 }
 
 .prod-desc {
-  min-height: 30px;
+  box-sizing: border-box;
+  min-height: 50px;
+  margin: 10px;
+  padding: 10px;
+  font-size: 0.75em;
+  color: var(--navy);
+  background-color: #F5ECEA;
+  border-radius: 10px;
+  letter-spacing: 0.2em;
 }

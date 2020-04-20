@@ -24,7 +24,8 @@
   background-color: #F5ECEA;
   background-position: center;
   background-repeat: no-repeat;
-  transition: background-color 0.6s;
+  transition-property: background-color background-image;
+  transition-duration: 0.6s;
 }
 
 .edit-btn::before {
@@ -47,8 +48,23 @@
   transition: background-color 0.6s;
 }
 
+.edit-btn:hover::before {
+  background-image: url("images/hover-edit.svg");
+}
+
+.delete-btn:hover::before {
+  background-image: url("images/hover-trash.svg");
+}
+
+.sold-btn:hover::before {
+  background-image: url("images/hover-ok.svg");
+}
+
 .icon-btn:active::before  {
   background-color: #fff;
   transition: background-color 0.6s;
+}
 
+.product-purchased .sold-btn::before {
+  background-image: url("images/icons8-ok(1).svg");;
 }
