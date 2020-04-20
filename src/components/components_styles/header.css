@@ -23,7 +23,6 @@ nav {
   display: flex;
   justify-content: space-between;
   align-content: center;
-  
 }
 
 .main-nav {
@@ -71,7 +70,6 @@ nav {
   transition: all 0.5s ease-in;
 }
 
-
 .main-nav__item:hover a {
   cursor: pointer;
 }
@@ -104,6 +102,7 @@ nav {
 .user-nav__item li:hover {
   background-color: var(--bg-green-blue);
   color: var(--dusty-rose);
+  cursor: pointer;
 }
 
 .user-nav__user {
@@ -123,3 +122,6 @@ nav {
   background-color: #a1a1a1;
 }
 
+#logout:hover {
+  cursor: pointer;
+}

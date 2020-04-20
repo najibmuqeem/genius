@@ -238,7 +238,7 @@ const editProduct = function (product) {
 
 const filterByPrice = function (user_id, category_id, min_price, max_price) {
   let fixedPrice;
-  max_price === "0" ? (fixedPrice = "999999") : (fixedPrice = max_price);
+  max_price === "0" ? (fixedPrice = "2147483647") : (fixedPrice = max_price);
   return pool.query(
     `
     SELECT products.id, products.category_id, products.product_name, products.price, products.img_src, products.store_name, products.description, products.web_url, products.purchased
