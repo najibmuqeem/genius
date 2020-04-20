@@ -8,10 +8,15 @@ export default function Category(props) {
   const categoryClass = classNames("category", {
     "category-private": !props.public,
   });
-  const displayImg = props.product_img.map((image, index) => {
-    const classString = "img-" + index;
-    return <img class={classString} height="350" width="330" src={image} />;
-  });
+  let displayImg =[]
+
+  if (props.product_img) {
+    
+   displayImg = props.product_img.map((image, index) => {
+      const classString = "img-" + index;
+      return <img class={classString} height="350" width="330" src={image} />;
+    });
+  }
 
   return (
     <li class={categoryClass}>
