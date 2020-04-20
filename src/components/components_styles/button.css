@@ -124,6 +124,7 @@
 
 .friend-btn:hover {
   border: 1px solid var(--main-green-blue);
+}
 
 .ctn {
   text-align: center;
