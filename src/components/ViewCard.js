@@ -8,18 +8,20 @@ export default function ViewCard(props) {
     "product-purchased": props.purchased,
   });
   return (
-    <div>
-      <li class={productClass}>
-        <h4>
-          <a target="_blank" href={props.web_url}>
-            {props.product_name}
-          </a>
-        </h4>
-        <p>${props.price}</p>
-        <img width="100" height="100" src={props.img_src} />
-        <p>{props.description}</p>
-        <p>{props.store_name}</p>
-      </li>
-    </div>
-  );
+		<div>
+			<li class={productClass}>
+				<h4>
+					<a target="_blank" href={props.web_url}>
+						{props.product_name}
+					</a>
+				</h4>
+				<div class="prod-props">
+					<p>{props.store_name}</p>
+					<p class="prod-price">${props.price}</p>
+				</div>
+				<img width="330" height="330" src={props.img_src} />
+				<p class="prod-desc">{props.description}</p>
+			</li>
+		</div>
+	);
 }
