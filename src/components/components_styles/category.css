@@ -80,22 +80,6 @@
   justify-content: space-between;
 }
 
-.cat-btns button {
-  display: inline;
-  margin: 10px auto;
-  text-align: center;
-  padding: 5px 15px;
-  border-radius: 1.05em;
-  font-size: 1em;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  border: none;
-  transition-property: background-color, color, border, border-color;
-  transition-duration: 0.6s;
-  background-color: var(--warm-white);
-}
-
 
 
 

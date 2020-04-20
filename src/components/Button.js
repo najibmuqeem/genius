@@ -3,7 +3,7 @@ import "./components_styles/button.css";
 let classNames = require("classnames");
 
 export default function Button(props) {
-	const btnClass = classNames("button btn-rose cat-btn", {
+	const btnClass = classNames("button btn-rose", {
 		"ext-button": props.filter,
 		"icon-btn": props.icon,
 		"edit-btn": props.edit,
