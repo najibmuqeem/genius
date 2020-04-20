@@ -1,8 +1,32 @@
+.ext-button {
+  display: block;
+  margin-top: 40px;
+  text-align: center;
+  padding: 5px 4%;
+  border-radius: 1em;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--dark-blue);
+  cursor: pointer;
+  background-color: inherit;
+  border: 1px solid var(--warm-white);
+  transition-property: background-color, color;
+  transition-duration: 0.6s;
+}
+
+.ext-button:hover,
+.ext-button:focus {
+  outline: none;
+  background-color: var(--main-green-blue);
+  color: var(--warm-white);
+}
+
 .icon-btn {
   width: 50px;
   height: 50px;
   position: relative;
-  font-size: 2px;
+  font-size: 0;
   border: none;
 }
 
@@ -21,28 +45,50 @@
   height: 50px;
   border: none;
   border-radius: 50%;
-  background-color: var(--light-rose);
+  background-color: #F5ECEA;
   background-position: center;
   background-repeat: no-repeat;
+  transition-property: background-color background-image;
+  transition-duration: 0.6s;
 }
 
 .edit-btn::before {
-  
-  background-image: url("images/create-24px.svg");
- 
-  background-size: 70%;
+  background-image: url("images/icons8-edit.svg");
+  background-size: 50%;
 }
 
 .delete-btn::before {
-  
-  background-image: url("images/delete_sweep-24px.svg");
-  
-  background-size: 70%;
+  background-image: url("images/icons8-trash-can.svg");
+  background-size: 50%;
 }
 
 .sold-btn::before {
-  
-  background-image: url("images/check_circle_outline-24px.svg");
-  
-  background-size: 100%;
+  background-image: url("images/icons8-ok.svg");
+  background-size: 60%;
+}
+
+.icon-btn:hover::before {
+  background-color: var(--melon);
+  transition: background-color 0.6s;
+}
+
+.edit-btn:hover::before {
+  background-image: url("images/hover-edit.svg");
+}
+
+.delete-btn:hover::before {
+  background-image: url("images/hover-trash.svg");
+}
+
+.sold-btn:hover::before {
+  background-image: url("images/hover-ok.svg");
+}
+
+.icon-btn:active::before  {
+  background-color: #fff;
+  transition: background-color 0.6s;
+}
+
+.product-purchased .sold-btn::before {
+  background-image: url("images/icons8-ok(1).svg");;
 }

@@ -1,7 +1,8 @@
 import Button from "./Button.js";
+import "./components_styles/editForm.css";
 import React, { useEffect, useState } from "react";
 import { editProduct } from "../fetchers.js";
-//let classNames = require("classnames");
+
 
 export default function EditForm(props) {
   const [product, setProduct] = useState({
@@ -32,71 +33,88 @@ export default function EditForm(props) {
   };
 
   return (
-    <div>
-      {submitted ? (
-        <li class="product-card">
-          <h4>
-            <a href={props.web_url}>{props.name}</a>
-          </h4>
-          <p>${props.price}</p>
-          <img width="100" height="100" src={props.img_src} />
-          <p>{props.description}</p>
-          <p>{props.store_name}</p>
-          <Button onButtonClick={props.onDeleteClick}>Delete</Button>
-          <Button onButtonClick={props.onSoldClick}>Mark purchased</Button>
-          <Button id={props.id} onButtonClick={props.setEdit}>
-            Edit
-          </Button>
-        </li>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <label>
-            Name:
-            <input name="name" type="text" defaultValue={product.name}></input>
-          </label>
-          <label>
-            Price:
-            <input
-              name="price"
-              type="text"
-              defaultValue={product.price}
-            ></input>
-          </label>
-          <label>
-            Image Source:
-            <input
-              name="img_src"
-              type="text"
-              defaultValue={product.img_src}
-            ></input>
-          </label>
-          <label>
-            Description:
-            <textarea
-              name="description"
-              type="text"
-              defaultValue={product.description}
-            ></textarea>
-          </label>
-          <label>
-            Store Name:
-            <input
-              name="store_name"
-              type="text"
-              defaultValue={product.store_name}
-            ></input>
-          </label>
-          <label>
-            Web URL:
-            <input
-              name="web_url"
-              type="text"
-              defaultValue={product.web_url}
-            ></input>
-          </label>
-          <input type="submit" value="Submit"></input>
-        </form>
-      )}
-    </div>
-  );
+		<>
+			{submitted ? (
+				<li class="product-card">
+					<h4>
+						<a target="_blank" href={props.web_url}>
+							{props.name}
+						</a>
+					</h4>
+					<p>${props.price}</p>
+					<img width="330" height="330" src={props.img_src} />
+					<p>{props.description}</p>
+					<p>{props.store_name}</p>
+					<Button onButtonClick={props.onDeleteClick}>Delete</Button>
+					<Button onButtonClick={props.onSoldClick}>Mark purchased</Button>
+					<Button id={props.id} onButtonClick={props.setEdit}>
+						Edit
+					</Button>
+				</li>
+			) : (
+				<form class="edit-form" onSubmit={handleSubmit}>
+					<div class="parameter">
+						<label class="parameter__label">Name:</label>
+						<input
+							class="parameter__text"
+							name="name"
+							type="text"
+							defaultValue={product.name}
+						></input>
+					</div>
+					<div class="parameter">
+						<label class="parameter__label">Price:</label>
+						<input
+							class="parameter__text"
+							name="price"
+							type="text"
+							defaultValue={product.price}
+						></input>
+					</div>
+					<div class="parameter">
+						<label class="parameter__label"> Store:</label>
+						<input
+							class="parameter__text"
+							name="store_name"
+							type="text"
+							defaultValue={product.store_name}
+						></input>
+					</div>
+					<div class="parameter">
+						<label class="parameter__label"> Image Source:</label>
+						<input
+							class="parameter__text"
+							name="img_src"
+							type="text"
+							defaultValue={product.img_src}
+						></input>
+					</div>
+
+					<div class="parameter">
+						<label class="parameter__label" for="description">
+							Description
+						</label>
+						<textarea
+							class="parameter__text"
+							name="description"
+							id="description"
+							defaultValue={product.description}
+						></textarea>
+					</div>
+
+					<div class="parameter">
+						<label class="parameter__label"> Link:</label>
+						<input
+							class="parameter__text"
+							name="web_url"
+							type="text"
+							defaultValue={product.web_url}
+						></input>
+					</div>
+
+					<input type="submit" value="Submit" class="button ext-button"></input>
+				</form>
+			)}
+		</>
+	);
 }

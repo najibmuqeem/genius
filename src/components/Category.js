@@ -29,14 +29,24 @@ export default function Category(props) {
 				</div>
 			</Link>
 			<div class="cat-btns">
-			<Button
-				onButtonClick={() => {
-					props.onButtonClick();
-				}}
-			>
-				Delete
-			</Button>
-			<Button>Edit</Button>
+				<Button
+					onButtonClick={() => {
+						props.onButtonClick();
+					}}
+					icon={true}
+					delete={true}
+				>
+					Delete
+				</Button>
+				<Button
+					onButtonClick={() => {
+						props.onButtonClick();
+					}}
+					icon={true}
+					edit={true}
+				>
+					Edit
+				</Button>
 			</div>
 		</li>
 	);
