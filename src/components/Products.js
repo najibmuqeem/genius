@@ -59,6 +59,13 @@ export default function Products(props) {
         (product) => product.id !== oldProduct.id
       );
       newArrOfProduct.push(res);
+      newArrOfProduct.sort((current, next) => {
+        const currentName = current.product_name;
+        const nextName = next.product_name;
+        if (currentName < nextName) return -1;
+        if (currentName > nextName) return 1;
+        return 0;
+      });
       setProducts(newArrOfProduct);
     });
   };
