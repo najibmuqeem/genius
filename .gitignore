@@ -1,5 +1,4 @@
+/api.json
 .env.development
-node_modules
+/node_modules
 .DS_Store
-
-api.json
