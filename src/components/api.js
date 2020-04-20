@@ -27,12 +27,8 @@ class Api extends React.Component {
       .then((result) => {
         const urlArr = result.data;
         console.log(urlArr);
-        window.location.href = urlArr;
-        // const urlList = urlArr.forEach((url) => {
-        //   console.log(url);
-        //   return <a href={url}>{url}</a>;
-        // });
-      }) // Try now. This is where you should get it
+        window.open(urlArr, "_blank");
+      })
       .catch((error) => console.error("Error is: ", error));
   }
   onChange(e) {
