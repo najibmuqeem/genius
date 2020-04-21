@@ -1,15 +1,3 @@
-:root {
-  --warm-white: #fdfcf6;
-  --light-rose: #ead2ce;
-  --melon: #eabdb6;
-  --dusty-rose: #c96a6c;
-  --bg-green-blue: #e5ebe7;
-  --mint: #bed3c3;
-  --main-green-blue: #4c8d99;
-  --navy: #212e53;
-  --dark-blue: #1b243d;
-}
-
 /* -----------------HEADER--------------------- */
 header {
   background-color: var(--main-green-blue);

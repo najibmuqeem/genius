@@ -25,8 +25,8 @@ export default function ViewCard(props) {
     );
   });
 
-  const friendProduct = {};
-
+	const friendProduct = {};
+	
   return (
 		<>
 			<li class="product-card">
@@ -42,18 +42,18 @@ export default function ViewCard(props) {
 
 				<img width="330" height="330" src={props.img_src} />
 				<p class="prod-desc">{props.description}</p>
-        <div class="copy-container">
-				<div class={props.id}>
-					<button
-						onClick={() => {
-              toggleDropdown(props.id);
-            }}
-            class="icon-btn copy-btn"
-					>
-						Add to Wishlist
-					</button>
+				<div class="copy-container">
+					<div class={props.id}>
+						<button
+							onClick={() => {
+								toggleDropdown(props.id);
+							}}
+							class="icon-btn copy-btn"
+						>
+							Add to Wishlist
+						</button>
+					</div>
 				</div>
-        </div>
 				<form class="filter-category" id={props.id}>
 					<select class="mySelect" name="category_id">
 						{categoryList}
@@ -71,13 +71,19 @@ export default function ViewCard(props) {
 								"mySelect"
 							)[0].value;
 							addProduct(friendProduct);
+							currentItem.classList.remove("show");
+							const nextParagraph = document.getElementById(props.product_name);
+							nextParagraph.classList.remove("visually-hidden");
 							//console.log(friendProduct);
-            }}
-            class="button ext-button friend-btn"
+						}}
+						class="button ext-button friend-btn"
 					>
 						Add
 					</button>
 				</form>
+				<p class="visually-hidden add-notification" id={props.product_name}>
+					{props.product_name} was added to your wishlist
+				</p>
 			</li>
 		</>
 	);

@@ -1,5 +1,7 @@
 :root {
-  --warm-white: #fdfcf6;
+  --warm-white: white;
+  /* --warm-white: #fdfcf6; */
+
   --light-rose: #ead2ce;
   --melon: #eabdb6;
   --dusty-rose: #c96a6c;
