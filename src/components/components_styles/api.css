@@ -24,3 +24,25 @@ h1 {
   background-color: var(--dusty-rose);
   color: var(--warm-white);
 }
+
+.show-load {
+  display: block;
+  background-color: var(--warm-white); /* Green background */
+  border: none; /* Remove borders */
+  color: var(--dusty-rose); /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 36px; /* Set a font size */
+}
+
+.buttonload {
+  display: none;
+  background-color: var(--warm-white); /* Green background */
+  border: none; /* Remove borders */
+  color: var(--dusty-rose); /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 36px; /* Set a font size */
+}
+
+.show-nothing {
+  display: none;
+}

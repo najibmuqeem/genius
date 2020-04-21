@@ -35,10 +35,28 @@ class Api extends React.Component {
   onChange(e) {
     this.setState({ file: e.target.files[0] });
   }
+  loading() {
+    document.querySelector(".ctn").classList.replace("button", "show-nothing");
+    document
+      .querySelector(".buttonload")
+      .classList.replace("buttonload", "show-load");
+    setTimeout(function () {
+      document
+        .querySelector(".show-load")
+        .classList.replace("show-load", "buttonload");
+      document
+        .querySelector(".show-nothing")
+        .classList.replace("show-nothing", "button");
+    }, 3000);
+  }
 
   render() {
     return (
       <>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        ></link>
         <Header logout={this.props.logout} />
         <div class="upload-main">
           <form class="upload" onSubmit={this.onFormSubmit}>
@@ -54,13 +72,16 @@ class Api extends React.Component {
               Upload Image
             </label>
             <button
-              onClick={() => console.log("Searching...")}
+              onClick={() => this.loading()}
               class="button btn-rose icon-btn sold-btn ctn"
               type="submit"
             >
               Upload
             </button>
-            <div>{this.urlList}</div>
+            <p class="buttonload">
+              Loading
+              <i class="fa fa-spinner fa-spin"></i>
+            </p>
           </form>
         </div>
         <Footer />
