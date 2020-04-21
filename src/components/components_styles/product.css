@@ -155,3 +155,7 @@
 .mySelect option {
   font-weight: 400;
 }
+
+.copy-container button {
+  background-color: transparent;
+}
