@@ -40,7 +40,12 @@ export default function ViewCard(props) {
 					<p class="prod-price">${props.price}</p>
 				</div>
 
-				<img width="330" height="330" src={props.img_src} />
+				<img
+					width="330"
+					height="330"
+					src={props.img_src}
+					alt={props.product_name}
+				/>
 				<p class="prod-desc">{props.description}</p>
 				<div class="copy-container">
 					<div class={props.id}>

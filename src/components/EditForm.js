@@ -1,7 +1,7 @@
 import Button from "./Button.js";
 import "./components_styles/editForm.css";
-import React, { useEffect, useState } from "react";
-import { editProduct } from "../fetchers.js";
+import React, { useState } from "react";
+//import { editProduct } from "../fetchers.js";
 
 
 export default function EditForm(props) {

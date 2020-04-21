@@ -2,7 +2,7 @@ import Login from "./Login";
 import Categories from "./Categories";
 import Friends from "./Friends";
 import Purchased from "./Purchased";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Products from "./Products";
 import Api from "./api";
@@ -44,7 +44,6 @@ function LoggedInApp(props) {
 }
 
 export default function Application() {
-  const [state, setState] = useState(false);
   const [categoryId, setCategoryId] = useState(0);
   const onClick = () => {
     cookies.set("noah", "novick", { path: "/" });

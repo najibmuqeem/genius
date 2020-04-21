@@ -1,6 +1,6 @@
 import Button from "./Button.js";
 import "./components_styles/filter.css";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { filterByPrice } from "../fetchers.js";
 //let classNames = require("classnames");
 

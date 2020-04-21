@@ -1,5 +1,5 @@
 import Button from "./Button.js";
-import React, { useState } from "react";
+import React from "react";
 import "./components_styles/category.css";
 import { Link } from "react-router-dom";
 let classNames = require("classnames");
@@ -14,7 +14,7 @@ export default function Category(props) {
     
    displayImg = props.product_img.map((image, index) => {
       const classString = "img-" + index;
-      return <img class={classString} height="350" width="330" src={image} />;
+      return <img class={classString} height="350" width="330" src={image} alt="product from category"/>;
     });
   }
 
