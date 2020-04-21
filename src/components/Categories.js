@@ -41,11 +41,27 @@ export default function Categories(props) {
       category.public
     ).then((res) => {
       getCategoriesForUser(user).then((res) => {
-        setCategories(() => res);
-      });
+				const duplicate = [...res];
+				const promises = [];
+				for (let category of duplicate) {
+					category.product_img = [];
+					promises.push(getProductsForCategory(1, category.id)); //.then((result) => {
+				}
+
+				Promise.all(promises).then((response) => {
+					response.forEach((response, index) => {
+						duplicate[index].product_img = [
+							...response.slice(0, 4).map((r) => r.img_src),
+						];
+					});
+					setCategories(duplicate);
+				});
+			});
     });
   };
+
   const categoryList = categories.map((category) => {
+    console.log(category.product_img)
     return (
       <Category
         id={category.id}
