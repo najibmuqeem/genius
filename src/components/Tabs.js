@@ -2,12 +2,10 @@ import Tab from "./Tab.js";
 import "./components_styles/tabs.css";
 import { getCategoriesForUser } from "../fetchers.js";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-let classNames = require("classnames");
 
 export default function Tabs(props) {
   const [categories, setCategories] = useState([]);
-	const user = 1;
+
 	if (categories.length === 0) {
 		getCategoriesForUser(1).then((res) => {
 			setCategories(() => res);
