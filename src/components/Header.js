@@ -61,9 +61,11 @@ export default function Header(props) {
               </Link>
             </ul>
           </li>
-          <li class="user-nav__item" onClick={props.logout} href="/">
-            <p id="logout">Log out</p>
-          </li>
+          <a href="/">
+            <li class="user-nav__item" onClick={props.logout}>
+              <p id="logout">Log out</p>
+            </li>
+          </a>
         </ul>
       </nav>
     </header>
