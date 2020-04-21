@@ -2,11 +2,10 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 30px auto;
+  margin: 30px auto 165px;
 }
 
 .page-main h1 {
   font-size: 30px;
   padding-top: 30px;
 }
- 

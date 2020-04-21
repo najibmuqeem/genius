@@ -61,7 +61,6 @@ router.get("/categories/:user_id", (req, res) => {
 });
 
 router.get("/filter/:uid/:cid/:min/:max", (req, res) => {
-  console.log(req.params);
   db.filterByPrice(
     req.params.uid,
     req.params.cid,
@@ -73,39 +72,33 @@ router.get("/filter/:uid/:cid/:min/:max", (req, res) => {
 });
 
 router.post("/products", (req, res) => {
-  console.log("create product", req.body);
   db.addProduct(req.body)
     .then((data) => {
       res.json(data.rows[0]);
     })
     .catch((err) => {
-      console.log(err);
       res.status(500);
     });
 });
 router.post("/products/edit", (req, res) => {
   db.editProduct(req.body).then((data) => {
-    console.log(data.rows[0]);
     res.json(data.rows[0]);
   });
 });
 
 router.post("/products/delete", (req, res) => {
-  //console.log(req.body.product_id);
   db.deleteProduct(req.body.product_id).then((data) => {
     res.json(data.rows[0]);
   });
 });
 
 router.post("/products/purchased", (req, res) => {
-  //console.log(req.body.product_id);
   db.markPurchased(req.body.product_id).then((data) => {
     res.json(data.rows[0]);
   });
 });
 
 router.post("/products/unpurchased", (req, res) => {
-  console.log(req.body.product_id);
   db.unmarkPurchased(req.body.product_id).then((data) => {
     res.json(data.rows[0]);
   });
@@ -117,8 +110,6 @@ router.post("/categories", (req, res) => {
     req.body.category_name,
     req.body.category_public
   ).then((data) => {
-    console.log("from router");
-    console.log(data.rows[0]);
     res.json(data.rows[0]);
   });
 });
@@ -131,15 +122,10 @@ router.post("/friends", (req, res) => {
 
 router.post("/picture", (req, res) => {
   upload(req, res, (err) => {
-    console.log("Request file ---", req.file); //Here you get file.
-
     const thing = req.file.path;
     api(thing).then((data) => {
       const url = data[0];
-      console.log(url);
-      //console.log("returned data:", data[0]);
-      //res.set("Content-Type", "application/json");
-      const sendToClient = res.json(url); // Yeh this looks good here
+      const sendToClient = res.json(url);
     });
   });
 });
@@ -156,7 +142,6 @@ router.post("/users", (req, res) => {
 });
 
 router.post("/products", (req, res) => {
-  console.log("hitting route", req.body);
   db.addProduct(req.body).then((data) => {
     res.json(data.rows[0]);
   });

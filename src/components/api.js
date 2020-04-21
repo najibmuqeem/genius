@@ -47,7 +47,7 @@ class Api extends React.Component {
       document
         .querySelector(".show-nothing")
         .classList.replace("show-nothing", "button");
-    }, 3000);
+    }, 5000);
   }
 
   render() {
