@@ -1,4 +1,4 @@
-## User-to-user Buy-Sell webpage
+## Genius- Google Chrome Extension powered personalized wishlist website
 
 Website that links to a Google Chrome Extension, so you can add products to a wish-list from any 3rd party product page, storing them in customized categories. You also have access to a your friend’s wish-list to get inspired by what they are shopping for.
 
