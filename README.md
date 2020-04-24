@@ -42,16 +42,16 @@ HTML/CSS
 
 ### Login
 
-!["View of Login"]()
+!["View of Login"](https://github.com/najibmuqeem/genius/blob/master/public/uploads/Screen%20Shot%202020-04-24%20at%2012.56.53%20PM.png)
 
 ### Hompage
 
-!["View of demo homepage"]()
+!["View of demo homepage"](https://github.com/najibmuqeem/genius/blob/master/public/uploads/Screen%20Shot%202020-04-24%20at%2012.56.03%20PM.png)
 
 ### View of Extension
 
-!["View of demo Extension"]()
+!["View of demo Extension"](https://github.com/najibmuqeem/genius/blob/master/public/uploads/Screen%20Shot%202020-04-24%20at%2012.56.43%20PM.png)
 
 ### products page
 
-!["View of demo products page"]()
+!["View of demo products page"](https://github.com/najibmuqeem/genius/blob/master/public/uploads/Screen%20Shot%202020-04-24%20at%2012.56.26%20PM.png)
