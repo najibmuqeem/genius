@@ -4,7 +4,7 @@ Website that links to a Google Chrome Extension, so you can add products to a wi
 
 ## Getting Started
 
-NPM install to install dependencies. Sign up for Google APIs for use of their CloudVision API. Load the extension on the browser. Use PSQL to download the migrations files and seeds. Change the POOL to fit the variables of your local machine. Pictures are taken from the internet and don't intend any copywrite infringment. They are also subject to not loading if the path to the image cannot be found.
+NPM install to install dependencies. Sign up for Google APIs for use of their CloudVision API. Load the extension on the browser. Use PSQL to download the migrations files and seeds. Change the POOL to fit the variables of your local machine. Pictures are taken from the internet and don't intend any copyright infringment. They are also subject to not loading if the path to the image cannot be found.
 
 ## Dependencies that are required are:
 
